@@ -61,9 +61,6 @@ GetV1WafGroupParams contains all the parameters to send to the API endpoint
 */
 type GetV1WafGroupParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   The default value is local. It returns local waf group list.
@@ -123,17 +120,6 @@ func (o *GetV1WafGroupParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 waf group params
-func (o *GetV1WafGroupParams) WithXAuthToken(xAuthToken string) *GetV1WafGroupParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 waf group params
-func (o *GetV1WafGroupParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 waf group params
 func (o *GetV1WafGroupParams) WithScope(scope *string) *GetV1WafGroupParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1WafGroupParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

@@ -61,9 +61,6 @@ DeleteV1PolicyRuleParams contains all the parameters to send to the API endpoint
 */
 type DeleteV1PolicyRuleParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, fed policy rules get removed. When set to local or no query string, local policy rules get removed.
@@ -123,17 +120,6 @@ func (o *DeleteV1PolicyRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 policy rule params
-func (o *DeleteV1PolicyRuleParams) WithXAuthToken(xAuthToken string) *DeleteV1PolicyRuleParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 policy rule params
-func (o *DeleteV1PolicyRuleParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the delete v1 policy rule params
 func (o *DeleteV1PolicyRuleParams) WithScope(scope *string) *DeleteV1PolicyRuleParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *DeleteV1PolicyRuleParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

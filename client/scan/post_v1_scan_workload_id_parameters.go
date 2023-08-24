@@ -61,9 +61,6 @@ PostV1ScanWorkloadIDParams contains all the parameters to send to the API endpoi
 */
 type PostV1ScanWorkloadIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Workload ID
@@ -123,17 +120,6 @@ func (o *PostV1ScanWorkloadIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 scan workload ID params
-func (o *PostV1ScanWorkloadIDParams) WithXAuthToken(xAuthToken string) *PostV1ScanWorkloadIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 scan workload ID params
-func (o *PostV1ScanWorkloadIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the post v1 scan workload ID params
 func (o *PostV1ScanWorkloadIDParams) WithID(id string) *PostV1ScanWorkloadIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *PostV1ScanWorkloadIDParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

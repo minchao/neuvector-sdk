@@ -30,11 +30,11 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1Host(params *GetV1HostParams, opts ...ClientOption) (*GetV1HostOK, error)
+	GetV1Host(params *GetV1HostParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1HostOK, error)
 
-	GetV1HostID(params *GetV1HostIDParams, opts ...ClientOption) (*GetV1HostIDOK, error)
+	GetV1HostID(params *GetV1HostIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1HostIDOK, error)
 
-	GetV1HostIDCompliance(params *GetV1HostIDComplianceParams, opts ...ClientOption) (*GetV1HostIDComplianceOK, error)
+	GetV1HostIDCompliance(params *GetV1HostIDComplianceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1HostIDComplianceOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 /*
 GetV1Host gets a list of hosts
 */
-func (a *Client) GetV1Host(params *GetV1HostParams, opts ...ClientOption) (*GetV1HostOK, error) {
+func (a *Client) GetV1Host(params *GetV1HostParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1HostOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1HostParams()
@@ -56,6 +56,7 @@ func (a *Client) GetV1Host(params *GetV1HostParams, opts ...ClientOption) (*GetV
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1HostReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -80,7 +81,7 @@ func (a *Client) GetV1Host(params *GetV1HostParams, opts ...ClientOption) (*GetV
 /*
 GetV1HostID shows host
 */
-func (a *Client) GetV1HostID(params *GetV1HostIDParams, opts ...ClientOption) (*GetV1HostIDOK, error) {
+func (a *Client) GetV1HostID(params *GetV1HostIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1HostIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1HostIDParams()
@@ -94,6 +95,7 @@ func (a *Client) GetV1HostID(params *GetV1HostIDParams, opts ...ClientOption) (*
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1HostIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -118,7 +120,7 @@ func (a *Client) GetV1HostID(params *GetV1HostIDParams, opts ...ClientOption) (*
 /*
 GetV1HostIDCompliance shows host compliance report
 */
-func (a *Client) GetV1HostIDCompliance(params *GetV1HostIDComplianceParams, opts ...ClientOption) (*GetV1HostIDComplianceOK, error) {
+func (a *Client) GetV1HostIDCompliance(params *GetV1HostIDComplianceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1HostIDComplianceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1HostIDComplianceParams()
@@ -132,6 +134,7 @@ func (a *Client) GetV1HostIDCompliance(params *GetV1HostIDComplianceParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1HostIDComplianceReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

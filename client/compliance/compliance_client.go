@@ -30,29 +30,29 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1ComplianceProfileNameEntryCheck(params *DeleteV1ComplianceProfileNameEntryCheckParams, opts ...ClientOption) (*DeleteV1ComplianceProfileNameEntryCheckOK, error)
+	DeleteV1ComplianceProfileNameEntryCheck(params *DeleteV1ComplianceProfileNameEntryCheckParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ComplianceProfileNameEntryCheckOK, error)
 
-	GetV1BenchHostIDDocker(params *GetV1BenchHostIDDockerParams, opts ...ClientOption) (*GetV1BenchHostIDDockerOK, error)
+	GetV1BenchHostIDDocker(params *GetV1BenchHostIDDockerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1BenchHostIDDockerOK, error)
 
-	GetV1BenchHostIDKubernetes(params *GetV1BenchHostIDKubernetesParams, opts ...ClientOption) (*GetV1BenchHostIDKubernetesOK, error)
+	GetV1BenchHostIDKubernetes(params *GetV1BenchHostIDKubernetesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1BenchHostIDKubernetesOK, error)
 
-	GetV1ComplianceProfile(params *GetV1ComplianceProfileParams, opts ...ClientOption) (*GetV1ComplianceProfileOK, error)
+	GetV1ComplianceProfile(params *GetV1ComplianceProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ComplianceProfileOK, error)
 
-	GetV1ComplianceProfileName(params *GetV1ComplianceProfileNameParams, opts ...ClientOption) (*GetV1ComplianceProfileNameOK, error)
+	GetV1ComplianceProfileName(params *GetV1ComplianceProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ComplianceProfileNameOK, error)
 
-	GetV1CustomCheck(params *GetV1CustomCheckParams, opts ...ClientOption) (*GetV1CustomCheckOK, error)
+	GetV1CustomCheck(params *GetV1CustomCheckParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1CustomCheckOK, error)
 
-	GetV1CustomCheckGroup(params *GetV1CustomCheckGroupParams, opts ...ClientOption) (*GetV1CustomCheckGroupOK, error)
+	GetV1CustomCheckGroup(params *GetV1CustomCheckGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1CustomCheckGroupOK, error)
 
-	PatchV1ComplianceProfileName(params *PatchV1ComplianceProfileNameParams, opts ...ClientOption) (*PatchV1ComplianceProfileNameOK, error)
+	PatchV1ComplianceProfileName(params *PatchV1ComplianceProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ComplianceProfileNameOK, error)
 
-	PatchV1ComplianceProfileNameEntryCheck(params *PatchV1ComplianceProfileNameEntryCheckParams, opts ...ClientOption) (*PatchV1ComplianceProfileNameEntryCheckOK, error)
+	PatchV1ComplianceProfileNameEntryCheck(params *PatchV1ComplianceProfileNameEntryCheckParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ComplianceProfileNameEntryCheckOK, error)
 
-	PatchV1CustomCheckGroup(params *PatchV1CustomCheckGroupParams, opts ...ClientOption) (*PatchV1CustomCheckGroupOK, error)
+	PatchV1CustomCheckGroup(params *PatchV1CustomCheckGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1CustomCheckGroupOK, error)
 
-	PostV1BenchHostIDDocker(params *PostV1BenchHostIDDockerParams, opts ...ClientOption) (*PostV1BenchHostIDDockerOK, error)
+	PostV1BenchHostIDDocker(params *PostV1BenchHostIDDockerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1BenchHostIDDockerOK, error)
 
-	PostV1BenchHostIDKubernetes(params *PostV1BenchHostIDKubernetesParams, opts ...ClientOption) (*PostV1BenchHostIDKubernetesOK, error)
+	PostV1BenchHostIDKubernetes(params *PostV1BenchHostIDKubernetesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1BenchHostIDKubernetesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -60,7 +60,7 @@ type ClientService interface {
 /*
 DeleteV1ComplianceProfileNameEntryCheck deletes compliance profile entry
 */
-func (a *Client) DeleteV1ComplianceProfileNameEntryCheck(params *DeleteV1ComplianceProfileNameEntryCheckParams, opts ...ClientOption) (*DeleteV1ComplianceProfileNameEntryCheckOK, error) {
+func (a *Client) DeleteV1ComplianceProfileNameEntryCheck(params *DeleteV1ComplianceProfileNameEntryCheckParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ComplianceProfileNameEntryCheckOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1ComplianceProfileNameEntryCheckParams()
@@ -74,6 +74,7 @@ func (a *Client) DeleteV1ComplianceProfileNameEntryCheck(params *DeleteV1Complia
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1ComplianceProfileNameEntryCheckReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -98,7 +99,7 @@ func (a *Client) DeleteV1ComplianceProfileNameEntryCheck(params *DeleteV1Complia
 /*
 GetV1BenchHostIDDocker dockers bench
 */
-func (a *Client) GetV1BenchHostIDDocker(params *GetV1BenchHostIDDockerParams, opts ...ClientOption) (*GetV1BenchHostIDDockerOK, error) {
+func (a *Client) GetV1BenchHostIDDocker(params *GetV1BenchHostIDDockerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1BenchHostIDDockerOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1BenchHostIDDockerParams()
@@ -112,6 +113,7 @@ func (a *Client) GetV1BenchHostIDDocker(params *GetV1BenchHostIDDockerParams, op
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1BenchHostIDDockerReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -136,7 +138,7 @@ func (a *Client) GetV1BenchHostIDDocker(params *GetV1BenchHostIDDockerParams, op
 /*
 GetV1BenchHostIDKubernetes kubernetes bench
 */
-func (a *Client) GetV1BenchHostIDKubernetes(params *GetV1BenchHostIDKubernetesParams, opts ...ClientOption) (*GetV1BenchHostIDKubernetesOK, error) {
+func (a *Client) GetV1BenchHostIDKubernetes(params *GetV1BenchHostIDKubernetesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1BenchHostIDKubernetesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1BenchHostIDKubernetesParams()
@@ -150,6 +152,7 @@ func (a *Client) GetV1BenchHostIDKubernetes(params *GetV1BenchHostIDKubernetesPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1BenchHostIDKubernetesReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -174,7 +177,7 @@ func (a *Client) GetV1BenchHostIDKubernetes(params *GetV1BenchHostIDKubernetesPa
 /*
 GetV1ComplianceProfile gets compliance profile list
 */
-func (a *Client) GetV1ComplianceProfile(params *GetV1ComplianceProfileParams, opts ...ClientOption) (*GetV1ComplianceProfileOK, error) {
+func (a *Client) GetV1ComplianceProfile(params *GetV1ComplianceProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ComplianceProfileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ComplianceProfileParams()
@@ -188,6 +191,7 @@ func (a *Client) GetV1ComplianceProfile(params *GetV1ComplianceProfileParams, op
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ComplianceProfileReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -212,7 +216,7 @@ func (a *Client) GetV1ComplianceProfile(params *GetV1ComplianceProfileParams, op
 /*
 GetV1ComplianceProfileName gets compliance profile detail
 */
-func (a *Client) GetV1ComplianceProfileName(params *GetV1ComplianceProfileNameParams, opts ...ClientOption) (*GetV1ComplianceProfileNameOK, error) {
+func (a *Client) GetV1ComplianceProfileName(params *GetV1ComplianceProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ComplianceProfileNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ComplianceProfileNameParams()
@@ -226,6 +230,7 @@ func (a *Client) GetV1ComplianceProfileName(params *GetV1ComplianceProfileNamePa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ComplianceProfileNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -250,7 +255,7 @@ func (a *Client) GetV1ComplianceProfileName(params *GetV1ComplianceProfileNamePa
 /*
 GetV1CustomCheck gets custom check scripts of all groups
 */
-func (a *Client) GetV1CustomCheck(params *GetV1CustomCheckParams, opts ...ClientOption) (*GetV1CustomCheckOK, error) {
+func (a *Client) GetV1CustomCheck(params *GetV1CustomCheckParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1CustomCheckOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1CustomCheckParams()
@@ -264,6 +269,7 @@ func (a *Client) GetV1CustomCheck(params *GetV1CustomCheckParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1CustomCheckReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -288,7 +294,7 @@ func (a *Client) GetV1CustomCheck(params *GetV1CustomCheckParams, opts ...Client
 /*
 GetV1CustomCheckGroup gs e t custom check scripts of the specified group
 */
-func (a *Client) GetV1CustomCheckGroup(params *GetV1CustomCheckGroupParams, opts ...ClientOption) (*GetV1CustomCheckGroupOK, error) {
+func (a *Client) GetV1CustomCheckGroup(params *GetV1CustomCheckGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1CustomCheckGroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1CustomCheckGroupParams()
@@ -302,6 +308,7 @@ func (a *Client) GetV1CustomCheckGroup(params *GetV1CustomCheckGroupParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1CustomCheckGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -326,7 +333,7 @@ func (a *Client) GetV1CustomCheckGroup(params *GetV1CustomCheckGroupParams, opts
 /*
 PatchV1ComplianceProfileName configures compliance profile
 */
-func (a *Client) PatchV1ComplianceProfileName(params *PatchV1ComplianceProfileNameParams, opts ...ClientOption) (*PatchV1ComplianceProfileNameOK, error) {
+func (a *Client) PatchV1ComplianceProfileName(params *PatchV1ComplianceProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ComplianceProfileNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ComplianceProfileNameParams()
@@ -340,6 +347,7 @@ func (a *Client) PatchV1ComplianceProfileName(params *PatchV1ComplianceProfileNa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ComplianceProfileNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -364,7 +372,7 @@ func (a *Client) PatchV1ComplianceProfileName(params *PatchV1ComplianceProfileNa
 /*
 PatchV1ComplianceProfileNameEntryCheck configures compliance profile entry
 */
-func (a *Client) PatchV1ComplianceProfileNameEntryCheck(params *PatchV1ComplianceProfileNameEntryCheckParams, opts ...ClientOption) (*PatchV1ComplianceProfileNameEntryCheckOK, error) {
+func (a *Client) PatchV1ComplianceProfileNameEntryCheck(params *PatchV1ComplianceProfileNameEntryCheckParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ComplianceProfileNameEntryCheckOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ComplianceProfileNameEntryCheckParams()
@@ -378,6 +386,7 @@ func (a *Client) PatchV1ComplianceProfileNameEntryCheck(params *PatchV1Complianc
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ComplianceProfileNameEntryCheckReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -402,7 +411,7 @@ func (a *Client) PatchV1ComplianceProfileNameEntryCheck(params *PatchV1Complianc
 /*
 PatchV1CustomCheckGroup updates custom check scripts of the specified group
 */
-func (a *Client) PatchV1CustomCheckGroup(params *PatchV1CustomCheckGroupParams, opts ...ClientOption) (*PatchV1CustomCheckGroupOK, error) {
+func (a *Client) PatchV1CustomCheckGroup(params *PatchV1CustomCheckGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1CustomCheckGroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1CustomCheckGroupParams()
@@ -416,6 +425,7 @@ func (a *Client) PatchV1CustomCheckGroup(params *PatchV1CustomCheckGroupParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1CustomCheckGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -440,7 +450,7 @@ func (a *Client) PatchV1CustomCheckGroup(params *PatchV1CustomCheckGroupParams, 
 /*
 PostV1BenchHostIDDocker dockers bench run
 */
-func (a *Client) PostV1BenchHostIDDocker(params *PostV1BenchHostIDDockerParams, opts ...ClientOption) (*PostV1BenchHostIDDockerOK, error) {
+func (a *Client) PostV1BenchHostIDDocker(params *PostV1BenchHostIDDockerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1BenchHostIDDockerOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1BenchHostIDDockerParams()
@@ -454,6 +464,7 @@ func (a *Client) PostV1BenchHostIDDocker(params *PostV1BenchHostIDDockerParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1BenchHostIDDockerReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -478,7 +489,7 @@ func (a *Client) PostV1BenchHostIDDocker(params *PostV1BenchHostIDDockerParams, 
 /*
 PostV1BenchHostIDKubernetes kubernetes bench run
 */
-func (a *Client) PostV1BenchHostIDKubernetes(params *PostV1BenchHostIDKubernetesParams, opts ...ClientOption) (*PostV1BenchHostIDKubernetesOK, error) {
+func (a *Client) PostV1BenchHostIDKubernetes(params *PostV1BenchHostIDKubernetesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1BenchHostIDKubernetesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1BenchHostIDKubernetesParams()
@@ -492,6 +503,7 @@ func (a *Client) PostV1BenchHostIDKubernetes(params *PostV1BenchHostIDKubernetes
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1BenchHostIDKubernetesReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

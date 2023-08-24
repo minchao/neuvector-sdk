@@ -30,17 +30,17 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1Service(params *GetV1ServiceParams, opts ...ClientOption) (*GetV1ServiceOK, error)
+	GetV1Service(params *GetV1ServiceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServiceOK, error)
 
-	GetV1ServiceName(params *GetV1ServiceNameParams, opts ...ClientOption) (*GetV1ServiceNameOK, error)
+	GetV1ServiceName(params *GetV1ServiceNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServiceNameOK, error)
 
-	PatchV1ServiceConfig(params *PatchV1ServiceConfigParams, opts ...ClientOption) (*PatchV1ServiceConfigOK, error)
+	PatchV1ServiceConfig(params *PatchV1ServiceConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServiceConfigOK, error)
 
-	PatchV1ServiceConfigNetwork(params *PatchV1ServiceConfigNetworkParams, opts ...ClientOption) (*PatchV1ServiceConfigNetworkOK, error)
+	PatchV1ServiceConfigNetwork(params *PatchV1ServiceConfigNetworkParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServiceConfigNetworkOK, error)
 
-	PatchV1ServiceConfigProfile(params *PatchV1ServiceConfigProfileParams, opts ...ClientOption) (*PatchV1ServiceConfigProfileOK, error)
+	PatchV1ServiceConfigProfile(params *PatchV1ServiceConfigProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServiceConfigProfileOK, error)
 
-	PostV1Service(params *PostV1ServiceParams, opts ...ClientOption) (*PostV1ServiceOK, error)
+	PostV1Service(params *PostV1ServiceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ServiceOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ type ClientService interface {
 /*
 GetV1Service gets a list of services
 */
-func (a *Client) GetV1Service(params *GetV1ServiceParams, opts ...ClientOption) (*GetV1ServiceOK, error) {
+func (a *Client) GetV1Service(params *GetV1ServiceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServiceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ServiceParams()
@@ -62,6 +62,7 @@ func (a *Client) GetV1Service(params *GetV1ServiceParams, opts ...ClientOption) 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ServiceReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -86,7 +87,7 @@ func (a *Client) GetV1Service(params *GetV1ServiceParams, opts ...ClientOption) 
 /*
 GetV1ServiceName shows service
 */
-func (a *Client) GetV1ServiceName(params *GetV1ServiceNameParams, opts ...ClientOption) (*GetV1ServiceNameOK, error) {
+func (a *Client) GetV1ServiceName(params *GetV1ServiceNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServiceNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ServiceNameParams()
@@ -100,6 +101,7 @@ func (a *Client) GetV1ServiceName(params *GetV1ServiceNameParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ServiceNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -124,7 +126,7 @@ func (a *Client) GetV1ServiceName(params *GetV1ServiceNameParams, opts ...Client
 /*
 PatchV1ServiceConfig configures service
 */
-func (a *Client) PatchV1ServiceConfig(params *PatchV1ServiceConfigParams, opts ...ClientOption) (*PatchV1ServiceConfigOK, error) {
+func (a *Client) PatchV1ServiceConfig(params *PatchV1ServiceConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServiceConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ServiceConfigParams()
@@ -138,6 +140,7 @@ func (a *Client) PatchV1ServiceConfig(params *PatchV1ServiceConfigParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ServiceConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -162,7 +165,7 @@ func (a *Client) PatchV1ServiceConfig(params *PatchV1ServiceConfigParams, opts .
 /*
 PatchV1ServiceConfigNetwork configures services in batch
 */
-func (a *Client) PatchV1ServiceConfigNetwork(params *PatchV1ServiceConfigNetworkParams, opts ...ClientOption) (*PatchV1ServiceConfigNetworkOK, error) {
+func (a *Client) PatchV1ServiceConfigNetwork(params *PatchV1ServiceConfigNetworkParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServiceConfigNetworkOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ServiceConfigNetworkParams()
@@ -176,6 +179,7 @@ func (a *Client) PatchV1ServiceConfigNetwork(params *PatchV1ServiceConfigNetwork
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ServiceConfigNetworkReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -200,7 +204,7 @@ func (a *Client) PatchV1ServiceConfigNetwork(params *PatchV1ServiceConfigNetwork
 /*
 PatchV1ServiceConfigProfile configures services in batch
 */
-func (a *Client) PatchV1ServiceConfigProfile(params *PatchV1ServiceConfigProfileParams, opts ...ClientOption) (*PatchV1ServiceConfigProfileOK, error) {
+func (a *Client) PatchV1ServiceConfigProfile(params *PatchV1ServiceConfigProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServiceConfigProfileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ServiceConfigProfileParams()
@@ -214,6 +218,7 @@ func (a *Client) PatchV1ServiceConfigProfile(params *PatchV1ServiceConfigProfile
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ServiceConfigProfileReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -238,7 +243,7 @@ func (a *Client) PatchV1ServiceConfigProfile(params *PatchV1ServiceConfigProfile
 /*
 PostV1Service creates service
 */
-func (a *Client) PostV1Service(params *PostV1ServiceParams, opts ...ClientOption) (*PostV1ServiceOK, error) {
+func (a *Client) PostV1Service(params *PostV1ServiceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ServiceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ServiceParams()
@@ -252,6 +257,7 @@ func (a *Client) PostV1Service(params *PostV1ServiceParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ServiceReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

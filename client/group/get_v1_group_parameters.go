@@ -61,9 +61,6 @@ GetV1GroupParams contains all the parameters to send to the API endpoint
 */
 type GetV1GroupParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, returned fed groups. When set to local, returned local groups. If there is no query string 'scope', all groups will be returned.
@@ -123,17 +120,6 @@ func (o *GetV1GroupParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 group params
-func (o *GetV1GroupParams) WithXAuthToken(xAuthToken string) *GetV1GroupParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 group params
-func (o *GetV1GroupParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 group params
 func (o *GetV1GroupParams) WithScope(scope *string) *GetV1GroupParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1GroupParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

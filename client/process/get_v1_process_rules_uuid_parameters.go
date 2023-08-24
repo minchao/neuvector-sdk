@@ -61,9 +61,6 @@ GetV1ProcessRulesUUIDParams contains all the parameters to send to the API endpo
 */
 type GetV1ProcessRulesUUIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* UUID.
 
 	   Process rule uuid
@@ -123,17 +120,6 @@ func (o *GetV1ProcessRulesUUIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 process rules UUID params
-func (o *GetV1ProcessRulesUUIDParams) WithXAuthToken(xAuthToken string) *GetV1ProcessRulesUUIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 process rules UUID params
-func (o *GetV1ProcessRulesUUIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithUUID adds the uuid to the get v1 process rules UUID params
 func (o *GetV1ProcessRulesUUIDParams) WithUUID(uuid string) *GetV1ProcessRulesUUIDParams {
 	o.SetUUID(uuid)
@@ -152,11 +138,6 @@ func (o *GetV1ProcessRulesUUIDParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param uuid
 	if err := r.SetPathParam("uuid", o.UUID); err != nil {

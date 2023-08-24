@@ -62,9 +62,6 @@ GetV1PolicyRuleIDParams contains all the parameters to send to the API endpoint
 */
 type GetV1PolicyRuleIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Rule ID
@@ -126,17 +123,6 @@ func (o *GetV1PolicyRuleIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 policy rule ID params
-func (o *GetV1PolicyRuleIDParams) WithXAuthToken(xAuthToken string) *GetV1PolicyRuleIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 policy rule ID params
-func (o *GetV1PolicyRuleIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 policy rule ID params
 func (o *GetV1PolicyRuleIDParams) WithID(id uint32) *GetV1PolicyRuleIDParams {
 	o.SetID(id)
@@ -155,11 +141,6 @@ func (o *GetV1PolicyRuleIDParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", swag.FormatUint32(o.ID)); err != nil {

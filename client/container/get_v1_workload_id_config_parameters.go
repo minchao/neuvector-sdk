@@ -61,9 +61,6 @@ GetV1WorkloadIDConfigParams contains all the parameters to send to the API endpo
 */
 type GetV1WorkloadIDConfigParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   container ID
@@ -123,17 +120,6 @@ func (o *GetV1WorkloadIDConfigParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 workload ID config params
-func (o *GetV1WorkloadIDConfigParams) WithXAuthToken(xAuthToken string) *GetV1WorkloadIDConfigParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 workload ID config params
-func (o *GetV1WorkloadIDConfigParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 workload ID config params
 func (o *GetV1WorkloadIDConfigParams) WithID(id string) *GetV1WorkloadIDConfigParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1WorkloadIDConfigParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

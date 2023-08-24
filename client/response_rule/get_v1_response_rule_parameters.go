@@ -61,9 +61,6 @@ GetV1ResponseRuleParams contains all the parameters to send to the API endpoint
 */
 type GetV1ResponseRuleParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, returned fed response rules. When set to local, returned local response rules. If there is no query string 'scope', all response rules will be returned.
@@ -123,17 +120,6 @@ func (o *GetV1ResponseRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 response rule params
-func (o *GetV1ResponseRuleParams) WithXAuthToken(xAuthToken string) *GetV1ResponseRuleParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 response rule params
-func (o *GetV1ResponseRuleParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 response rule params
 func (o *GetV1ResponseRuleParams) WithScope(scope *string) *GetV1ResponseRuleParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1ResponseRuleParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

@@ -63,9 +63,6 @@ PatchV1ComplianceProfileNameEntryCheckParams contains all the parameters to send
 */
 type PatchV1ComplianceProfileNameEntryCheckParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Compliance profile entry data
@@ -137,17 +134,6 @@ func (o *PatchV1ComplianceProfileNameEntryCheckParams) SetHTTPClient(client *htt
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 compliance profile name entry check params
-func (o *PatchV1ComplianceProfileNameEntryCheckParams) WithXAuthToken(xAuthToken string) *PatchV1ComplianceProfileNameEntryCheckParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 compliance profile name entry check params
-func (o *PatchV1ComplianceProfileNameEntryCheckParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 compliance profile name entry check params
 func (o *PatchV1ComplianceProfileNameEntryCheckParams) WithBody(body *models.RESTComplianceProfileEntryConfigData) *PatchV1ComplianceProfileNameEntryCheckParams {
 	o.SetBody(body)
@@ -188,11 +174,6 @@ func (o *PatchV1ComplianceProfileNameEntryCheckParams) WriteToRequest(r runtime.
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -61,9 +61,6 @@ DeleteV1ComplianceProfileNameEntryCheckParams contains all the parameters to sen
 */
 type DeleteV1ComplianceProfileNameEntryCheckParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Check.
 
 	   Compliance profile entry check name
@@ -129,17 +126,6 @@ func (o *DeleteV1ComplianceProfileNameEntryCheckParams) SetHTTPClient(client *ht
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 compliance profile name entry check params
-func (o *DeleteV1ComplianceProfileNameEntryCheckParams) WithXAuthToken(xAuthToken string) *DeleteV1ComplianceProfileNameEntryCheckParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 compliance profile name entry check params
-func (o *DeleteV1ComplianceProfileNameEntryCheckParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithCheck adds the check to the delete v1 compliance profile name entry check params
 func (o *DeleteV1ComplianceProfileNameEntryCheckParams) WithCheck(check string) *DeleteV1ComplianceProfileNameEntryCheckParams {
 	o.SetCheck(check)
@@ -169,11 +155,6 @@ func (o *DeleteV1ComplianceProfileNameEntryCheckParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param check
 	if err := r.SetPathParam("check", o.Check); err != nil {

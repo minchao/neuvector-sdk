@@ -30,27 +30,27 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1SystemConfigWebhookName(params *DeleteV1SystemConfigWebhookNameParams, opts ...ClientOption) (*DeleteV1SystemConfigWebhookNameOK, error)
+	DeleteV1SystemConfigWebhookName(params *DeleteV1SystemConfigWebhookNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1SystemConfigWebhookNameOK, error)
 
-	DeleteV1SystemLicense(params *DeleteV1SystemLicenseParams, opts ...ClientOption) (*DeleteV1SystemLicenseOK, error)
+	DeleteV1SystemLicense(params *DeleteV1SystemLicenseParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1SystemLicenseOK, error)
 
-	GetV1SystemConfig(params *GetV1SystemConfigParams, opts ...ClientOption) (*GetV1SystemConfigOK, error)
+	GetV1SystemConfig(params *GetV1SystemConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SystemConfigOK, error)
 
-	GetV1SystemLicense(params *GetV1SystemLicenseParams, opts ...ClientOption) (*GetV1SystemLicenseOK, error)
+	GetV1SystemLicense(params *GetV1SystemLicenseParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SystemLicenseOK, error)
 
-	GetV1SystemSummary(params *GetV1SystemSummaryParams, opts ...ClientOption) (*GetV1SystemSummaryOK, error)
+	GetV1SystemSummary(params *GetV1SystemSummaryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SystemSummaryOK, error)
 
-	GetV2SystemConfig(params *GetV2SystemConfigParams, opts ...ClientOption) (*GetV2SystemConfigOK, error)
+	GetV2SystemConfig(params *GetV2SystemConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV2SystemConfigOK, error)
 
-	PatchV1SystemConfig(params *PatchV1SystemConfigParams, opts ...ClientOption) (*PatchV1SystemConfigOK, error)
+	PatchV1SystemConfig(params *PatchV1SystemConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1SystemConfigOK, error)
 
-	PatchV1SystemConfigWebhookName(params *PatchV1SystemConfigWebhookNameParams, opts ...ClientOption) (*PatchV1SystemConfigWebhookNameOK, error)
+	PatchV1SystemConfigWebhookName(params *PatchV1SystemConfigWebhookNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1SystemConfigWebhookNameOK, error)
 
-	PostV1SystemConfigWebhook(params *PostV1SystemConfigWebhookParams, opts ...ClientOption) (*PostV1SystemConfigWebhookOK, error)
+	PostV1SystemConfigWebhook(params *PostV1SystemConfigWebhookParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1SystemConfigWebhookOK, error)
 
-	PostV1SystemLicenseUpdate(params *PostV1SystemLicenseUpdateParams, opts ...ClientOption) (*PostV1SystemLicenseUpdateOK, error)
+	PostV1SystemLicenseUpdate(params *PostV1SystemLicenseUpdateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1SystemLicenseUpdateOK, error)
 
-	PostV1SystemRequest(params *PostV1SystemRequestParams, opts ...ClientOption) (*PostV1SystemRequestOK, error)
+	PostV1SystemRequest(params *PostV1SystemRequestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1SystemRequestOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -58,7 +58,7 @@ type ClientService interface {
 /*
 DeleteV1SystemConfigWebhookName deletes system webhook
 */
-func (a *Client) DeleteV1SystemConfigWebhookName(params *DeleteV1SystemConfigWebhookNameParams, opts ...ClientOption) (*DeleteV1SystemConfigWebhookNameOK, error) {
+func (a *Client) DeleteV1SystemConfigWebhookName(params *DeleteV1SystemConfigWebhookNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1SystemConfigWebhookNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1SystemConfigWebhookNameParams()
@@ -72,6 +72,7 @@ func (a *Client) DeleteV1SystemConfigWebhookName(params *DeleteV1SystemConfigWeb
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1SystemConfigWebhookNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -96,7 +97,7 @@ func (a *Client) DeleteV1SystemConfigWebhookName(params *DeleteV1SystemConfigWeb
 /*
 DeleteV1SystemLicense deletes license
 */
-func (a *Client) DeleteV1SystemLicense(params *DeleteV1SystemLicenseParams, opts ...ClientOption) (*DeleteV1SystemLicenseOK, error) {
+func (a *Client) DeleteV1SystemLicense(params *DeleteV1SystemLicenseParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1SystemLicenseOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1SystemLicenseParams()
@@ -110,6 +111,7 @@ func (a *Client) DeleteV1SystemLicense(params *DeleteV1SystemLicenseParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1SystemLicenseReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -134,7 +136,7 @@ func (a *Client) DeleteV1SystemLicense(params *DeleteV1SystemLicenseParams, opts
 /*
 GetV1SystemConfig systems get configure
 */
-func (a *Client) GetV1SystemConfig(params *GetV1SystemConfigParams, opts ...ClientOption) (*GetV1SystemConfigOK, error) {
+func (a *Client) GetV1SystemConfig(params *GetV1SystemConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SystemConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1SystemConfigParams()
@@ -148,6 +150,7 @@ func (a *Client) GetV1SystemConfig(params *GetV1SystemConfigParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1SystemConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -172,7 +175,7 @@ func (a *Client) GetV1SystemConfig(params *GetV1SystemConfigParams, opts ...Clie
 /*
 GetV1SystemLicense shows license
 */
-func (a *Client) GetV1SystemLicense(params *GetV1SystemLicenseParams, opts ...ClientOption) (*GetV1SystemLicenseOK, error) {
+func (a *Client) GetV1SystemLicense(params *GetV1SystemLicenseParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SystemLicenseOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1SystemLicenseParams()
@@ -186,6 +189,7 @@ func (a *Client) GetV1SystemLicense(params *GetV1SystemLicenseParams, opts ...Cl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1SystemLicenseReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -210,7 +214,7 @@ func (a *Client) GetV1SystemLicense(params *GetV1SystemLicenseParams, opts ...Cl
 /*
 GetV1SystemSummary systems summary
 */
-func (a *Client) GetV1SystemSummary(params *GetV1SystemSummaryParams, opts ...ClientOption) (*GetV1SystemSummaryOK, error) {
+func (a *Client) GetV1SystemSummary(params *GetV1SystemSummaryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SystemSummaryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1SystemSummaryParams()
@@ -224,6 +228,7 @@ func (a *Client) GetV1SystemSummary(params *GetV1SystemSummaryParams, opts ...Cl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1SystemSummaryReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -248,7 +253,7 @@ func (a *Client) GetV1SystemSummary(params *GetV1SystemSummaryParams, opts ...Cl
 /*
 GetV2SystemConfig gets system configuration starting from 5 0 rest client should call this api
 */
-func (a *Client) GetV2SystemConfig(params *GetV2SystemConfigParams, opts ...ClientOption) (*GetV2SystemConfigOK, error) {
+func (a *Client) GetV2SystemConfig(params *GetV2SystemConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV2SystemConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV2SystemConfigParams()
@@ -262,6 +267,7 @@ func (a *Client) GetV2SystemConfig(params *GetV2SystemConfigParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV2SystemConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -286,7 +292,7 @@ func (a *Client) GetV2SystemConfig(params *GetV2SystemConfigParams, opts ...Clie
 /*
 PatchV1SystemConfig systems configure
 */
-func (a *Client) PatchV1SystemConfig(params *PatchV1SystemConfigParams, opts ...ClientOption) (*PatchV1SystemConfigOK, error) {
+func (a *Client) PatchV1SystemConfig(params *PatchV1SystemConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1SystemConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1SystemConfigParams()
@@ -300,6 +306,7 @@ func (a *Client) PatchV1SystemConfig(params *PatchV1SystemConfigParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1SystemConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -324,7 +331,7 @@ func (a *Client) PatchV1SystemConfig(params *PatchV1SystemConfigParams, opts ...
 /*
 PatchV1SystemConfigWebhookName configures system webhook
 */
-func (a *Client) PatchV1SystemConfigWebhookName(params *PatchV1SystemConfigWebhookNameParams, opts ...ClientOption) (*PatchV1SystemConfigWebhookNameOK, error) {
+func (a *Client) PatchV1SystemConfigWebhookName(params *PatchV1SystemConfigWebhookNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1SystemConfigWebhookNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1SystemConfigWebhookNameParams()
@@ -338,6 +345,7 @@ func (a *Client) PatchV1SystemConfigWebhookName(params *PatchV1SystemConfigWebho
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1SystemConfigWebhookNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -362,7 +370,7 @@ func (a *Client) PatchV1SystemConfigWebhookName(params *PatchV1SystemConfigWebho
 /*
 PostV1SystemConfigWebhook creates system webhook
 */
-func (a *Client) PostV1SystemConfigWebhook(params *PostV1SystemConfigWebhookParams, opts ...ClientOption) (*PostV1SystemConfigWebhookOK, error) {
+func (a *Client) PostV1SystemConfigWebhook(params *PostV1SystemConfigWebhookParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1SystemConfigWebhookOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1SystemConfigWebhookParams()
@@ -376,6 +384,7 @@ func (a *Client) PostV1SystemConfigWebhook(params *PostV1SystemConfigWebhookPara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1SystemConfigWebhookReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -400,7 +409,7 @@ func (a *Client) PostV1SystemConfigWebhook(params *PostV1SystemConfigWebhookPara
 /*
 PostV1SystemLicenseUpdate licenses update
 */
-func (a *Client) PostV1SystemLicenseUpdate(params *PostV1SystemLicenseUpdateParams, opts ...ClientOption) (*PostV1SystemLicenseUpdateOK, error) {
+func (a *Client) PostV1SystemLicenseUpdate(params *PostV1SystemLicenseUpdateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1SystemLicenseUpdateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1SystemLicenseUpdateParams()
@@ -414,6 +423,7 @@ func (a *Client) PostV1SystemLicenseUpdate(params *PostV1SystemLicenseUpdatePara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1SystemLicenseUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -438,7 +448,7 @@ func (a *Client) PostV1SystemLicenseUpdate(params *PostV1SystemLicenseUpdatePara
 /*
 PostV1SystemRequest systems request
 */
-func (a *Client) PostV1SystemRequest(params *PostV1SystemRequestParams, opts ...ClientOption) (*PostV1SystemRequestOK, error) {
+func (a *Client) PostV1SystemRequest(params *PostV1SystemRequestParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1SystemRequestOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1SystemRequestParams()
@@ -452,6 +462,7 @@ func (a *Client) PostV1SystemRequest(params *PostV1SystemRequestParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1SystemRequestReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

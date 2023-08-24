@@ -63,9 +63,6 @@ PatchV1ControllerIDParams contains all the parameters to send to the API endpoin
 */
 type PatchV1ControllerIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Controller update data
@@ -131,17 +128,6 @@ func (o *PatchV1ControllerIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 controller ID params
-func (o *PatchV1ControllerIDParams) WithXAuthToken(xAuthToken string) *PatchV1ControllerIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 controller ID params
-func (o *PatchV1ControllerIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 controller ID params
 func (o *PatchV1ControllerIDParams) WithBody(body *models.RESTControllerConfigData) *PatchV1ControllerIDParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1ControllerIDParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

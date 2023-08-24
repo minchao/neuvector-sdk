@@ -61,9 +61,6 @@ GetV1AdmissionRuleIDParams contains all the parameters to send to the API endpoi
 */
 type GetV1AdmissionRuleIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Rule ID
@@ -123,17 +120,6 @@ func (o *GetV1AdmissionRuleIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 admission rule ID params
-func (o *GetV1AdmissionRuleIDParams) WithXAuthToken(xAuthToken string) *GetV1AdmissionRuleIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 admission rule ID params
-func (o *GetV1AdmissionRuleIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 admission rule ID params
 func (o *GetV1AdmissionRuleIDParams) WithID(id string) *GetV1AdmissionRuleIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1AdmissionRuleIDParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

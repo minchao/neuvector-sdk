@@ -30,13 +30,13 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1ProcessProfile(params *GetV1ProcessProfileParams, opts ...ClientOption) (*GetV1ProcessProfileOK, error)
+	GetV1ProcessProfile(params *GetV1ProcessProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ProcessProfileOK, error)
 
-	GetV1ProcessProfileName(params *GetV1ProcessProfileNameParams, opts ...ClientOption) (*GetV1ProcessProfileNameOK, error)
+	GetV1ProcessProfileName(params *GetV1ProcessProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ProcessProfileNameOK, error)
 
-	GetV1ProcessRulesUUID(params *GetV1ProcessRulesUUIDParams, opts ...ClientOption) (*GetV1ProcessRulesUUIDOK, error)
+	GetV1ProcessRulesUUID(params *GetV1ProcessRulesUUIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ProcessRulesUUIDOK, error)
 
-	PatchV1ProcessProfileName(params *PatchV1ProcessProfileNameParams, opts ...ClientOption) (*PatchV1ProcessProfileNameOK, error)
+	PatchV1ProcessProfileName(params *PatchV1ProcessProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ProcessProfileNameOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ type ClientService interface {
 /*
 GetV1ProcessProfile gets a list of process profiles
 */
-func (a *Client) GetV1ProcessProfile(params *GetV1ProcessProfileParams, opts ...ClientOption) (*GetV1ProcessProfileOK, error) {
+func (a *Client) GetV1ProcessProfile(params *GetV1ProcessProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ProcessProfileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ProcessProfileParams()
@@ -58,6 +58,7 @@ func (a *Client) GetV1ProcessProfile(params *GetV1ProcessProfileParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ProcessProfileReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -82,7 +83,7 @@ func (a *Client) GetV1ProcessProfile(params *GetV1ProcessProfileParams, opts ...
 /*
 GetV1ProcessProfileName gets a process profile
 */
-func (a *Client) GetV1ProcessProfileName(params *GetV1ProcessProfileNameParams, opts ...ClientOption) (*GetV1ProcessProfileNameOK, error) {
+func (a *Client) GetV1ProcessProfileName(params *GetV1ProcessProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ProcessProfileNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ProcessProfileNameParams()
@@ -96,6 +97,7 @@ func (a *Client) GetV1ProcessProfileName(params *GetV1ProcessProfileNameParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ProcessProfileNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -120,7 +122,7 @@ func (a *Client) GetV1ProcessProfileName(params *GetV1ProcessProfileNameParams, 
 /*
 GetV1ProcessRulesUUID gets a process rule
 */
-func (a *Client) GetV1ProcessRulesUUID(params *GetV1ProcessRulesUUIDParams, opts ...ClientOption) (*GetV1ProcessRulesUUIDOK, error) {
+func (a *Client) GetV1ProcessRulesUUID(params *GetV1ProcessRulesUUIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ProcessRulesUUIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ProcessRulesUUIDParams()
@@ -134,6 +136,7 @@ func (a *Client) GetV1ProcessRulesUUID(params *GetV1ProcessRulesUUIDParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ProcessRulesUUIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -158,7 +161,7 @@ func (a *Client) GetV1ProcessRulesUUID(params *GetV1ProcessRulesUUIDParams, opts
 /*
 PatchV1ProcessProfileName updates a process profile
 */
-func (a *Client) PatchV1ProcessProfileName(params *PatchV1ProcessProfileNameParams, opts ...ClientOption) (*PatchV1ProcessProfileNameOK, error) {
+func (a *Client) PatchV1ProcessProfileName(params *PatchV1ProcessProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ProcessProfileNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ProcessProfileNameParams()
@@ -172,6 +175,7 @@ func (a *Client) PatchV1ProcessProfileName(params *PatchV1ProcessProfileNamePara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ProcessProfileNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

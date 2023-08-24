@@ -61,9 +61,6 @@ DeleteV1ServerNameParams contains all the parameters to send to the API endpoint
 */
 type DeleteV1ServerNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Name of the server
@@ -123,17 +120,6 @@ func (o *DeleteV1ServerNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 server name params
-func (o *DeleteV1ServerNameParams) WithXAuthToken(xAuthToken string) *DeleteV1ServerNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 server name params
-func (o *DeleteV1ServerNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the delete v1 server name params
 func (o *DeleteV1ServerNameParams) WithName(name string) *DeleteV1ServerNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *DeleteV1ServerNameParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

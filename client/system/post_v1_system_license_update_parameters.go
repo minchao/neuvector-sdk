@@ -63,9 +63,6 @@ PostV1SystemLicenseUpdateParams contains all the parameters to send to the API e
 */
 type PostV1SystemLicenseUpdateParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   License key
@@ -125,17 +122,6 @@ func (o *PostV1SystemLicenseUpdateParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 system license update params
-func (o *PostV1SystemLicenseUpdateParams) WithXAuthToken(xAuthToken string) *PostV1SystemLicenseUpdateParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 system license update params
-func (o *PostV1SystemLicenseUpdateParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 system license update params
 func (o *PostV1SystemLicenseUpdateParams) WithBody(body *models.RESTLicenseKey) *PostV1SystemLicenseUpdateParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PostV1SystemLicenseUpdateParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

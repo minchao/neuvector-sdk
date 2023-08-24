@@ -30,19 +30,19 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1ServerName(params *DeleteV1ServerNameParams, opts ...ClientOption) (*DeleteV1ServerNameOK, error)
+	DeleteV1ServerName(params *DeleteV1ServerNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ServerNameOK, error)
 
-	GetV1Server(params *GetV1ServerParams, opts ...ClientOption) (*GetV1ServerOK, error)
+	GetV1Server(params *GetV1ServerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServerOK, error)
 
-	GetV1ServerName(params *GetV1ServerNameParams, opts ...ClientOption) (*GetV1ServerNameOK, error)
+	GetV1ServerName(params *GetV1ServerNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServerNameOK, error)
 
-	GetV1ServerNameUser(params *GetV1ServerNameUserParams, opts ...ClientOption) (*GetV1ServerNameUserOK, error)
+	GetV1ServerNameUser(params *GetV1ServerNameUserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServerNameUserOK, error)
 
-	PatchV1ServerName(params *PatchV1ServerNameParams, opts ...ClientOption) (*PatchV1ServerNameOK, error)
+	PatchV1ServerName(params *PatchV1ServerNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServerNameOK, error)
 
-	PatchV1ServerNameRoleRole(params *PatchV1ServerNameRoleRoleParams, opts ...ClientOption) (*PatchV1ServerNameRoleRoleOK, error)
+	PatchV1ServerNameRoleRole(params *PatchV1ServerNameRoleRoleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServerNameRoleRoleOK, error)
 
-	PostV1Server(params *PostV1ServerParams, opts ...ClientOption) (*PostV1ServerOK, error)
+	PostV1Server(params *PostV1ServerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ServerOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,7 +50,7 @@ type ClientService interface {
 /*
 DeleteV1ServerName deletes the server
 */
-func (a *Client) DeleteV1ServerName(params *DeleteV1ServerNameParams, opts ...ClientOption) (*DeleteV1ServerNameOK, error) {
+func (a *Client) DeleteV1ServerName(params *DeleteV1ServerNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ServerNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1ServerNameParams()
@@ -64,6 +64,7 @@ func (a *Client) DeleteV1ServerName(params *DeleteV1ServerNameParams, opts ...Cl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1ServerNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -88,7 +89,7 @@ func (a *Client) DeleteV1ServerName(params *DeleteV1ServerNameParams, opts ...Cl
 /*
 GetV1Server gets a list of servers
 */
-func (a *Client) GetV1Server(params *GetV1ServerParams, opts ...ClientOption) (*GetV1ServerOK, error) {
+func (a *Client) GetV1Server(params *GetV1ServerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServerOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ServerParams()
@@ -102,6 +103,7 @@ func (a *Client) GetV1Server(params *GetV1ServerParams, opts ...ClientOption) (*
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ServerReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -126,7 +128,7 @@ func (a *Client) GetV1Server(params *GetV1ServerParams, opts ...ClientOption) (*
 /*
 GetV1ServerName shows server
 */
-func (a *Client) GetV1ServerName(params *GetV1ServerNameParams, opts ...ClientOption) (*GetV1ServerNameOK, error) {
+func (a *Client) GetV1ServerName(params *GetV1ServerNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServerNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ServerNameParams()
@@ -140,6 +142,7 @@ func (a *Client) GetV1ServerName(params *GetV1ServerNameParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ServerNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -164,7 +167,7 @@ func (a *Client) GetV1ServerName(params *GetV1ServerNameParams, opts ...ClientOp
 /*
 GetV1ServerNameUser shows server user list
 */
-func (a *Client) GetV1ServerNameUser(params *GetV1ServerNameUserParams, opts ...ClientOption) (*GetV1ServerNameUserOK, error) {
+func (a *Client) GetV1ServerNameUser(params *GetV1ServerNameUserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ServerNameUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ServerNameUserParams()
@@ -178,6 +181,7 @@ func (a *Client) GetV1ServerNameUser(params *GetV1ServerNameUserParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ServerNameUserReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -202,7 +206,7 @@ func (a *Client) GetV1ServerNameUser(params *GetV1ServerNameUserParams, opts ...
 /*
 PatchV1ServerName updates server
 */
-func (a *Client) PatchV1ServerName(params *PatchV1ServerNameParams, opts ...ClientOption) (*PatchV1ServerNameOK, error) {
+func (a *Client) PatchV1ServerName(params *PatchV1ServerNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServerNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ServerNameParams()
@@ -216,6 +220,7 @@ func (a *Client) PatchV1ServerName(params *PatchV1ServerNameParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ServerNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -240,7 +245,7 @@ func (a *Client) PatchV1ServerName(params *PatchV1ServerNameParams, opts ...Clie
 /*
 PatchV1ServerNameRoleRole updates server role groups
 */
-func (a *Client) PatchV1ServerNameRoleRole(params *PatchV1ServerNameRoleRoleParams, opts ...ClientOption) (*PatchV1ServerNameRoleRoleOK, error) {
+func (a *Client) PatchV1ServerNameRoleRole(params *PatchV1ServerNameRoleRoleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ServerNameRoleRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ServerNameRoleRoleParams()
@@ -254,6 +259,7 @@ func (a *Client) PatchV1ServerNameRoleRole(params *PatchV1ServerNameRoleRolePara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ServerNameRoleRoleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -278,7 +284,7 @@ func (a *Client) PatchV1ServerNameRoleRole(params *PatchV1ServerNameRoleRolePara
 /*
 PostV1Server creates server
 */
-func (a *Client) PostV1Server(params *PostV1ServerParams, opts ...ClientOption) (*PostV1ServerOK, error) {
+func (a *Client) PostV1Server(params *PostV1ServerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ServerOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ServerParams()
@@ -292,6 +298,7 @@ func (a *Client) PostV1Server(params *PostV1ServerParams, opts ...ClientOption) 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ServerReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

@@ -61,9 +61,6 @@ GetV1FileMonitorParams contains all the parameters to send to the API endpoint
 */
 type GetV1FileMonitorParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, returned fed file monitor list. When set to local, returned local file monitor list. If there is no query string 'scope', all file monitor list will be returned.
@@ -123,17 +120,6 @@ func (o *GetV1FileMonitorParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 file monitor params
-func (o *GetV1FileMonitorParams) WithXAuthToken(xAuthToken string) *GetV1FileMonitorParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 file monitor params
-func (o *GetV1FileMonitorParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 file monitor params
 func (o *GetV1FileMonitorParams) WithScope(scope *string) *GetV1FileMonitorParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1FileMonitorParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

@@ -61,9 +61,6 @@ DeleteV1DlpSensorNameParams contains all the parameters to send to the API endpo
 */
 type DeleteV1DlpSensorNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Sensor name
@@ -123,17 +120,6 @@ func (o *DeleteV1DlpSensorNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 dlp sensor name params
-func (o *DeleteV1DlpSensorNameParams) WithXAuthToken(xAuthToken string) *DeleteV1DlpSensorNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 dlp sensor name params
-func (o *DeleteV1DlpSensorNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the delete v1 dlp sensor name params
 func (o *DeleteV1DlpSensorNameParams) WithName(name string) *DeleteV1DlpSensorNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *DeleteV1DlpSensorNameParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

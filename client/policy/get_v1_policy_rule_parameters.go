@@ -61,9 +61,6 @@ GetV1PolicyRuleParams contains all the parameters to send to the API endpoint
 */
 type GetV1PolicyRuleParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, returned fed policy rules. When set to local, returned local policy rules. If there is no query string 'scope', all policy rules will be returned.
@@ -123,17 +120,6 @@ func (o *GetV1PolicyRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 policy rule params
-func (o *GetV1PolicyRuleParams) WithXAuthToken(xAuthToken string) *GetV1PolicyRuleParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 policy rule params
-func (o *GetV1PolicyRuleParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 policy rule params
 func (o *GetV1PolicyRuleParams) WithScope(scope *string) *GetV1PolicyRuleParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1PolicyRuleParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

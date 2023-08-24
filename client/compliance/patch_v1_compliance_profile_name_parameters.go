@@ -63,9 +63,6 @@ PatchV1ComplianceProfileNameParams contains all the parameters to send to the AP
 */
 type PatchV1ComplianceProfileNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Compliance profile config data
@@ -131,17 +128,6 @@ func (o *PatchV1ComplianceProfileNameParams) SetHTTPClient(client *http.Client) 
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 compliance profile name params
-func (o *PatchV1ComplianceProfileNameParams) WithXAuthToken(xAuthToken string) *PatchV1ComplianceProfileNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 compliance profile name params
-func (o *PatchV1ComplianceProfileNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 compliance profile name params
 func (o *PatchV1ComplianceProfileNameParams) WithBody(body *models.RESTComplianceProfileConfigData) *PatchV1ComplianceProfileNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1ComplianceProfileNameParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

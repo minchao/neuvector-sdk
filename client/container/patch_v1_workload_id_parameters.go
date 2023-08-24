@@ -63,9 +63,6 @@ PatchV1WorkloadIDParams contains all the parameters to send to the API endpoint
 */
 type PatchV1WorkloadIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Container update data
@@ -131,17 +128,6 @@ func (o *PatchV1WorkloadIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 workload ID params
-func (o *PatchV1WorkloadIDParams) WithXAuthToken(xAuthToken string) *PatchV1WorkloadIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 workload ID params
-func (o *PatchV1WorkloadIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 workload ID params
 func (o *PatchV1WorkloadIDParams) WithBody(body *models.RESTWorkloadConfigData) *PatchV1WorkloadIDParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1WorkloadIDParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

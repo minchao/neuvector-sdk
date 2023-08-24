@@ -63,9 +63,6 @@ PatchV1WafGroupNameParams contains all the parameters to send to the API endpoin
 */
 type PatchV1WafGroupNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   waf group data
@@ -131,17 +128,6 @@ func (o *PatchV1WafGroupNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 waf group name params
-func (o *PatchV1WafGroupNameParams) WithXAuthToken(xAuthToken string) *PatchV1WafGroupNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 waf group name params
-func (o *PatchV1WafGroupNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 waf group name params
 func (o *PatchV1WafGroupNameParams) WithBody(body *models.RESTWafGroupConfigData) *PatchV1WafGroupNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1WafGroupNameParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

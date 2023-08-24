@@ -61,9 +61,6 @@ GetV1LogThreatIDParams contains all the parameters to send to the API endpoint
 */
 type GetV1LogThreatIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Threat ID
@@ -123,17 +120,6 @@ func (o *GetV1LogThreatIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 log threat ID params
-func (o *GetV1LogThreatIDParams) WithXAuthToken(xAuthToken string) *GetV1LogThreatIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 log threat ID params
-func (o *GetV1LogThreatIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 log threat ID params
 func (o *GetV1LogThreatIDParams) WithID(id string) *GetV1LogThreatIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1LogThreatIDParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

@@ -61,9 +61,6 @@ GetV2SystemConfigParams contains all the parameters to send to the API endpoint
 */
 type GetV2SystemConfigParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set the scope to be fed, it will return the fed system configures. When set the scope to be local, it will return the local system configures. If there is no query string 'scope', it will return all system configures.
@@ -123,17 +120,6 @@ func (o *GetV2SystemConfigParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v2 system config params
-func (o *GetV2SystemConfigParams) WithXAuthToken(xAuthToken string) *GetV2SystemConfigParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v2 system config params
-func (o *GetV2SystemConfigParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v2 system config params
 func (o *GetV2SystemConfigParams) WithScope(scope *string) *GetV2SystemConfigParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV2SystemConfigParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

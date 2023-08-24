@@ -61,9 +61,6 @@ DeleteV1AdmissionRulesParams contains all the parameters to send to the API endp
 */
 type DeleteV1AdmissionRulesParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, fed admission rules get removed. When set to local or no query string, local admission rules will be removed.
@@ -123,17 +120,6 @@ func (o *DeleteV1AdmissionRulesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 admission rules params
-func (o *DeleteV1AdmissionRulesParams) WithXAuthToken(xAuthToken string) *DeleteV1AdmissionRulesParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 admission rules params
-func (o *DeleteV1AdmissionRulesParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the delete v1 admission rules params
 func (o *DeleteV1AdmissionRulesParams) WithScope(scope *string) *DeleteV1AdmissionRulesParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *DeleteV1AdmissionRulesParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

@@ -32,7 +32,7 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetV1Eula(params *GetV1EulaParams, opts ...ClientOption) (*GetV1EulaOK, error)
 
-	PostV1Eula(params *PostV1EulaParams, opts ...ClientOption) (*PostV1EulaOK, error)
+	PostV1Eula(params *PostV1EulaParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1EulaOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -78,7 +78,7 @@ func (a *Client) GetV1Eula(params *GetV1EulaParams, opts ...ClientOption) (*GetV
 /*
 PostV1Eula accepts e u l a agreement
 */
-func (a *Client) PostV1Eula(params *PostV1EulaParams, opts ...ClientOption) (*PostV1EulaOK, error) {
+func (a *Client) PostV1Eula(params *PostV1EulaParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1EulaOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1EulaParams()
@@ -92,6 +92,7 @@ func (a *Client) PostV1Eula(params *PostV1EulaParams, opts ...ClientOption) (*Po
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1EulaReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

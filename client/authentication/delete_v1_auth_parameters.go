@@ -60,10 +60,6 @@ DeleteV1AuthParams contains all the parameters to send to the API endpoint
 	Typically these are written to a http.Request.
 */
 type DeleteV1AuthParams struct {
-
-	// XAuthToken.
-	XAuthToken string
-
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -117,17 +113,6 @@ func (o *DeleteV1AuthParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 auth params
-func (o *DeleteV1AuthParams) WithXAuthToken(xAuthToken string) *DeleteV1AuthParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 auth params
-func (o *DeleteV1AuthParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *DeleteV1AuthParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -135,11 +120,6 @@ func (o *DeleteV1AuthParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

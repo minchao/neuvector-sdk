@@ -30,11 +30,11 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1Domain(params *GetV1DomainParams, opts ...ClientOption) (*GetV1DomainOK, error)
+	GetV1Domain(params *GetV1DomainParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DomainOK, error)
 
-	PatchV1Domain(params *PatchV1DomainParams, opts ...ClientOption) (*PatchV1DomainOK, error)
+	PatchV1Domain(params *PatchV1DomainParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1DomainOK, error)
 
-	PatchV1DomainName(params *PatchV1DomainNameParams, opts ...ClientOption) (*PatchV1DomainNameOK, error)
+	PatchV1DomainName(params *PatchV1DomainNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1DomainNameOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 /*
 GetV1Domain gets namespace list
 */
-func (a *Client) GetV1Domain(params *GetV1DomainParams, opts ...ClientOption) (*GetV1DomainOK, error) {
+func (a *Client) GetV1Domain(params *GetV1DomainParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DomainOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1DomainParams()
@@ -56,6 +56,7 @@ func (a *Client) GetV1Domain(params *GetV1DomainParams, opts ...ClientOption) (*
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1DomainReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -80,7 +81,7 @@ func (a *Client) GetV1Domain(params *GetV1DomainParams, opts ...ClientOption) (*
 /*
 PatchV1Domain configures namespace setting
 */
-func (a *Client) PatchV1Domain(params *PatchV1DomainParams, opts ...ClientOption) (*PatchV1DomainOK, error) {
+func (a *Client) PatchV1Domain(params *PatchV1DomainParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1DomainOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1DomainParams()
@@ -94,6 +95,7 @@ func (a *Client) PatchV1Domain(params *PatchV1DomainParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1DomainReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -118,7 +120,7 @@ func (a *Client) PatchV1Domain(params *PatchV1DomainParams, opts ...ClientOption
 /*
 PatchV1DomainName updates namespace
 */
-func (a *Client) PatchV1DomainName(params *PatchV1DomainNameParams, opts ...ClientOption) (*PatchV1DomainNameOK, error) {
+func (a *Client) PatchV1DomainName(params *PatchV1DomainNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1DomainNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1DomainNameParams()
@@ -132,6 +134,7 @@ func (a *Client) PatchV1DomainName(params *PatchV1DomainNameParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1DomainNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

@@ -63,9 +63,6 @@ GetV1FileGroupParams contains all the parameters to send to the API endpoint
 */
 type GetV1FileGroupParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Configuration data
@@ -125,17 +122,6 @@ func (o *GetV1FileGroupParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 file group params
-func (o *GetV1FileGroupParams) WithXAuthToken(xAuthToken string) *GetV1FileGroupParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 file group params
-func (o *GetV1FileGroupParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the get v1 file group params
 func (o *GetV1FileGroupParams) WithBody(body *models.RESTGroupExport) *GetV1FileGroupParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *GetV1FileGroupParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

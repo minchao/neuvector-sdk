@@ -61,9 +61,6 @@ GetV1AdmissionRulesParams contains all the parameters to send to the API endpoin
 */
 type GetV1AdmissionRulesParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, returned fed admission rules. When set to local, returned local admission rules. If there is no query string 'scope', all admission rules will be returned.
@@ -123,17 +120,6 @@ func (o *GetV1AdmissionRulesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 admission rules params
-func (o *GetV1AdmissionRulesParams) WithXAuthToken(xAuthToken string) *GetV1AdmissionRulesParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 admission rules params
-func (o *GetV1AdmissionRulesParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 admission rules params
 func (o *GetV1AdmissionRulesParams) WithScope(scope *string) *GetV1AdmissionRulesParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1AdmissionRulesParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

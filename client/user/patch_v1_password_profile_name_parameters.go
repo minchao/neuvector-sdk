@@ -63,9 +63,6 @@ PatchV1PasswordProfileNameParams contains all the parameters to send to the API 
 */
 type PatchV1PasswordProfileNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Password profile data
@@ -131,17 +128,6 @@ func (o *PatchV1PasswordProfileNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 password profile name params
-func (o *PatchV1PasswordProfileNameParams) WithXAuthToken(xAuthToken string) *PatchV1PasswordProfileNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 password profile name params
-func (o *PatchV1PasswordProfileNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 password profile name params
 func (o *PatchV1PasswordProfileNameParams) WithBody(body *models.RESTPwdProfileConfigData) *PatchV1PasswordProfileNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1PasswordProfileNameParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

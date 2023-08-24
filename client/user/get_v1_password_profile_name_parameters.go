@@ -61,9 +61,6 @@ GetV1PasswordProfileNameParams contains all the parameters to send to the API en
 */
 type GetV1PasswordProfileNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Password profile name
@@ -123,17 +120,6 @@ func (o *GetV1PasswordProfileNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 password profile name params
-func (o *GetV1PasswordProfileNameParams) WithXAuthToken(xAuthToken string) *GetV1PasswordProfileNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 password profile name params
-func (o *GetV1PasswordProfileNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 password profile name params
 func (o *GetV1PasswordProfileNameParams) WithName(name string) *GetV1PasswordProfileNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1PasswordProfileNameParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

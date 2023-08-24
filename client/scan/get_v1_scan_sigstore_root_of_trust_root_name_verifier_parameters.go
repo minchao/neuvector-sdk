@@ -61,9 +61,6 @@ GetV1ScanSigstoreRootOfTrustRootNameVerifierParams contains all the parameters t
 */
 type GetV1ScanSigstoreRootOfTrustRootNameVerifierParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* RootName.
 
 	   Root Of Trust Name
@@ -123,17 +120,6 @@ func (o *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams) SetHTTPClient(clien
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 scan sigstore root of trust root name verifier params
-func (o *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams) WithXAuthToken(xAuthToken string) *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 scan sigstore root of trust root name verifier params
-func (o *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithRootName adds the rootName to the get v1 scan sigstore root of trust root name verifier params
 func (o *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams) WithRootName(rootName string) *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams {
 	o.SetRootName(rootName)
@@ -152,11 +138,6 @@ func (o *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams) WriteToRequest(r ru
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param root_name
 	if err := r.SetPathParam("root_name", o.RootName); err != nil {

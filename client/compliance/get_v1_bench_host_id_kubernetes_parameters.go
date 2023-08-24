@@ -61,9 +61,6 @@ GetV1BenchHostIDKubernetesParams contains all the parameters to send to the API 
 */
 type GetV1BenchHostIDKubernetesParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Host ID
@@ -123,17 +120,6 @@ func (o *GetV1BenchHostIDKubernetesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 bench host ID kubernetes params
-func (o *GetV1BenchHostIDKubernetesParams) WithXAuthToken(xAuthToken string) *GetV1BenchHostIDKubernetesParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 bench host ID kubernetes params
-func (o *GetV1BenchHostIDKubernetesParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 bench host ID kubernetes params
 func (o *GetV1BenchHostIDKubernetesParams) WithID(id string) *GetV1BenchHostIDKubernetesParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1BenchHostIDKubernetesParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

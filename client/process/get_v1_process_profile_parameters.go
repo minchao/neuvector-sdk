@@ -61,9 +61,6 @@ GetV1ProcessProfileParams contains all the parameters to send to the API endpoin
 */
 type GetV1ProcessProfileParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, returned fed process profiles. When set to local, returned local process profiles. If there is no query string 'scope', all process profiles will be returned.
@@ -123,17 +120,6 @@ func (o *GetV1ProcessProfileParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 process profile params
-func (o *GetV1ProcessProfileParams) WithXAuthToken(xAuthToken string) *GetV1ProcessProfileParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 process profile params
-func (o *GetV1ProcessProfileParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 process profile params
 func (o *GetV1ProcessProfileParams) WithScope(scope *string) *GetV1ProcessProfileParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1ProcessProfileParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

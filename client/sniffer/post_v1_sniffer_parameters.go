@@ -63,9 +63,6 @@ PostV1SnifferParams contains all the parameters to send to the API endpoint
 */
 type PostV1SnifferParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Sniffer args data
@@ -131,17 +128,6 @@ func (o *PostV1SnifferParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 sniffer params
-func (o *PostV1SnifferParams) WithXAuthToken(xAuthToken string) *PostV1SnifferParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 sniffer params
-func (o *PostV1SnifferParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 sniffer params
 func (o *PostV1SnifferParams) WithBody(body *models.RESTSnifferArgsData) *PostV1SnifferParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PostV1SnifferParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

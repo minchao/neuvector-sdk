@@ -61,9 +61,6 @@ PostV1FileGroupConfigParams contains all the parameters to send to the API endpo
 */
 type PostV1FileGroupConfigParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	// XTransactionID.
 	XTransactionID *string
 
@@ -132,17 +129,6 @@ func (o *PostV1FileGroupConfigParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 file group config params
-func (o *PostV1FileGroupConfigParams) WithXAuthToken(xAuthToken string) *PostV1FileGroupConfigParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 file group config params
-func (o *PostV1FileGroupConfigParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithXTransactionID adds the xTransactionID to the post v1 file group config params
 func (o *PostV1FileGroupConfigParams) WithXTransactionID(xTransactionID *string) *PostV1FileGroupConfigParams {
 	o.SetXTransactionID(xTransactionID)
@@ -183,11 +169,6 @@ func (o *PostV1FileGroupConfigParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.XTransactionID != nil {
 

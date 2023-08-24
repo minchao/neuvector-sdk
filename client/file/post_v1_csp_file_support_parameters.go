@@ -60,10 +60,6 @@ PostV1CspFileSupportParams contains all the parameters to send to the API endpoi
 	Typically these are written to a http.Request.
 */
 type PostV1CspFileSupportParams struct {
-
-	// XAuthToken.
-	XAuthToken string
-
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -117,17 +113,6 @@ func (o *PostV1CspFileSupportParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 csp file support params
-func (o *PostV1CspFileSupportParams) WithXAuthToken(xAuthToken string) *PostV1CspFileSupportParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 csp file support params
-func (o *PostV1CspFileSupportParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *PostV1CspFileSupportParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -135,11 +120,6 @@ func (o *PostV1CspFileSupportParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

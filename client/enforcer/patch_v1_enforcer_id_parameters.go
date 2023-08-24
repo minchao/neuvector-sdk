@@ -63,9 +63,6 @@ PatchV1EnforcerIDParams contains all the parameters to send to the API endpoint
 */
 type PatchV1EnforcerIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Enforcer update data
@@ -131,17 +128,6 @@ func (o *PatchV1EnforcerIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 enforcer ID params
-func (o *PatchV1EnforcerIDParams) WithXAuthToken(xAuthToken string) *PatchV1EnforcerIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 enforcer ID params
-func (o *PatchV1EnforcerIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 enforcer ID params
 func (o *PatchV1EnforcerIDParams) WithBody(body *models.RESTAgentConfigData) *PatchV1EnforcerIDParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1EnforcerIDParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

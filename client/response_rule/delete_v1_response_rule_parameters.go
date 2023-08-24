@@ -61,9 +61,6 @@ DeleteV1ResponseRuleParams contains all the parameters to send to the API endpoi
 */
 type DeleteV1ResponseRuleParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, all fed response rules get removed. When set to local or no query string, local response rules will be removed.
@@ -123,17 +120,6 @@ func (o *DeleteV1ResponseRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 response rule params
-func (o *DeleteV1ResponseRuleParams) WithXAuthToken(xAuthToken string) *DeleteV1ResponseRuleParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 response rule params
-func (o *DeleteV1ResponseRuleParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the delete v1 response rule params
 func (o *DeleteV1ResponseRuleParams) WithScope(scope *string) *DeleteV1ResponseRuleParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *DeleteV1ResponseRuleParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

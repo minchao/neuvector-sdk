@@ -30,29 +30,29 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1AdmissionRuleID(params *DeleteV1AdmissionRuleIDParams, opts ...ClientOption) (*DeleteV1AdmissionRuleIDOK, error)
+	DeleteV1AdmissionRuleID(params *DeleteV1AdmissionRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1AdmissionRuleIDOK, error)
 
-	DeleteV1AdmissionRules(params *DeleteV1AdmissionRulesParams, opts ...ClientOption) (*DeleteV1AdmissionRulesOK, error)
+	DeleteV1AdmissionRules(params *DeleteV1AdmissionRulesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1AdmissionRulesOK, error)
 
-	GetV1AdmissionOptions(params *GetV1AdmissionOptionsParams, opts ...ClientOption) (*GetV1AdmissionOptionsOK, error)
+	GetV1AdmissionOptions(params *GetV1AdmissionOptionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionOptionsOK, error)
 
-	GetV1AdmissionRuleID(params *GetV1AdmissionRuleIDParams, opts ...ClientOption) (*GetV1AdmissionRuleIDOK, error)
+	GetV1AdmissionRuleID(params *GetV1AdmissionRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionRuleIDOK, error)
 
-	GetV1AdmissionRules(params *GetV1AdmissionRulesParams, opts ...ClientOption) (*GetV1AdmissionRulesOK, error)
+	GetV1AdmissionRules(params *GetV1AdmissionRulesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionRulesOK, error)
 
-	GetV1AdmissionState(params *GetV1AdmissionStateParams, opts ...ClientOption) (*GetV1AdmissionStateOK, error)
+	GetV1AdmissionState(params *GetV1AdmissionStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionStateOK, error)
 
-	GetV1AdmissionStats(params *GetV1AdmissionStatsParams, opts ...ClientOption) (*GetV1AdmissionStatsOK, error)
+	GetV1AdmissionStats(params *GetV1AdmissionStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionStatsOK, error)
 
-	PatchV1AdmissionRule(params *PatchV1AdmissionRuleParams, opts ...ClientOption) (*PatchV1AdmissionRuleOK, error)
+	PatchV1AdmissionRule(params *PatchV1AdmissionRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1AdmissionRuleOK, error)
 
-	PatchV1AdmissionState(params *PatchV1AdmissionStateParams, opts ...ClientOption) (*PatchV1AdmissionStateOK, error)
+	PatchV1AdmissionState(params *PatchV1AdmissionStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1AdmissionStateOK, error)
 
-	PostV1AdmissionRule(params *PostV1AdmissionRuleParams, opts ...ClientOption) (*PostV1AdmissionRuleOK, error)
+	PostV1AdmissionRule(params *PostV1AdmissionRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1AdmissionRuleOK, error)
 
-	PostV1AdmissionRulePromote(params *PostV1AdmissionRulePromoteParams, opts ...ClientOption) (*PostV1AdmissionRulePromoteOK, error)
+	PostV1AdmissionRulePromote(params *PostV1AdmissionRulePromoteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1AdmissionRulePromoteOK, error)
 
-	PostV1AssessAdmissionRule(params *PostV1AssessAdmissionRuleParams, opts ...ClientOption) (*PostV1AssessAdmissionRuleOK, error)
+	PostV1AssessAdmissionRule(params *PostV1AssessAdmissionRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1AssessAdmissionRuleOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -60,7 +60,7 @@ type ClientService interface {
 /*
 DeleteV1AdmissionRuleID deletes an admission rule
 */
-func (a *Client) DeleteV1AdmissionRuleID(params *DeleteV1AdmissionRuleIDParams, opts ...ClientOption) (*DeleteV1AdmissionRuleIDOK, error) {
+func (a *Client) DeleteV1AdmissionRuleID(params *DeleteV1AdmissionRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1AdmissionRuleIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1AdmissionRuleIDParams()
@@ -74,6 +74,7 @@ func (a *Client) DeleteV1AdmissionRuleID(params *DeleteV1AdmissionRuleIDParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1AdmissionRuleIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -98,7 +99,7 @@ func (a *Client) DeleteV1AdmissionRuleID(params *DeleteV1AdmissionRuleIDParams, 
 /*
 DeleteV1AdmissionRules deletes all admission rules
 */
-func (a *Client) DeleteV1AdmissionRules(params *DeleteV1AdmissionRulesParams, opts ...ClientOption) (*DeleteV1AdmissionRulesOK, error) {
+func (a *Client) DeleteV1AdmissionRules(params *DeleteV1AdmissionRulesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1AdmissionRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1AdmissionRulesParams()
@@ -112,6 +113,7 @@ func (a *Client) DeleteV1AdmissionRules(params *DeleteV1AdmissionRulesParams, op
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1AdmissionRulesReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -136,7 +138,7 @@ func (a *Client) DeleteV1AdmissionRules(params *DeleteV1AdmissionRulesParams, op
 /*
 GetV1AdmissionOptions gets a list of admission options
 */
-func (a *Client) GetV1AdmissionOptions(params *GetV1AdmissionOptionsParams, opts ...ClientOption) (*GetV1AdmissionOptionsOK, error) {
+func (a *Client) GetV1AdmissionOptions(params *GetV1AdmissionOptionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionOptionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1AdmissionOptionsParams()
@@ -150,6 +152,7 @@ func (a *Client) GetV1AdmissionOptions(params *GetV1AdmissionOptionsParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1AdmissionOptionsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -174,7 +177,7 @@ func (a *Client) GetV1AdmissionOptions(params *GetV1AdmissionOptionsParams, opts
 /*
 GetV1AdmissionRuleID shows an admission rule
 */
-func (a *Client) GetV1AdmissionRuleID(params *GetV1AdmissionRuleIDParams, opts ...ClientOption) (*GetV1AdmissionRuleIDOK, error) {
+func (a *Client) GetV1AdmissionRuleID(params *GetV1AdmissionRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionRuleIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1AdmissionRuleIDParams()
@@ -188,6 +191,7 @@ func (a *Client) GetV1AdmissionRuleID(params *GetV1AdmissionRuleIDParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1AdmissionRuleIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -212,7 +216,7 @@ func (a *Client) GetV1AdmissionRuleID(params *GetV1AdmissionRuleIDParams, opts .
 /*
 GetV1AdmissionRules gets a list of admission rules
 */
-func (a *Client) GetV1AdmissionRules(params *GetV1AdmissionRulesParams, opts ...ClientOption) (*GetV1AdmissionRulesOK, error) {
+func (a *Client) GetV1AdmissionRules(params *GetV1AdmissionRulesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1AdmissionRulesParams()
@@ -226,6 +230,7 @@ func (a *Client) GetV1AdmissionRules(params *GetV1AdmissionRulesParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1AdmissionRulesReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -250,7 +255,7 @@ func (a *Client) GetV1AdmissionRules(params *GetV1AdmissionRulesParams, opts ...
 /*
 GetV1AdmissionState gets admission state
 */
-func (a *Client) GetV1AdmissionState(params *GetV1AdmissionStateParams, opts ...ClientOption) (*GetV1AdmissionStateOK, error) {
+func (a *Client) GetV1AdmissionState(params *GetV1AdmissionStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionStateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1AdmissionStateParams()
@@ -264,6 +269,7 @@ func (a *Client) GetV1AdmissionState(params *GetV1AdmissionStateParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1AdmissionStateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -288,7 +294,7 @@ func (a *Client) GetV1AdmissionState(params *GetV1AdmissionStateParams, opts ...
 /*
 GetV1AdmissionStats gets admission control statistics
 */
-func (a *Client) GetV1AdmissionStats(params *GetV1AdmissionStatsParams, opts ...ClientOption) (*GetV1AdmissionStatsOK, error) {
+func (a *Client) GetV1AdmissionStats(params *GetV1AdmissionStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1AdmissionStatsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1AdmissionStatsParams()
@@ -302,6 +308,7 @@ func (a *Client) GetV1AdmissionStats(params *GetV1AdmissionStatsParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1AdmissionStatsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -326,7 +333,7 @@ func (a *Client) GetV1AdmissionStats(params *GetV1AdmissionStatsParams, opts ...
 /*
 PatchV1AdmissionRule updates admission rule
 */
-func (a *Client) PatchV1AdmissionRule(params *PatchV1AdmissionRuleParams, opts ...ClientOption) (*PatchV1AdmissionRuleOK, error) {
+func (a *Client) PatchV1AdmissionRule(params *PatchV1AdmissionRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1AdmissionRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1AdmissionRuleParams()
@@ -340,6 +347,7 @@ func (a *Client) PatchV1AdmissionRule(params *PatchV1AdmissionRuleParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1AdmissionRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -364,7 +372,7 @@ func (a *Client) PatchV1AdmissionRule(params *PatchV1AdmissionRuleParams, opts .
 /*
 PatchV1AdmissionState updates admission state
 */
-func (a *Client) PatchV1AdmissionState(params *PatchV1AdmissionStateParams, opts ...ClientOption) (*PatchV1AdmissionStateOK, error) {
+func (a *Client) PatchV1AdmissionState(params *PatchV1AdmissionStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1AdmissionStateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1AdmissionStateParams()
@@ -378,6 +386,7 @@ func (a *Client) PatchV1AdmissionState(params *PatchV1AdmissionStateParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1AdmissionStateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -402,7 +411,7 @@ func (a *Client) PatchV1AdmissionState(params *PatchV1AdmissionStateParams, opts
 /*
 PostV1AdmissionRule adds admission control rule
 */
-func (a *Client) PostV1AdmissionRule(params *PostV1AdmissionRuleParams, opts ...ClientOption) (*PostV1AdmissionRuleOK, error) {
+func (a *Client) PostV1AdmissionRule(params *PostV1AdmissionRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1AdmissionRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1AdmissionRuleParams()
@@ -416,6 +425,7 @@ func (a *Client) PostV1AdmissionRule(params *PostV1AdmissionRuleParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1AdmissionRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -440,7 +450,7 @@ func (a *Client) PostV1AdmissionRule(params *PostV1AdmissionRuleParams, opts ...
 /*
 PostV1AdmissionRulePromote promotes admission control rule
 */
-func (a *Client) PostV1AdmissionRulePromote(params *PostV1AdmissionRulePromoteParams, opts ...ClientOption) (*PostV1AdmissionRulePromoteOK, error) {
+func (a *Client) PostV1AdmissionRulePromote(params *PostV1AdmissionRulePromoteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1AdmissionRulePromoteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1AdmissionRulePromoteParams()
@@ -454,6 +464,7 @@ func (a *Client) PostV1AdmissionRulePromote(params *PostV1AdmissionRulePromotePa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1AdmissionRulePromoteReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -478,7 +489,7 @@ func (a *Client) PostV1AdmissionRulePromote(params *PostV1AdmissionRulePromotePa
 /*
 PostV1AssessAdmissionRule tests admission control rules
 */
-func (a *Client) PostV1AssessAdmissionRule(params *PostV1AssessAdmissionRuleParams, opts ...ClientOption) (*PostV1AssessAdmissionRuleOK, error) {
+func (a *Client) PostV1AssessAdmissionRule(params *PostV1AssessAdmissionRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1AssessAdmissionRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1AssessAdmissionRuleParams()
@@ -492,6 +503,7 @@ func (a *Client) PostV1AssessAdmissionRule(params *PostV1AssessAdmissionRulePara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1AssessAdmissionRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

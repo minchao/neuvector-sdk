@@ -63,9 +63,6 @@ PatchV1SystemConfigWebhookNameParams contains all the parameters to send to the 
 */
 type PatchV1SystemConfigWebhookNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   System configure data
@@ -137,17 +134,6 @@ func (o *PatchV1SystemConfigWebhookNameParams) SetHTTPClient(client *http.Client
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 system config webhook name params
-func (o *PatchV1SystemConfigWebhookNameParams) WithXAuthToken(xAuthToken string) *PatchV1SystemConfigWebhookNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 system config webhook name params
-func (o *PatchV1SystemConfigWebhookNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 system config webhook name params
 func (o *PatchV1SystemConfigWebhookNameParams) WithBody(body *models.RESTSystemWebhookConfigData) *PatchV1SystemConfigWebhookNameParams {
 	o.SetBody(body)
@@ -188,11 +174,6 @@ func (o *PatchV1SystemConfigWebhookNameParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

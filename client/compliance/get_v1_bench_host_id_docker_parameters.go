@@ -61,9 +61,6 @@ GetV1BenchHostIDDockerParams contains all the parameters to send to the API endp
 */
 type GetV1BenchHostIDDockerParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Host ID
@@ -123,17 +120,6 @@ func (o *GetV1BenchHostIDDockerParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 bench host ID docker params
-func (o *GetV1BenchHostIDDockerParams) WithXAuthToken(xAuthToken string) *GetV1BenchHostIDDockerParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 bench host ID docker params
-func (o *GetV1BenchHostIDDockerParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 bench host ID docker params
 func (o *GetV1BenchHostIDDockerParams) WithID(id string) *GetV1BenchHostIDDockerParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1BenchHostIDDockerParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

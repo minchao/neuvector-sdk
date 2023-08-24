@@ -61,9 +61,6 @@ GetV1WafSensorParams contains all the parameters to send to the API endpoint
 */
 type GetV1WafSensorParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   The default value is local which returns local waf rule list.
@@ -123,17 +120,6 @@ func (o *GetV1WafSensorParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 waf sensor params
-func (o *GetV1WafSensorParams) WithXAuthToken(xAuthToken string) *GetV1WafSensorParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 waf sensor params
-func (o *GetV1WafSensorParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 waf sensor params
 func (o *GetV1WafSensorParams) WithScope(scope *string) *GetV1WafSensorParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1WafSensorParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

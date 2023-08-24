@@ -61,9 +61,6 @@ DeleteV1APIKeyAccesskeyParams contains all the parameters to send to the API end
 */
 type DeleteV1APIKeyAccesskeyParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Accesskey.
 
 	   Apikey access key
@@ -123,17 +120,6 @@ func (o *DeleteV1APIKeyAccesskeyParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 API key accesskey params
-func (o *DeleteV1APIKeyAccesskeyParams) WithXAuthToken(xAuthToken string) *DeleteV1APIKeyAccesskeyParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 API key accesskey params
-func (o *DeleteV1APIKeyAccesskeyParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithAccesskey adds the accesskey to the delete v1 API key accesskey params
 func (o *DeleteV1APIKeyAccesskeyParams) WithAccesskey(accesskey string) *DeleteV1APIKeyAccesskeyParams {
 	o.SetAccesskey(accesskey)
@@ -152,11 +138,6 @@ func (o *DeleteV1APIKeyAccesskeyParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param accesskey
 	if err := r.SetPathParam("accesskey", o.Accesskey); err != nil {

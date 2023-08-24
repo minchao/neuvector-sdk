@@ -61,9 +61,6 @@ GetV1DlpSensorNameParams contains all the parameters to send to the API endpoint
 */
 type GetV1DlpSensorNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Sensor name
@@ -123,17 +120,6 @@ func (o *GetV1DlpSensorNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 dlp sensor name params
-func (o *GetV1DlpSensorNameParams) WithXAuthToken(xAuthToken string) *GetV1DlpSensorNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 dlp sensor name params
-func (o *GetV1DlpSensorNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 dlp sensor name params
 func (o *GetV1DlpSensorNameParams) WithName(name string) *GetV1DlpSensorNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1DlpSensorNameParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

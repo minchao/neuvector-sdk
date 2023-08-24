@@ -60,10 +60,6 @@ PostV1ScanPlatformPlatformParams contains all the parameters to send to the API 
 	Typically these are written to a http.Request.
 */
 type PostV1ScanPlatformPlatformParams struct {
-
-	// XAuthToken.
-	XAuthToken string
-
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -117,17 +113,6 @@ func (o *PostV1ScanPlatformPlatformParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 scan platform platform params
-func (o *PostV1ScanPlatformPlatformParams) WithXAuthToken(xAuthToken string) *PostV1ScanPlatformPlatformParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 scan platform platform params
-func (o *PostV1ScanPlatformPlatformParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *PostV1ScanPlatformPlatformParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -135,11 +120,6 @@ func (o *PostV1ScanPlatformPlatformParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

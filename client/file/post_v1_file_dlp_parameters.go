@@ -63,9 +63,6 @@ PostV1FileDlpParams contains all the parameters to send to the API endpoint
 */
 type PostV1FileDlpParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Configuration data
@@ -131,17 +128,6 @@ func (o *PostV1FileDlpParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 file dlp params
-func (o *PostV1FileDlpParams) WithXAuthToken(xAuthToken string) *PostV1FileDlpParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 file dlp params
-func (o *PostV1FileDlpParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 file dlp params
 func (o *PostV1FileDlpParams) WithBody(body *models.RESTDlpSensorExport) *PostV1FileDlpParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PostV1FileDlpParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

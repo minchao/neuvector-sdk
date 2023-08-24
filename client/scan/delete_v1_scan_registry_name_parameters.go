@@ -61,9 +61,6 @@ DeleteV1ScanRegistryNameParams contains all the parameters to send to the API en
 */
 type DeleteV1ScanRegistryNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Name of the registry
@@ -123,17 +120,6 @@ func (o *DeleteV1ScanRegistryNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 scan registry name params
-func (o *DeleteV1ScanRegistryNameParams) WithXAuthToken(xAuthToken string) *DeleteV1ScanRegistryNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 scan registry name params
-func (o *DeleteV1ScanRegistryNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the delete v1 scan registry name params
 func (o *DeleteV1ScanRegistryNameParams) WithName(name string) *DeleteV1ScanRegistryNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *DeleteV1ScanRegistryNameParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

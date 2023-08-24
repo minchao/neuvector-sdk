@@ -63,9 +63,6 @@ PatchV1FileMonitorNameParams contains all the parameters to send to the API endp
 */
 type PatchV1FileMonitorNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   File monitor update data
@@ -131,17 +128,6 @@ func (o *PatchV1FileMonitorNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 file monitor name params
-func (o *PatchV1FileMonitorNameParams) WithXAuthToken(xAuthToken string) *PatchV1FileMonitorNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 file monitor name params
-func (o *PatchV1FileMonitorNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 file monitor name params
 func (o *PatchV1FileMonitorNameParams) WithBody(body *models.RESTFileMonitorConfigData) *PatchV1FileMonitorNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1FileMonitorNameParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

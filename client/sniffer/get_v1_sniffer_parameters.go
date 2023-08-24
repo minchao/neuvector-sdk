@@ -61,9 +61,6 @@ GetV1SnifferParams contains all the parameters to send to the API endpoint
 */
 type GetV1SnifferParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* FWorkload.
 
 	   Workload ID
@@ -123,17 +120,6 @@ func (o *GetV1SnifferParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 sniffer params
-func (o *GetV1SnifferParams) WithXAuthToken(xAuthToken string) *GetV1SnifferParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 sniffer params
-func (o *GetV1SnifferParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithFWorkload adds the fWorkload to the get v1 sniffer params
 func (o *GetV1SnifferParams) WithFWorkload(fWorkload string) *GetV1SnifferParams {
 	o.SetFWorkload(fWorkload)
@@ -152,11 +138,6 @@ func (o *GetV1SnifferParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// query param f_workload
 	qrFWorkload := o.FWorkload

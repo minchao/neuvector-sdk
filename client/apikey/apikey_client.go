@@ -30,13 +30,13 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1APIKeyAccesskey(params *DeleteV1APIKeyAccesskeyParams, opts ...ClientOption) (*DeleteV1APIKeyAccesskeyOK, error)
+	DeleteV1APIKeyAccesskey(params *DeleteV1APIKeyAccesskeyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1APIKeyAccesskeyOK, error)
 
-	GetV1APIKey(params *GetV1APIKeyParams, opts ...ClientOption) (*GetV1APIKeyOK, error)
+	GetV1APIKey(params *GetV1APIKeyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1APIKeyOK, error)
 
-	GetV1APIKeyAccesskey(params *GetV1APIKeyAccesskeyParams, opts ...ClientOption) (*GetV1APIKeyAccesskeyOK, error)
+	GetV1APIKeyAccesskey(params *GetV1APIKeyAccesskeyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1APIKeyAccesskeyOK, error)
 
-	PostV1APIKey(params *PostV1APIKeyParams, opts ...ClientOption) (*PostV1APIKeyOK, error)
+	PostV1APIKey(params *PostV1APIKeyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1APIKeyOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ type ClientService interface {
 /*
 DeleteV1APIKeyAccesskey deletes apikey
 */
-func (a *Client) DeleteV1APIKeyAccesskey(params *DeleteV1APIKeyAccesskeyParams, opts ...ClientOption) (*DeleteV1APIKeyAccesskeyOK, error) {
+func (a *Client) DeleteV1APIKeyAccesskey(params *DeleteV1APIKeyAccesskeyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1APIKeyAccesskeyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1APIKeyAccesskeyParams()
@@ -58,6 +58,7 @@ func (a *Client) DeleteV1APIKeyAccesskey(params *DeleteV1APIKeyAccesskeyParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1APIKeyAccesskeyReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -82,7 +83,7 @@ func (a *Client) DeleteV1APIKeyAccesskey(params *DeleteV1APIKeyAccesskeyParams, 
 /*
 GetV1APIKey gets a list of apikeys
 */
-func (a *Client) GetV1APIKey(params *GetV1APIKeyParams, opts ...ClientOption) (*GetV1APIKeyOK, error) {
+func (a *Client) GetV1APIKey(params *GetV1APIKeyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1APIKeyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1APIKeyParams()
@@ -96,6 +97,7 @@ func (a *Client) GetV1APIKey(params *GetV1APIKeyParams, opts ...ClientOption) (*
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1APIKeyReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -120,7 +122,7 @@ func (a *Client) GetV1APIKey(params *GetV1APIKeyParams, opts ...ClientOption) (*
 /*
 GetV1APIKeyAccesskey gets an apikey
 */
-func (a *Client) GetV1APIKeyAccesskey(params *GetV1APIKeyAccesskeyParams, opts ...ClientOption) (*GetV1APIKeyAccesskeyOK, error) {
+func (a *Client) GetV1APIKeyAccesskey(params *GetV1APIKeyAccesskeyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1APIKeyAccesskeyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1APIKeyAccesskeyParams()
@@ -134,6 +136,7 @@ func (a *Client) GetV1APIKeyAccesskey(params *GetV1APIKeyAccesskeyParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1APIKeyAccesskeyReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -158,7 +161,7 @@ func (a *Client) GetV1APIKeyAccesskey(params *GetV1APIKeyAccesskeyParams, opts .
 /*
 PostV1APIKey creates an apikey
 */
-func (a *Client) PostV1APIKey(params *PostV1APIKeyParams, opts ...ClientOption) (*PostV1APIKeyOK, error) {
+func (a *Client) PostV1APIKey(params *PostV1APIKeyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1APIKeyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1APIKeyParams()
@@ -172,6 +175,7 @@ func (a *Client) PostV1APIKey(params *PostV1APIKeyParams, opts ...ClientOption) 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1APIKeyReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

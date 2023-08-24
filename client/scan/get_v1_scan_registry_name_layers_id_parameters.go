@@ -61,9 +61,6 @@ GetV1ScanRegistryNameLayersIDParams contains all the parameters to send to the A
 */
 type GetV1ScanRegistryNameLayersIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Layer ID
@@ -129,17 +126,6 @@ func (o *GetV1ScanRegistryNameLayersIDParams) SetHTTPClient(client *http.Client)
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 scan registry name layers ID params
-func (o *GetV1ScanRegistryNameLayersIDParams) WithXAuthToken(xAuthToken string) *GetV1ScanRegistryNameLayersIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 scan registry name layers ID params
-func (o *GetV1ScanRegistryNameLayersIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 scan registry name layers ID params
 func (o *GetV1ScanRegistryNameLayersIDParams) WithID(id string) *GetV1ScanRegistryNameLayersIDParams {
 	o.SetID(id)
@@ -169,11 +155,6 @@ func (o *GetV1ScanRegistryNameLayersIDParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

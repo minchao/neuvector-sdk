@@ -63,9 +63,6 @@ PatchV1UserFullnameRoleRoleParams contains all the parameters to send to the API
 */
 type PatchV1UserFullnameRoleRoleParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   User role domain update data
@@ -137,17 +134,6 @@ func (o *PatchV1UserFullnameRoleRoleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 user fullname role role params
-func (o *PatchV1UserFullnameRoleRoleParams) WithXAuthToken(xAuthToken string) *PatchV1UserFullnameRoleRoleParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 user fullname role role params
-func (o *PatchV1UserFullnameRoleRoleParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 user fullname role role params
 func (o *PatchV1UserFullnameRoleRoleParams) WithBody(body *models.RESTUserRoleDomainsConfigData) *PatchV1UserFullnameRoleRoleParams {
 	o.SetBody(body)
@@ -188,11 +174,6 @@ func (o *PatchV1UserFullnameRoleRoleParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

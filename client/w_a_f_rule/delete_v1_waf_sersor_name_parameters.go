@@ -61,9 +61,6 @@ DeleteV1WafSersorNameParams contains all the parameters to send to the API endpo
 */
 type DeleteV1WafSersorNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   waf sensor name
@@ -123,17 +120,6 @@ func (o *DeleteV1WafSersorNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 waf sersor name params
-func (o *DeleteV1WafSersorNameParams) WithXAuthToken(xAuthToken string) *DeleteV1WafSersorNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 waf sersor name params
-func (o *DeleteV1WafSersorNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the delete v1 waf sersor name params
 func (o *DeleteV1WafSersorNameParams) WithName(name string) *DeleteV1WafSersorNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *DeleteV1WafSersorNameParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

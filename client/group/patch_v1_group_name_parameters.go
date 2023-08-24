@@ -63,9 +63,6 @@ PatchV1GroupNameParams contains all the parameters to send to the API endpoint
 */
 type PatchV1GroupNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Group update data
@@ -131,17 +128,6 @@ func (o *PatchV1GroupNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 group name params
-func (o *PatchV1GroupNameParams) WithXAuthToken(xAuthToken string) *PatchV1GroupNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 group name params
-func (o *PatchV1GroupNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 group name params
 func (o *PatchV1GroupNameParams) WithBody(body *models.RESTGroupConfigData) *PatchV1GroupNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1GroupNameParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

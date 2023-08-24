@@ -30,17 +30,17 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1SnifferID(params *DeleteV1SnifferIDParams, opts ...ClientOption) (*DeleteV1SnifferIDOK, error)
+	DeleteV1SnifferID(params *DeleteV1SnifferIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1SnifferIDOK, error)
 
-	GetV1Sniffer(params *GetV1SnifferParams, opts ...ClientOption) (*GetV1SnifferOK, error)
+	GetV1Sniffer(params *GetV1SnifferParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SnifferOK, error)
 
-	GetV1SnifferID(params *GetV1SnifferIDParams, opts ...ClientOption) (*GetV1SnifferIDOK, error)
+	GetV1SnifferID(params *GetV1SnifferIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SnifferIDOK, error)
 
-	GetV1SnifferIDPcap(params *GetV1SnifferIDPcapParams, opts ...ClientOption) (*GetV1SnifferIDPcapOK, error)
+	GetV1SnifferIDPcap(params *GetV1SnifferIDPcapParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SnifferIDPcapOK, error)
 
-	PatchV1SnifferStopID(params *PatchV1SnifferStopIDParams, opts ...ClientOption) (*PatchV1SnifferStopIDOK, error)
+	PatchV1SnifferStopID(params *PatchV1SnifferStopIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1SnifferStopIDOK, error)
 
-	PostV1Sniffer(params *PostV1SnifferParams, opts ...ClientOption) (*PostV1SnifferOK, error)
+	PostV1Sniffer(params *PostV1SnifferParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1SnifferOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ type ClientService interface {
 /*
 DeleteV1SnifferID deletes sniffer
 */
-func (a *Client) DeleteV1SnifferID(params *DeleteV1SnifferIDParams, opts ...ClientOption) (*DeleteV1SnifferIDOK, error) {
+func (a *Client) DeleteV1SnifferID(params *DeleteV1SnifferIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1SnifferIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1SnifferIDParams()
@@ -62,6 +62,7 @@ func (a *Client) DeleteV1SnifferID(params *DeleteV1SnifferIDParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1SnifferIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -86,7 +87,7 @@ func (a *Client) DeleteV1SnifferID(params *DeleteV1SnifferIDParams, opts ...Clie
 /*
 GetV1Sniffer gets a list of sniffers
 */
-func (a *Client) GetV1Sniffer(params *GetV1SnifferParams, opts ...ClientOption) (*GetV1SnifferOK, error) {
+func (a *Client) GetV1Sniffer(params *GetV1SnifferParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SnifferOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1SnifferParams()
@@ -100,6 +101,7 @@ func (a *Client) GetV1Sniffer(params *GetV1SnifferParams, opts ...ClientOption) 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1SnifferReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -124,7 +126,7 @@ func (a *Client) GetV1Sniffer(params *GetV1SnifferParams, opts ...ClientOption) 
 /*
 GetV1SnifferID shows sniffer
 */
-func (a *Client) GetV1SnifferID(params *GetV1SnifferIDParams, opts ...ClientOption) (*GetV1SnifferIDOK, error) {
+func (a *Client) GetV1SnifferID(params *GetV1SnifferIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SnifferIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1SnifferIDParams()
@@ -138,6 +140,7 @@ func (a *Client) GetV1SnifferID(params *GetV1SnifferIDParams, opts ...ClientOpti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1SnifferIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -162,7 +165,7 @@ func (a *Client) GetV1SnifferID(params *GetV1SnifferIDParams, opts ...ClientOpti
 /*
 GetV1SnifferIDPcap sniffers get a pcap file
 */
-func (a *Client) GetV1SnifferIDPcap(params *GetV1SnifferIDPcapParams, opts ...ClientOption) (*GetV1SnifferIDPcapOK, error) {
+func (a *Client) GetV1SnifferIDPcap(params *GetV1SnifferIDPcapParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1SnifferIDPcapOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1SnifferIDPcapParams()
@@ -176,6 +179,7 @@ func (a *Client) GetV1SnifferIDPcap(params *GetV1SnifferIDPcapParams, opts ...Cl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1SnifferIDPcapReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -200,7 +204,7 @@ func (a *Client) GetV1SnifferIDPcap(params *GetV1SnifferIDPcapParams, opts ...Cl
 /*
 PatchV1SnifferStopID stops sniffer
 */
-func (a *Client) PatchV1SnifferStopID(params *PatchV1SnifferStopIDParams, opts ...ClientOption) (*PatchV1SnifferStopIDOK, error) {
+func (a *Client) PatchV1SnifferStopID(params *PatchV1SnifferStopIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1SnifferStopIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1SnifferStopIDParams()
@@ -214,6 +218,7 @@ func (a *Client) PatchV1SnifferStopID(params *PatchV1SnifferStopIDParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1SnifferStopIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -238,7 +243,7 @@ func (a *Client) PatchV1SnifferStopID(params *PatchV1SnifferStopIDParams, opts .
 /*
 PostV1Sniffer sniffers start
 */
-func (a *Client) PostV1Sniffer(params *PostV1SnifferParams, opts ...ClientOption) (*PostV1SnifferOK, error) {
+func (a *Client) PostV1Sniffer(params *PostV1SnifferParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1SnifferOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1SnifferParams()
@@ -252,6 +257,7 @@ func (a *Client) PostV1Sniffer(params *PostV1SnifferParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1SnifferReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

@@ -61,9 +61,6 @@ GetV1ComplianceProfileNameParams contains all the parameters to send to the API 
 */
 type GetV1ComplianceProfileNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Profile name
@@ -123,17 +120,6 @@ func (o *GetV1ComplianceProfileNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 compliance profile name params
-func (o *GetV1ComplianceProfileNameParams) WithXAuthToken(xAuthToken string) *GetV1ComplianceProfileNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 compliance profile name params
-func (o *GetV1ComplianceProfileNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 compliance profile name params
 func (o *GetV1ComplianceProfileNameParams) WithName(name string) *GetV1ComplianceProfileNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1ComplianceProfileNameParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

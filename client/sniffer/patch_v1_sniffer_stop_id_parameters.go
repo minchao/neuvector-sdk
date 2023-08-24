@@ -61,9 +61,6 @@ PatchV1SnifferStopIDParams contains all the parameters to send to the API endpoi
 */
 type PatchV1SnifferStopIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Sniffer ID
@@ -123,17 +120,6 @@ func (o *PatchV1SnifferStopIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 sniffer stop ID params
-func (o *PatchV1SnifferStopIDParams) WithXAuthToken(xAuthToken string) *PatchV1SnifferStopIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 sniffer stop ID params
-func (o *PatchV1SnifferStopIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the patch v1 sniffer stop ID params
 func (o *PatchV1SnifferStopIDParams) WithID(id string) *PatchV1SnifferStopIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *PatchV1SnifferStopIDParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

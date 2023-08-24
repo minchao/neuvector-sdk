@@ -63,9 +63,6 @@ PatchV1DomainParams contains all the parameters to send to the API endpoint
 */
 type PatchV1DomainParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Namespace update data
@@ -125,17 +122,6 @@ func (o *PatchV1DomainParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 domain params
-func (o *PatchV1DomainParams) WithXAuthToken(xAuthToken string) *PatchV1DomainParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 domain params
-func (o *PatchV1DomainParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 domain params
 func (o *PatchV1DomainParams) WithBody(body *models.RESTDomainConfigData) *PatchV1DomainParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PatchV1DomainParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

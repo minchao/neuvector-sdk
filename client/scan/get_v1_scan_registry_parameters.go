@@ -61,9 +61,6 @@ GetV1ScanRegistryParams contains all the parameters to send to the API endpoint
 */
 type GetV1ScanRegistryParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Scope.
 
 	   When set to fed, returned fed registries. When set to local, returned local-defined registries. If there is no query string 'scope', all registries will be returned.
@@ -123,17 +120,6 @@ func (o *GetV1ScanRegistryParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 scan registry params
-func (o *GetV1ScanRegistryParams) WithXAuthToken(xAuthToken string) *GetV1ScanRegistryParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 scan registry params
-func (o *GetV1ScanRegistryParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithScope adds the scope to the get v1 scan registry params
 func (o *GetV1ScanRegistryParams) WithScope(scope *string) *GetV1ScanRegistryParams {
 	o.SetScope(scope)
@@ -152,11 +138,6 @@ func (o *GetV1ScanRegistryParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.Scope != nil {
 

@@ -61,9 +61,6 @@ GetV1ServerNameUserParams contains all the parameters to send to the API endpoin
 */
 type GetV1ServerNameUserParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Name of the server
@@ -123,17 +120,6 @@ func (o *GetV1ServerNameUserParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 server name user params
-func (o *GetV1ServerNameUserParams) WithXAuthToken(xAuthToken string) *GetV1ServerNameUserParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 server name user params
-func (o *GetV1ServerNameUserParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 server name user params
 func (o *GetV1ServerNameUserParams) WithName(name string) *GetV1ServerNameUserParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1ServerNameUserParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

@@ -61,9 +61,6 @@ GetV1CustomCheckGroupParams contains all the parameters to send to the API endpo
 */
 type GetV1CustomCheckGroupParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Group.
 
 	   Script config name
@@ -123,17 +120,6 @@ func (o *GetV1CustomCheckGroupParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 custom check group params
-func (o *GetV1CustomCheckGroupParams) WithXAuthToken(xAuthToken string) *GetV1CustomCheckGroupParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 custom check group params
-func (o *GetV1CustomCheckGroupParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithGroup adds the group to the get v1 custom check group params
 func (o *GetV1CustomCheckGroupParams) WithGroup(group string) *GetV1CustomCheckGroupParams {
 	o.SetGroup(group)
@@ -152,11 +138,6 @@ func (o *GetV1CustomCheckGroupParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param group
 	if err := r.SetPathParam("group", o.Group); err != nil {

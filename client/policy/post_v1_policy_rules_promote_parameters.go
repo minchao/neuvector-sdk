@@ -63,9 +63,6 @@ PostV1PolicyRulesPromoteParams contains all the parameters to send to the API en
 */
 type PostV1PolicyRulesPromoteParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Policy promote data
@@ -125,17 +122,6 @@ func (o *PostV1PolicyRulesPromoteParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 policy rules promote params
-func (o *PostV1PolicyRulesPromoteParams) WithXAuthToken(xAuthToken string) *PostV1PolicyRulesPromoteParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 policy rules promote params
-func (o *PostV1PolicyRulesPromoteParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 policy rules promote params
 func (o *PostV1PolicyRulesPromoteParams) WithBody(body *models.RESTPolicyPromoteRequestData) *PostV1PolicyRulesPromoteParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PostV1PolicyRulesPromoteParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

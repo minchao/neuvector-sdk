@@ -63,9 +63,6 @@ PatchV1ServerNameRoleRoleParams contains all the parameters to send to the API e
 */
 type PatchV1ServerNameRoleRoleParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Server role groups update data
@@ -137,17 +134,6 @@ func (o *PatchV1ServerNameRoleRoleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 server name role role params
-func (o *PatchV1ServerNameRoleRoleParams) WithXAuthToken(xAuthToken string) *PatchV1ServerNameRoleRoleParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 server name role role params
-func (o *PatchV1ServerNameRoleRoleParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 server name role role params
 func (o *PatchV1ServerNameRoleRoleParams) WithBody(body *models.RESTServerRoleGroupsConfigData) *PatchV1ServerNameRoleRoleParams {
 	o.SetBody(body)
@@ -188,11 +174,6 @@ func (o *PatchV1ServerNameRoleRoleParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

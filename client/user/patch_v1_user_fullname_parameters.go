@@ -63,9 +63,6 @@ PatchV1UserFullnameParams contains all the parameters to send to the API endpoin
 */
 type PatchV1UserFullnameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   User update data
@@ -131,17 +128,6 @@ func (o *PatchV1UserFullnameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 user fullname params
-func (o *PatchV1UserFullnameParams) WithXAuthToken(xAuthToken string) *PatchV1UserFullnameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 user fullname params
-func (o *PatchV1UserFullnameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 user fullname params
 func (o *PatchV1UserFullnameParams) WithBody(body *models.RESTUserConfigData) *PatchV1UserFullnameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1UserFullnameParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -61,9 +61,6 @@ DeleteV1SnifferIDParams contains all the parameters to send to the API endpoint
 */
 type DeleteV1SnifferIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Sniffer ID
@@ -123,17 +120,6 @@ func (o *DeleteV1SnifferIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 sniffer ID params
-func (o *DeleteV1SnifferIDParams) WithXAuthToken(xAuthToken string) *DeleteV1SnifferIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 sniffer ID params
-func (o *DeleteV1SnifferIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the delete v1 sniffer ID params
 func (o *DeleteV1SnifferIDParams) WithID(id string) *DeleteV1SnifferIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *DeleteV1SnifferIDParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

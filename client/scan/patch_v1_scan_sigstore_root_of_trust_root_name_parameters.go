@@ -63,9 +63,6 @@ PatchV1ScanSigstoreRootOfTrustRootNameParams contains all the parameters to send
 */
 type PatchV1ScanSigstoreRootOfTrustRootNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Root of Trust Data
@@ -131,17 +128,6 @@ func (o *PatchV1ScanSigstoreRootOfTrustRootNameParams) SetHTTPClient(client *htt
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 scan sigstore root of trust root name params
-func (o *PatchV1ScanSigstoreRootOfTrustRootNameParams) WithXAuthToken(xAuthToken string) *PatchV1ScanSigstoreRootOfTrustRootNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 scan sigstore root of trust root name params
-func (o *PatchV1ScanSigstoreRootOfTrustRootNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 scan sigstore root of trust root name params
 func (o *PatchV1ScanSigstoreRootOfTrustRootNameParams) WithBody(body *models.RESTSigstoreRootOfTrustPatch) *PatchV1ScanSigstoreRootOfTrustRootNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1ScanSigstoreRootOfTrustRootNameParams) WriteToRequest(r runtime.
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

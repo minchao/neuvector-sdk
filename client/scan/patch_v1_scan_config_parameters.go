@@ -63,9 +63,6 @@ PatchV1ScanConfigParams contains all the parameters to send to the API endpoint
 */
 type PatchV1ScanConfigParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Scan configure data
@@ -125,17 +122,6 @@ func (o *PatchV1ScanConfigParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 scan config params
-func (o *PatchV1ScanConfigParams) WithXAuthToken(xAuthToken string) *PatchV1ScanConfigParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 scan config params
-func (o *PatchV1ScanConfigParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 scan config params
 func (o *PatchV1ScanConfigParams) WithBody(body *models.RESTScanConfigData) *PatchV1ScanConfigParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PatchV1ScanConfigParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

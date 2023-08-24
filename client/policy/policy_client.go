@@ -30,19 +30,19 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1PolicyRule(params *DeleteV1PolicyRuleParams, opts ...ClientOption) (*DeleteV1PolicyRuleOK, error)
+	DeleteV1PolicyRule(params *DeleteV1PolicyRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1PolicyRuleOK, error)
 
-	DeleteV1PolicyRuleID(params *DeleteV1PolicyRuleIDParams, opts ...ClientOption) (*DeleteV1PolicyRuleIDOK, error)
+	DeleteV1PolicyRuleID(params *DeleteV1PolicyRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1PolicyRuleIDOK, error)
 
-	GetV1PolicyRule(params *GetV1PolicyRuleParams, opts ...ClientOption) (*GetV1PolicyRuleOK, error)
+	GetV1PolicyRule(params *GetV1PolicyRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1PolicyRuleOK, error)
 
-	GetV1PolicyRuleID(params *GetV1PolicyRuleIDParams, opts ...ClientOption) (*GetV1PolicyRuleIDOK, error)
+	GetV1PolicyRuleID(params *GetV1PolicyRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1PolicyRuleIDOK, error)
 
-	PatchV1PolicyRule(params *PatchV1PolicyRuleParams, opts ...ClientOption) (*PatchV1PolicyRuleOK, error)
+	PatchV1PolicyRule(params *PatchV1PolicyRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1PolicyRuleOK, error)
 
-	PatchV1PolicyRuleID(params *PatchV1PolicyRuleIDParams, opts ...ClientOption) (*PatchV1PolicyRuleIDOK, error)
+	PatchV1PolicyRuleID(params *PatchV1PolicyRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1PolicyRuleIDOK, error)
 
-	PostV1PolicyRulesPromote(params *PostV1PolicyRulesPromoteParams, opts ...ClientOption) (*PostV1PolicyRulesPromoteOK, error)
+	PostV1PolicyRulesPromote(params *PostV1PolicyRulesPromoteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1PolicyRulesPromoteOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,7 +50,7 @@ type ClientService interface {
 /*
 DeleteV1PolicyRule deletes all policy rules
 */
-func (a *Client) DeleteV1PolicyRule(params *DeleteV1PolicyRuleParams, opts ...ClientOption) (*DeleteV1PolicyRuleOK, error) {
+func (a *Client) DeleteV1PolicyRule(params *DeleteV1PolicyRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1PolicyRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1PolicyRuleParams()
@@ -64,6 +64,7 @@ func (a *Client) DeleteV1PolicyRule(params *DeleteV1PolicyRuleParams, opts ...Cl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1PolicyRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -88,7 +89,7 @@ func (a *Client) DeleteV1PolicyRule(params *DeleteV1PolicyRuleParams, opts ...Cl
 /*
 DeleteV1PolicyRuleID deletes policy rule
 */
-func (a *Client) DeleteV1PolicyRuleID(params *DeleteV1PolicyRuleIDParams, opts ...ClientOption) (*DeleteV1PolicyRuleIDOK, error) {
+func (a *Client) DeleteV1PolicyRuleID(params *DeleteV1PolicyRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1PolicyRuleIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1PolicyRuleIDParams()
@@ -102,6 +103,7 @@ func (a *Client) DeleteV1PolicyRuleID(params *DeleteV1PolicyRuleIDParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1PolicyRuleIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -126,7 +128,7 @@ func (a *Client) DeleteV1PolicyRuleID(params *DeleteV1PolicyRuleIDParams, opts .
 /*
 GetV1PolicyRule gets a list of policy rules
 */
-func (a *Client) GetV1PolicyRule(params *GetV1PolicyRuleParams, opts ...ClientOption) (*GetV1PolicyRuleOK, error) {
+func (a *Client) GetV1PolicyRule(params *GetV1PolicyRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1PolicyRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1PolicyRuleParams()
@@ -140,6 +142,7 @@ func (a *Client) GetV1PolicyRule(params *GetV1PolicyRuleParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1PolicyRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -164,7 +167,7 @@ func (a *Client) GetV1PolicyRule(params *GetV1PolicyRuleParams, opts ...ClientOp
 /*
 GetV1PolicyRuleID shows policy rule
 */
-func (a *Client) GetV1PolicyRuleID(params *GetV1PolicyRuleIDParams, opts ...ClientOption) (*GetV1PolicyRuleIDOK, error) {
+func (a *Client) GetV1PolicyRuleID(params *GetV1PolicyRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1PolicyRuleIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1PolicyRuleIDParams()
@@ -178,6 +181,7 @@ func (a *Client) GetV1PolicyRuleID(params *GetV1PolicyRuleIDParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1PolicyRuleIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -202,7 +206,7 @@ func (a *Client) GetV1PolicyRuleID(params *GetV1PolicyRuleIDParams, opts ...Clie
 /*
 PatchV1PolicyRule policies rule action
 */
-func (a *Client) PatchV1PolicyRule(params *PatchV1PolicyRuleParams, opts ...ClientOption) (*PatchV1PolicyRuleOK, error) {
+func (a *Client) PatchV1PolicyRule(params *PatchV1PolicyRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1PolicyRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1PolicyRuleParams()
@@ -216,6 +220,7 @@ func (a *Client) PatchV1PolicyRule(params *PatchV1PolicyRuleParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1PolicyRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -240,7 +245,7 @@ func (a *Client) PatchV1PolicyRule(params *PatchV1PolicyRuleParams, opts ...Clie
 /*
 PatchV1PolicyRuleID updates policy rule
 */
-func (a *Client) PatchV1PolicyRuleID(params *PatchV1PolicyRuleIDParams, opts ...ClientOption) (*PatchV1PolicyRuleIDOK, error) {
+func (a *Client) PatchV1PolicyRuleID(params *PatchV1PolicyRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1PolicyRuleIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1PolicyRuleIDParams()
@@ -254,6 +259,7 @@ func (a *Client) PatchV1PolicyRuleID(params *PatchV1PolicyRuleIDParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1PolicyRuleIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -278,7 +284,7 @@ func (a *Client) PatchV1PolicyRuleID(params *PatchV1PolicyRuleIDParams, opts ...
 /*
 PostV1PolicyRulesPromote promotes policy
 */
-func (a *Client) PostV1PolicyRulesPromote(params *PostV1PolicyRulesPromoteParams, opts ...ClientOption) (*PostV1PolicyRulesPromoteOK, error) {
+func (a *Client) PostV1PolicyRulesPromote(params *PostV1PolicyRulesPromoteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1PolicyRulesPromoteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1PolicyRulesPromoteParams()
@@ -292,6 +298,7 @@ func (a *Client) PostV1PolicyRulesPromote(params *PostV1PolicyRulesPromoteParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1PolicyRulesPromoteReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

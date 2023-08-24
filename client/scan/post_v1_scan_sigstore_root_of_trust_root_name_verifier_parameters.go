@@ -63,9 +63,6 @@ PostV1ScanSigstoreRootOfTrustRootNameVerifierParams contains all the parameters 
 */
 type PostV1ScanSigstoreRootOfTrustRootNameVerifierParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Root of Trust Data
@@ -131,17 +128,6 @@ func (o *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams) SetHTTPClient(clie
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 scan sigstore root of trust root name verifier params
-func (o *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams) WithXAuthToken(xAuthToken string) *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 scan sigstore root of trust root name verifier params
-func (o *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 scan sigstore root of trust root name verifier params
 func (o *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams) WithBody(body *models.RESTSigstoreVerifier) *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

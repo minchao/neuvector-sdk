@@ -63,9 +63,6 @@ PostV1ServerParams contains all the parameters to send to the API endpoint
 */
 type PostV1ServerParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Server data
@@ -125,17 +122,6 @@ func (o *PostV1ServerParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 server params
-func (o *PostV1ServerParams) WithXAuthToken(xAuthToken string) *PostV1ServerParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 server params
-func (o *PostV1ServerParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 server params
 func (o *PostV1ServerParams) WithBody(body *models.RESTServerConfigData) *PostV1ServerParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PostV1ServerParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

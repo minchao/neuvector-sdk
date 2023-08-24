@@ -60,10 +60,6 @@ GetV1UserParams contains all the parameters to send to the API endpoint
 	Typically these are written to a http.Request.
 */
 type GetV1UserParams struct {
-
-	// XAuthToken.
-	XAuthToken string
-
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -117,17 +113,6 @@ func (o *GetV1UserParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 user params
-func (o *GetV1UserParams) WithXAuthToken(xAuthToken string) *GetV1UserParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 user params
-func (o *GetV1UserParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *GetV1UserParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -135,11 +120,6 @@ func (o *GetV1UserParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

@@ -61,9 +61,6 @@ GetV1WafSersorNameParams contains all the parameters to send to the API endpoint
 */
 type GetV1WafSersorNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   waf sensor name
@@ -123,17 +120,6 @@ func (o *GetV1WafSersorNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 waf sersor name params
-func (o *GetV1WafSersorNameParams) WithXAuthToken(xAuthToken string) *GetV1WafSersorNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 waf sersor name params
-func (o *GetV1WafSersorNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 waf sersor name params
 func (o *GetV1WafSersorNameParams) WithName(name string) *GetV1WafSersorNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1WafSersorNameParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

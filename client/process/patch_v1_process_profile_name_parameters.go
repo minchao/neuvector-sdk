@@ -63,9 +63,6 @@ PatchV1ProcessProfileNameParams contains all the parameters to send to the API e
 */
 type PatchV1ProcessProfileNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Process profile configure data
@@ -131,17 +128,6 @@ func (o *PatchV1ProcessProfileNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 process profile name params
-func (o *PatchV1ProcessProfileNameParams) WithXAuthToken(xAuthToken string) *PatchV1ProcessProfileNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 process profile name params
-func (o *PatchV1ProcessProfileNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 process profile name params
 func (o *PatchV1ProcessProfileNameParams) WithBody(body *models.RESTProcessProfileConfigData) *PatchV1ProcessProfileNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1ProcessProfileNameParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

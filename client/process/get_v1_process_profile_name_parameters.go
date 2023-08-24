@@ -61,9 +61,6 @@ GetV1ProcessProfileNameParams contains all the parameters to send to the API end
 */
 type GetV1ProcessProfileNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Process profile name
@@ -123,17 +120,6 @@ func (o *GetV1ProcessProfileNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 process profile name params
-func (o *GetV1ProcessProfileNameParams) WithXAuthToken(xAuthToken string) *GetV1ProcessProfileNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 process profile name params
-func (o *GetV1ProcessProfileNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 process profile name params
 func (o *GetV1ProcessProfileNameParams) WithName(name string) *GetV1ProcessProfileNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1ProcessProfileNameParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

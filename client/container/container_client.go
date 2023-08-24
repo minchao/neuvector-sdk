@@ -30,27 +30,27 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1Workload(params *GetV1WorkloadParams, opts ...ClientOption) (*GetV1WorkloadOK, error)
+	GetV1Workload(params *GetV1WorkloadParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadOK, error)
 
-	GetV1WorkloadID(params *GetV1WorkloadIDParams, opts ...ClientOption) (*GetV1WorkloadIDOK, error)
+	GetV1WorkloadID(params *GetV1WorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDOK, error)
 
-	GetV1WorkloadIDCompliance(params *GetV1WorkloadIDComplianceParams, opts ...ClientOption) (*GetV1WorkloadIDComplianceOK, error)
+	GetV1WorkloadIDCompliance(params *GetV1WorkloadIDComplianceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDComplianceOK, error)
 
-	GetV1WorkloadIDConfig(params *GetV1WorkloadIDConfigParams, opts ...ClientOption) (*GetV1WorkloadIDConfigOK, error)
+	GetV1WorkloadIDConfig(params *GetV1WorkloadIDConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDConfigOK, error)
 
-	GetV1WorkloadIDProcess(params *GetV1WorkloadIDProcessParams, opts ...ClientOption) (*GetV1WorkloadIDProcessOK, error)
+	GetV1WorkloadIDProcess(params *GetV1WorkloadIDProcessParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDProcessOK, error)
 
-	GetV1WorkloadIDProcessHistory(params *GetV1WorkloadIDProcessHistoryParams, opts ...ClientOption) (*GetV1WorkloadIDProcessHistoryOK, error)
+	GetV1WorkloadIDProcessHistory(params *GetV1WorkloadIDProcessHistoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDProcessHistoryOK, error)
 
-	GetV1WorkloadIDStats(params *GetV1WorkloadIDStatsParams, opts ...ClientOption) (*GetV1WorkloadIDStatsOK, error)
+	GetV1WorkloadIDStats(params *GetV1WorkloadIDStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDStatsOK, error)
 
-	GetV2Workload(params *GetV2WorkloadParams, opts ...ClientOption) (*GetV2WorkloadOK, error)
+	GetV2Workload(params *GetV2WorkloadParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV2WorkloadOK, error)
 
-	GetV2WorkloadID(params *GetV2WorkloadIDParams, opts ...ClientOption) (*GetV2WorkloadIDOK, error)
+	GetV2WorkloadID(params *GetV2WorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV2WorkloadIDOK, error)
 
-	PatchV1WorkloadID(params *PatchV1WorkloadIDParams, opts ...ClientOption) (*PatchV1WorkloadIDOK, error)
+	PatchV1WorkloadID(params *PatchV1WorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1WorkloadIDOK, error)
 
-	PostV1WorkloadRequestID(params *PostV1WorkloadRequestIDParams, opts ...ClientOption) (*PostV1WorkloadRequestIDOK, error)
+	PostV1WorkloadRequestID(params *PostV1WorkloadRequestIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1WorkloadRequestIDOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -58,7 +58,7 @@ type ClientService interface {
 /*
 GetV1Workload gets container list
 */
-func (a *Client) GetV1Workload(params *GetV1WorkloadParams, opts ...ClientOption) (*GetV1WorkloadOK, error) {
+func (a *Client) GetV1Workload(params *GetV1WorkloadParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WorkloadParams()
@@ -72,6 +72,7 @@ func (a *Client) GetV1Workload(params *GetV1WorkloadParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WorkloadReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -96,7 +97,7 @@ func (a *Client) GetV1Workload(params *GetV1WorkloadParams, opts ...ClientOption
 /*
 GetV1WorkloadID gets container detail
 */
-func (a *Client) GetV1WorkloadID(params *GetV1WorkloadIDParams, opts ...ClientOption) (*GetV1WorkloadIDOK, error) {
+func (a *Client) GetV1WorkloadID(params *GetV1WorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WorkloadIDParams()
@@ -110,6 +111,7 @@ func (a *Client) GetV1WorkloadID(params *GetV1WorkloadIDParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WorkloadIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -134,7 +136,7 @@ func (a *Client) GetV1WorkloadID(params *GetV1WorkloadIDParams, opts ...ClientOp
 /*
 GetV1WorkloadIDCompliance gets a container compliance report
 */
-func (a *Client) GetV1WorkloadIDCompliance(params *GetV1WorkloadIDComplianceParams, opts ...ClientOption) (*GetV1WorkloadIDComplianceOK, error) {
+func (a *Client) GetV1WorkloadIDCompliance(params *GetV1WorkloadIDComplianceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDComplianceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WorkloadIDComplianceParams()
@@ -148,6 +150,7 @@ func (a *Client) GetV1WorkloadIDCompliance(params *GetV1WorkloadIDCompliancePara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WorkloadIDComplianceReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -172,7 +175,7 @@ func (a *Client) GetV1WorkloadIDCompliance(params *GetV1WorkloadIDCompliancePara
 /*
 GetV1WorkloadIDConfig gets a container configure
 */
-func (a *Client) GetV1WorkloadIDConfig(params *GetV1WorkloadIDConfigParams, opts ...ClientOption) (*GetV1WorkloadIDConfigOK, error) {
+func (a *Client) GetV1WorkloadIDConfig(params *GetV1WorkloadIDConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WorkloadIDConfigParams()
@@ -186,6 +189,7 @@ func (a *Client) GetV1WorkloadIDConfig(params *GetV1WorkloadIDConfigParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WorkloadIDConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -210,7 +214,7 @@ func (a *Client) GetV1WorkloadIDConfig(params *GetV1WorkloadIDConfigParams, opts
 /*
 GetV1WorkloadIDProcess gets a container process
 */
-func (a *Client) GetV1WorkloadIDProcess(params *GetV1WorkloadIDProcessParams, opts ...ClientOption) (*GetV1WorkloadIDProcessOK, error) {
+func (a *Client) GetV1WorkloadIDProcess(params *GetV1WorkloadIDProcessParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDProcessOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WorkloadIDProcessParams()
@@ -224,6 +228,7 @@ func (a *Client) GetV1WorkloadIDProcess(params *GetV1WorkloadIDProcessParams, op
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WorkloadIDProcessReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -248,7 +253,7 @@ func (a *Client) GetV1WorkloadIDProcess(params *GetV1WorkloadIDProcessParams, op
 /*
 GetV1WorkloadIDProcessHistory gets a container process history
 */
-func (a *Client) GetV1WorkloadIDProcessHistory(params *GetV1WorkloadIDProcessHistoryParams, opts ...ClientOption) (*GetV1WorkloadIDProcessHistoryOK, error) {
+func (a *Client) GetV1WorkloadIDProcessHistory(params *GetV1WorkloadIDProcessHistoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDProcessHistoryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WorkloadIDProcessHistoryParams()
@@ -262,6 +267,7 @@ func (a *Client) GetV1WorkloadIDProcessHistory(params *GetV1WorkloadIDProcessHis
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WorkloadIDProcessHistoryReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -286,7 +292,7 @@ func (a *Client) GetV1WorkloadIDProcessHistory(params *GetV1WorkloadIDProcessHis
 /*
 GetV1WorkloadIDStats gets container stats
 */
-func (a *Client) GetV1WorkloadIDStats(params *GetV1WorkloadIDStatsParams, opts ...ClientOption) (*GetV1WorkloadIDStatsOK, error) {
+func (a *Client) GetV1WorkloadIDStats(params *GetV1WorkloadIDStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WorkloadIDStatsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WorkloadIDStatsParams()
@@ -300,6 +306,7 @@ func (a *Client) GetV1WorkloadIDStats(params *GetV1WorkloadIDStatsParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WorkloadIDStatsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -324,7 +331,7 @@ func (a *Client) GetV1WorkloadIDStats(params *GetV1WorkloadIDStatsParams, opts .
 /*
 GetV2Workload gets container list starting from 5 0 rest client should call this api
 */
-func (a *Client) GetV2Workload(params *GetV2WorkloadParams, opts ...ClientOption) (*GetV2WorkloadOK, error) {
+func (a *Client) GetV2Workload(params *GetV2WorkloadParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV2WorkloadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV2WorkloadParams()
@@ -338,6 +345,7 @@ func (a *Client) GetV2Workload(params *GetV2WorkloadParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV2WorkloadReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -362,7 +370,7 @@ func (a *Client) GetV2Workload(params *GetV2WorkloadParams, opts ...ClientOption
 /*
 GetV2WorkloadID gets container detail starting from 5 0 rest client should call this api
 */
-func (a *Client) GetV2WorkloadID(params *GetV2WorkloadIDParams, opts ...ClientOption) (*GetV2WorkloadIDOK, error) {
+func (a *Client) GetV2WorkloadID(params *GetV2WorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV2WorkloadIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV2WorkloadIDParams()
@@ -376,6 +384,7 @@ func (a *Client) GetV2WorkloadID(params *GetV2WorkloadIDParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV2WorkloadIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -400,7 +409,7 @@ func (a *Client) GetV2WorkloadID(params *GetV2WorkloadIDParams, opts ...ClientOp
 /*
 PatchV1WorkloadID updates container
 */
-func (a *Client) PatchV1WorkloadID(params *PatchV1WorkloadIDParams, opts ...ClientOption) (*PatchV1WorkloadIDOK, error) {
+func (a *Client) PatchV1WorkloadID(params *PatchV1WorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1WorkloadIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1WorkloadIDParams()
@@ -414,6 +423,7 @@ func (a *Client) PatchV1WorkloadID(params *PatchV1WorkloadIDParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1WorkloadIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -438,7 +448,7 @@ func (a *Client) PatchV1WorkloadID(params *PatchV1WorkloadIDParams, opts ...Clie
 /*
 PostV1WorkloadRequestID containers request
 */
-func (a *Client) PostV1WorkloadRequestID(params *PostV1WorkloadRequestIDParams, opts ...ClientOption) (*PostV1WorkloadRequestIDOK, error) {
+func (a *Client) PostV1WorkloadRequestID(params *PostV1WorkloadRequestIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1WorkloadRequestIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1WorkloadRequestIDParams()
@@ -452,6 +462,7 @@ func (a *Client) PostV1WorkloadRequestID(params *PostV1WorkloadRequestIDParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1WorkloadRequestIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

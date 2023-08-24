@@ -63,9 +63,6 @@ PatchV1UserRoleNameParams contains all the parameters to send to the API endpoin
 */
 type PatchV1UserRoleNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   User role update data
@@ -131,17 +128,6 @@ func (o *PatchV1UserRoleNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 user role name params
-func (o *PatchV1UserRoleNameParams) WithXAuthToken(xAuthToken string) *PatchV1UserRoleNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 user role name params
-func (o *PatchV1UserRoleNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 user role name params
 func (o *PatchV1UserRoleNameParams) WithBody(body *models.RESTUserRoleConfigData) *PatchV1UserRoleNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1UserRoleNameParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

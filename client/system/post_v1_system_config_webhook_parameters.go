@@ -63,9 +63,6 @@ PostV1SystemConfigWebhookParams contains all the parameters to send to the API e
 */
 type PostV1SystemConfigWebhookParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   System configure data
@@ -125,17 +122,6 @@ func (o *PostV1SystemConfigWebhookParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 system config webhook params
-func (o *PostV1SystemConfigWebhookParams) WithXAuthToken(xAuthToken string) *PostV1SystemConfigWebhookParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 system config webhook params
-func (o *PostV1SystemConfigWebhookParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 system config webhook params
 func (o *PostV1SystemConfigWebhookParams) WithBody(body *models.RESTSystemWebhookConfigData) *PostV1SystemConfigWebhookParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PostV1SystemConfigWebhookParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

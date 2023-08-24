@@ -61,9 +61,6 @@ GetV1EnforcerIDParams contains all the parameters to send to the API endpoint
 */
 type GetV1EnforcerIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Enforcer ID
@@ -123,17 +120,6 @@ func (o *GetV1EnforcerIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 enforcer ID params
-func (o *GetV1EnforcerIDParams) WithXAuthToken(xAuthToken string) *GetV1EnforcerIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 enforcer ID params
-func (o *GetV1EnforcerIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 enforcer ID params
 func (o *GetV1EnforcerIDParams) WithID(id string) *GetV1EnforcerIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1EnforcerIDParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

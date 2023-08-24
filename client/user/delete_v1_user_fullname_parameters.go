@@ -61,9 +61,6 @@ DeleteV1UserFullnameParams contains all the parameters to send to the API endpoi
 */
 type DeleteV1UserFullnameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Fullname.
 
 	   User name
@@ -123,17 +120,6 @@ func (o *DeleteV1UserFullnameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 user fullname params
-func (o *DeleteV1UserFullnameParams) WithXAuthToken(xAuthToken string) *DeleteV1UserFullnameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 user fullname params
-func (o *DeleteV1UserFullnameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithFullname adds the fullname to the delete v1 user fullname params
 func (o *DeleteV1UserFullnameParams) WithFullname(fullname string) *DeleteV1UserFullnameParams {
 	o.SetFullname(fullname)
@@ -152,11 +138,6 @@ func (o *DeleteV1UserFullnameParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param fullname
 	if err := r.SetPathParam("fullname", o.Fullname); err != nil {

@@ -63,9 +63,6 @@ PostV1APIKeyParams contains all the parameters to send to the API endpoint
 */
 type PostV1APIKeyParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Apikey information
@@ -125,17 +122,6 @@ func (o *PostV1APIKeyParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 API key params
-func (o *PostV1APIKeyParams) WithXAuthToken(xAuthToken string) *PostV1APIKeyParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 API key params
-func (o *PostV1APIKeyParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 API key params
 func (o *PostV1APIKeyParams) WithBody(body *models.RESTApikeyCreation) *PostV1APIKeyParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PostV1APIKeyParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -63,9 +63,6 @@ PatchV1ScanRegistryNameParams contains all the parameters to send to the API end
 */
 type PatchV1ScanRegistryNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Registry data
@@ -131,17 +128,6 @@ func (o *PatchV1ScanRegistryNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 scan registry name params
-func (o *PatchV1ScanRegistryNameParams) WithXAuthToken(xAuthToken string) *PatchV1ScanRegistryNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 scan registry name params
-func (o *PatchV1ScanRegistryNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 scan registry name params
 func (o *PatchV1ScanRegistryNameParams) WithBody(body *models.RESTRegistryConfigData) *PatchV1ScanRegistryNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1ScanRegistryNameParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

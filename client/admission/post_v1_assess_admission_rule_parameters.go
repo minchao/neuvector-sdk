@@ -63,9 +63,6 @@ PostV1AssessAdmissionRuleParams contains all the parameters to send to the API e
 */
 type PostV1AssessAdmissionRuleParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Admission rule data
@@ -125,17 +122,6 @@ func (o *PostV1AssessAdmissionRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 assess admission rule params
-func (o *PostV1AssessAdmissionRuleParams) WithXAuthToken(xAuthToken string) *PostV1AssessAdmissionRuleParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 assess admission rule params
-func (o *PostV1AssessAdmissionRuleParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 assess admission rule params
 func (o *PostV1AssessAdmissionRuleParams) WithBody(body *models.RESTAdmissionRuleConfigData) *PostV1AssessAdmissionRuleParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PostV1AssessAdmissionRuleParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

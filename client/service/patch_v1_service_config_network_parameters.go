@@ -63,9 +63,6 @@ PatchV1ServiceConfigNetworkParams contains all the parameters to send to the API
 */
 type PatchV1ServiceConfigNetworkParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Service configure data
@@ -125,17 +122,6 @@ func (o *PatchV1ServiceConfigNetworkParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 service config network params
-func (o *PatchV1ServiceConfigNetworkParams) WithXAuthToken(xAuthToken string) *PatchV1ServiceConfigNetworkParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 service config network params
-func (o *PatchV1ServiceConfigNetworkParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 service config network params
 func (o *PatchV1ServiceConfigNetworkParams) WithBody(body *models.RESTServiceBatchConfigData) *PatchV1ServiceConfigNetworkParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PatchV1ServiceConfigNetworkParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

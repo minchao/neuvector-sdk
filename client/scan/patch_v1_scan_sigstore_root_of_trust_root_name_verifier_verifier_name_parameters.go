@@ -63,9 +63,6 @@ PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams contains all th
 */
 type PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Verifier patch data
@@ -137,17 +134,6 @@ func (o *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) SetHT
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 scan sigstore root of trust root name verifier verifier name params
-func (o *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) WithXAuthToken(xAuthToken string) *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 scan sigstore root of trust root name verifier verifier name params
-func (o *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 scan sigstore root of trust root name verifier verifier name params
 func (o *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) WithBody(body *models.RESTSigstoreVerifierPatch) *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams {
 	o.SetBody(body)
@@ -188,11 +174,6 @@ func (o *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) Write
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

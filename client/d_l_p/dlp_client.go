@@ -30,25 +30,25 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1DlpSensorName(params *DeleteV1DlpSensorNameParams, opts ...ClientOption) (*DeleteV1DlpSensorNameOK, error)
+	DeleteV1DlpSensorName(params *DeleteV1DlpSensorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1DlpSensorNameOK, error)
 
-	GetV1DlpGroup(params *GetV1DlpGroupParams, opts ...ClientOption) (*GetV1DlpGroupOK, error)
+	GetV1DlpGroup(params *GetV1DlpGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpGroupOK, error)
 
-	GetV1DlpGroupName(params *GetV1DlpGroupNameParams, opts ...ClientOption) (*GetV1DlpGroupNameOK, error)
+	GetV1DlpGroupName(params *GetV1DlpGroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpGroupNameOK, error)
 
-	GetV1DlpRule(params *GetV1DlpRuleParams, opts ...ClientOption) (*GetV1DlpRuleOK, error)
+	GetV1DlpRule(params *GetV1DlpRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpRuleOK, error)
 
-	GetV1DlpRuleName(params *GetV1DlpRuleNameParams, opts ...ClientOption) (*GetV1DlpRuleNameOK, error)
+	GetV1DlpRuleName(params *GetV1DlpRuleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpRuleNameOK, error)
 
-	GetV1DlpSensor(params *GetV1DlpSensorParams, opts ...ClientOption) (*GetV1DlpSensorOK, error)
+	GetV1DlpSensor(params *GetV1DlpSensorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpSensorOK, error)
 
-	GetV1DlpSensorName(params *GetV1DlpSensorNameParams, opts ...ClientOption) (*GetV1DlpSensorNameOK, error)
+	GetV1DlpSensorName(params *GetV1DlpSensorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpSensorNameOK, error)
 
-	PatchV1DlpGroupName(params *PatchV1DlpGroupNameParams, opts ...ClientOption) (*PatchV1DlpGroupNameOK, error)
+	PatchV1DlpGroupName(params *PatchV1DlpGroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1DlpGroupNameOK, error)
 
-	PatchV1DlpSensorName(params *PatchV1DlpSensorNameParams, opts ...ClientOption) (*PatchV1DlpSensorNameOK, error)
+	PatchV1DlpSensorName(params *PatchV1DlpSensorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1DlpSensorNameOK, error)
 
-	PostV1DlpSensor(params *PostV1DlpSensorParams, opts ...ClientOption) (*PostV1DlpSensorOK, error)
+	PostV1DlpSensor(params *PostV1DlpSensorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1DlpSensorOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -56,7 +56,7 @@ type ClientService interface {
 /*
 DeleteV1DlpSensorName deletes d l p sensor
 */
-func (a *Client) DeleteV1DlpSensorName(params *DeleteV1DlpSensorNameParams, opts ...ClientOption) (*DeleteV1DlpSensorNameOK, error) {
+func (a *Client) DeleteV1DlpSensorName(params *DeleteV1DlpSensorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1DlpSensorNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1DlpSensorNameParams()
@@ -70,6 +70,7 @@ func (a *Client) DeleteV1DlpSensorName(params *DeleteV1DlpSensorNameParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1DlpSensorNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -94,7 +95,7 @@ func (a *Client) DeleteV1DlpSensorName(params *DeleteV1DlpSensorNameParams, opts
 /*
 GetV1DlpGroup gets d l p group list
 */
-func (a *Client) GetV1DlpGroup(params *GetV1DlpGroupParams, opts ...ClientOption) (*GetV1DlpGroupOK, error) {
+func (a *Client) GetV1DlpGroup(params *GetV1DlpGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpGroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1DlpGroupParams()
@@ -108,6 +109,7 @@ func (a *Client) GetV1DlpGroup(params *GetV1DlpGroupParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1DlpGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -132,7 +134,7 @@ func (a *Client) GetV1DlpGroup(params *GetV1DlpGroupParams, opts ...ClientOption
 /*
 GetV1DlpGroupName gets d l p group detail
 */
-func (a *Client) GetV1DlpGroupName(params *GetV1DlpGroupNameParams, opts ...ClientOption) (*GetV1DlpGroupNameOK, error) {
+func (a *Client) GetV1DlpGroupName(params *GetV1DlpGroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpGroupNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1DlpGroupNameParams()
@@ -146,6 +148,7 @@ func (a *Client) GetV1DlpGroupName(params *GetV1DlpGroupNameParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1DlpGroupNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -170,7 +173,7 @@ func (a *Client) GetV1DlpGroupName(params *GetV1DlpGroupNameParams, opts ...Clie
 /*
 GetV1DlpRule gets all d l p rules
 */
-func (a *Client) GetV1DlpRule(params *GetV1DlpRuleParams, opts ...ClientOption) (*GetV1DlpRuleOK, error) {
+func (a *Client) GetV1DlpRule(params *GetV1DlpRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1DlpRuleParams()
@@ -184,6 +187,7 @@ func (a *Client) GetV1DlpRule(params *GetV1DlpRuleParams, opts ...ClientOption) 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1DlpRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -208,7 +212,7 @@ func (a *Client) GetV1DlpRule(params *GetV1DlpRuleParams, opts ...ClientOption) 
 /*
 GetV1DlpRuleName gets d l p rule
 */
-func (a *Client) GetV1DlpRuleName(params *GetV1DlpRuleNameParams, opts ...ClientOption) (*GetV1DlpRuleNameOK, error) {
+func (a *Client) GetV1DlpRuleName(params *GetV1DlpRuleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpRuleNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1DlpRuleNameParams()
@@ -222,6 +226,7 @@ func (a *Client) GetV1DlpRuleName(params *GetV1DlpRuleNameParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1DlpRuleNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -246,7 +251,7 @@ func (a *Client) GetV1DlpRuleName(params *GetV1DlpRuleNameParams, opts ...Client
 /*
 GetV1DlpSensor gets d l p sensors
 */
-func (a *Client) GetV1DlpSensor(params *GetV1DlpSensorParams, opts ...ClientOption) (*GetV1DlpSensorOK, error) {
+func (a *Client) GetV1DlpSensor(params *GetV1DlpSensorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpSensorOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1DlpSensorParams()
@@ -260,6 +265,7 @@ func (a *Client) GetV1DlpSensor(params *GetV1DlpSensorParams, opts ...ClientOpti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1DlpSensorReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -284,7 +290,7 @@ func (a *Client) GetV1DlpSensor(params *GetV1DlpSensorParams, opts ...ClientOpti
 /*
 GetV1DlpSensorName gets d l p sensor detail
 */
-func (a *Client) GetV1DlpSensorName(params *GetV1DlpSensorNameParams, opts ...ClientOption) (*GetV1DlpSensorNameOK, error) {
+func (a *Client) GetV1DlpSensorName(params *GetV1DlpSensorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1DlpSensorNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1DlpSensorNameParams()
@@ -298,6 +304,7 @@ func (a *Client) GetV1DlpSensorName(params *GetV1DlpSensorNameParams, opts ...Cl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1DlpSensorNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -322,7 +329,7 @@ func (a *Client) GetV1DlpSensorName(params *GetV1DlpSensorNameParams, opts ...Cl
 /*
 PatchV1DlpGroupName configures d l p group
 */
-func (a *Client) PatchV1DlpGroupName(params *PatchV1DlpGroupNameParams, opts ...ClientOption) (*PatchV1DlpGroupNameOK, error) {
+func (a *Client) PatchV1DlpGroupName(params *PatchV1DlpGroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1DlpGroupNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1DlpGroupNameParams()
@@ -336,6 +343,7 @@ func (a *Client) PatchV1DlpGroupName(params *PatchV1DlpGroupNameParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1DlpGroupNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -360,7 +368,7 @@ func (a *Client) PatchV1DlpGroupName(params *PatchV1DlpGroupNameParams, opts ...
 /*
 PatchV1DlpSensorName configures d l p sensor
 */
-func (a *Client) PatchV1DlpSensorName(params *PatchV1DlpSensorNameParams, opts ...ClientOption) (*PatchV1DlpSensorNameOK, error) {
+func (a *Client) PatchV1DlpSensorName(params *PatchV1DlpSensorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1DlpSensorNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1DlpSensorNameParams()
@@ -374,6 +382,7 @@ func (a *Client) PatchV1DlpSensorName(params *PatchV1DlpSensorNameParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1DlpSensorNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -398,7 +407,7 @@ func (a *Client) PatchV1DlpSensorName(params *PatchV1DlpSensorNameParams, opts .
 /*
 PostV1DlpSensor creates d l p sensor
 */
-func (a *Client) PostV1DlpSensor(params *PostV1DlpSensorParams, opts ...ClientOption) (*PostV1DlpSensorOK, error) {
+func (a *Client) PostV1DlpSensor(params *PostV1DlpSensorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1DlpSensorOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1DlpSensorParams()
@@ -412,6 +421,7 @@ func (a *Client) PostV1DlpSensor(params *PostV1DlpSensorParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1DlpSensorReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

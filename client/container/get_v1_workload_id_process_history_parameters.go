@@ -61,9 +61,6 @@ GetV1WorkloadIDProcessHistoryParams contains all the parameters to send to the A
 */
 type GetV1WorkloadIDProcessHistoryParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Container ID
@@ -123,17 +120,6 @@ func (o *GetV1WorkloadIDProcessHistoryParams) SetHTTPClient(client *http.Client)
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 workload ID process history params
-func (o *GetV1WorkloadIDProcessHistoryParams) WithXAuthToken(xAuthToken string) *GetV1WorkloadIDProcessHistoryParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 workload ID process history params
-func (o *GetV1WorkloadIDProcessHistoryParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 workload ID process history params
 func (o *GetV1WorkloadIDProcessHistoryParams) WithID(id string) *GetV1WorkloadIDProcessHistoryParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1WorkloadIDProcessHistoryParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

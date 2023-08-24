@@ -61,9 +61,6 @@ GetV1ScanImageIDParams contains all the parameters to send to the API endpoint
 */
 type GetV1ScanImageIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Image id
@@ -123,17 +120,6 @@ func (o *GetV1ScanImageIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 scan image ID params
-func (o *GetV1ScanImageIDParams) WithXAuthToken(xAuthToken string) *GetV1ScanImageIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 scan image ID params
-func (o *GetV1ScanImageIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 scan image ID params
 func (o *GetV1ScanImageIDParams) WithID(id string) *GetV1ScanImageIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1ScanImageIDParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

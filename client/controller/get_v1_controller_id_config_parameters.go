@@ -61,9 +61,6 @@ GetV1ControllerIDConfigParams contains all the parameters to send to the API end
 */
 type GetV1ControllerIDConfigParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Controller ID
@@ -123,17 +120,6 @@ func (o *GetV1ControllerIDConfigParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 controller ID config params
-func (o *GetV1ControllerIDConfigParams) WithXAuthToken(xAuthToken string) *GetV1ControllerIDConfigParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 controller ID config params
-func (o *GetV1ControllerIDConfigParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 controller ID config params
 func (o *GetV1ControllerIDConfigParams) WithID(id string) *GetV1ControllerIDConfigParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1ControllerIDConfigParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

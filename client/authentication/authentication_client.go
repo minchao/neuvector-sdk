@@ -30,13 +30,13 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1Auth(params *DeleteV1AuthParams, opts ...ClientOption) (*DeleteV1AuthOK, error)
+	DeleteV1Auth(params *DeleteV1AuthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1AuthOK, error)
 
-	PatchV1Auth(params *PatchV1AuthParams, opts ...ClientOption) (*PatchV1AuthOK, error)
+	PatchV1Auth(params *PatchV1AuthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1AuthOK, error)
 
 	PostV1Auth(params *PostV1AuthParams, opts ...ClientOption) (*PostV1AuthOK, error)
 
-	PostV1AuthServer(params *PostV1AuthServerParams, opts ...ClientOption) (*PostV1AuthServerOK, error)
+	PostV1AuthServer(params *PostV1AuthServerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1AuthServerOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ type ClientService interface {
 /*
 DeleteV1Auth logouts current logged in user
 */
-func (a *Client) DeleteV1Auth(params *DeleteV1AuthParams, opts ...ClientOption) (*DeleteV1AuthOK, error) {
+func (a *Client) DeleteV1Auth(params *DeleteV1AuthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1AuthOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1AuthParams()
@@ -58,6 +58,7 @@ func (a *Client) DeleteV1Auth(params *DeleteV1AuthParams, opts ...ClientOption) 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1AuthReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -82,7 +83,7 @@ func (a *Client) DeleteV1Auth(params *DeleteV1AuthParams, opts ...ClientOption) 
 /*
 PatchV1Auth keeps login session alive
 */
-func (a *Client) PatchV1Auth(params *PatchV1AuthParams, opts ...ClientOption) (*PatchV1AuthOK, error) {
+func (a *Client) PatchV1Auth(params *PatchV1AuthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1AuthOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1AuthParams()
@@ -96,6 +97,7 @@ func (a *Client) PatchV1Auth(params *PatchV1AuthParams, opts ...ClientOption) (*
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1AuthReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -158,7 +160,7 @@ func (a *Client) PostV1Auth(params *PostV1AuthParams, opts ...ClientOption) (*Po
 /*
 PostV1AuthServer authenticates to specified server
 */
-func (a *Client) PostV1AuthServer(params *PostV1AuthServerParams, opts ...ClientOption) (*PostV1AuthServerOK, error) {
+func (a *Client) PostV1AuthServer(params *PostV1AuthServerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1AuthServerOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1AuthServerParams()
@@ -172,6 +174,7 @@ func (a *Client) PostV1AuthServer(params *PostV1AuthServerParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1AuthServerReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

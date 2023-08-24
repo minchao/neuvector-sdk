@@ -61,9 +61,6 @@ GetV1UserRoleNameParams contains all the parameters to send to the API endpoint
 */
 type GetV1UserRoleNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   User role name
@@ -123,17 +120,6 @@ func (o *GetV1UserRoleNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 user role name params
-func (o *GetV1UserRoleNameParams) WithXAuthToken(xAuthToken string) *GetV1UserRoleNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 user role name params
-func (o *GetV1UserRoleNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 user role name params
 func (o *GetV1UserRoleNameParams) WithName(name string) *GetV1UserRoleNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1UserRoleNameParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

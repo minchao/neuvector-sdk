@@ -61,9 +61,6 @@ GetV1HostIDParams contains all the parameters to send to the API endpoint
 */
 type GetV1HostIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Host ID
@@ -123,17 +120,6 @@ func (o *GetV1HostIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 host ID params
-func (o *GetV1HostIDParams) WithXAuthToken(xAuthToken string) *GetV1HostIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 host ID params
-func (o *GetV1HostIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 host ID params
 func (o *GetV1HostIDParams) WithID(id string) *GetV1HostIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1HostIDParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

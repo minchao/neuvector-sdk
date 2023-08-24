@@ -61,9 +61,6 @@ GetV1SnifferIDPcapParams contains all the parameters to send to the API endpoint
 */
 type GetV1SnifferIDPcapParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Sniffer ID
@@ -123,17 +120,6 @@ func (o *GetV1SnifferIDPcapParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 sniffer ID pcap params
-func (o *GetV1SnifferIDPcapParams) WithXAuthToken(xAuthToken string) *GetV1SnifferIDPcapParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 sniffer ID pcap params
-func (o *GetV1SnifferIDPcapParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 sniffer ID pcap params
 func (o *GetV1SnifferIDPcapParams) WithID(id string) *GetV1SnifferIDPcapParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1SnifferIDPcapParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

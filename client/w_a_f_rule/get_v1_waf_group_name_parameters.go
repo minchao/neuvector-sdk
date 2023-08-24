@@ -61,9 +61,6 @@ GetV1WafGroupNameParams contains all the parameters to send to the API endpoint
 */
 type GetV1WafGroupNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   waf group name
@@ -123,17 +120,6 @@ func (o *GetV1WafGroupNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 waf group name params
-func (o *GetV1WafGroupNameParams) WithXAuthToken(xAuthToken string) *GetV1WafGroupNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 waf group name params
-func (o *GetV1WafGroupNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 waf group name params
 func (o *GetV1WafGroupNameParams) WithName(name string) *GetV1WafGroupNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1WafGroupNameParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

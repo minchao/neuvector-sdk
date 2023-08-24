@@ -30,73 +30,73 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1ScanRegistryName(params *DeleteV1ScanRegistryNameParams, opts ...ClientOption) (*DeleteV1ScanRegistryNameOK, error)
+	DeleteV1ScanRegistryName(params *DeleteV1ScanRegistryNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ScanRegistryNameOK, error)
 
-	DeleteV1ScanRegistryNameScan(params *DeleteV1ScanRegistryNameScanParams, opts ...ClientOption) (*DeleteV1ScanRegistryNameScanOK, error)
+	DeleteV1ScanRegistryNameScan(params *DeleteV1ScanRegistryNameScanParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ScanRegistryNameScanOK, error)
 
-	DeleteV1ScanSigstoreRootOfTrustRootName(params *DeleteV1ScanSigstoreRootOfTrustRootNameParams, opts ...ClientOption) (*DeleteV1ScanSigstoreRootOfTrustRootNameOK, error)
+	DeleteV1ScanSigstoreRootOfTrustRootName(params *DeleteV1ScanSigstoreRootOfTrustRootNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ScanSigstoreRootOfTrustRootNameOK, error)
 
-	DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, opts ...ClientOption) (*DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error)
+	DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error)
 
-	GetV1ScanConfig(params *GetV1ScanConfigParams, opts ...ClientOption) (*GetV1ScanConfigOK, error)
+	GetV1ScanConfig(params *GetV1ScanConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanConfigOK, error)
 
-	GetV1ScanHostID(params *GetV1ScanHostIDParams, opts ...ClientOption) (*GetV1ScanHostIDOK, error)
+	GetV1ScanHostID(params *GetV1ScanHostIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanHostIDOK, error)
 
-	GetV1ScanImage(params *GetV1ScanImageParams, opts ...ClientOption) (*GetV1ScanImageOK, error)
+	GetV1ScanImage(params *GetV1ScanImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanImageOK, error)
 
-	GetV1ScanImageID(params *GetV1ScanImageIDParams, opts ...ClientOption) (*GetV1ScanImageIDOK, error)
+	GetV1ScanImageID(params *GetV1ScanImageIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanImageIDOK, error)
 
-	GetV1ScanPlatform(params *GetV1ScanPlatformParams, opts ...ClientOption) (*GetV1ScanPlatformOK, error)
+	GetV1ScanPlatform(params *GetV1ScanPlatformParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanPlatformOK, error)
 
-	GetV1ScanPlatformPlatform(params *GetV1ScanPlatformPlatformParams, opts ...ClientOption) (*GetV1ScanPlatformPlatformOK, error)
+	GetV1ScanPlatformPlatform(params *GetV1ScanPlatformPlatformParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanPlatformPlatformOK, error)
 
-	GetV1ScanRegistry(params *GetV1ScanRegistryParams, opts ...ClientOption) (*GetV1ScanRegistryOK, error)
+	GetV1ScanRegistry(params *GetV1ScanRegistryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryOK, error)
 
-	GetV1ScanRegistryName(params *GetV1ScanRegistryNameParams, opts ...ClientOption) (*GetV1ScanRegistryNameOK, error)
+	GetV1ScanRegistryName(params *GetV1ScanRegistryNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryNameOK, error)
 
-	GetV1ScanRegistryNameImageID(params *GetV1ScanRegistryNameImageIDParams, opts ...ClientOption) (*GetV1ScanRegistryNameImageIDOK, error)
+	GetV1ScanRegistryNameImageID(params *GetV1ScanRegistryNameImageIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryNameImageIDOK, error)
 
-	GetV1ScanRegistryNameImages(params *GetV1ScanRegistryNameImagesParams, opts ...ClientOption) (*GetV1ScanRegistryNameImagesOK, error)
+	GetV1ScanRegistryNameImages(params *GetV1ScanRegistryNameImagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryNameImagesOK, error)
 
-	GetV1ScanRegistryNameLayersID(params *GetV1ScanRegistryNameLayersIDParams, opts ...ClientOption) (*GetV1ScanRegistryNameLayersIDOK, error)
+	GetV1ScanRegistryNameLayersID(params *GetV1ScanRegistryNameLayersIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryNameLayersIDOK, error)
 
-	GetV1ScanScanner(params *GetV1ScanScannerParams, opts ...ClientOption) (*GetV1ScanScannerOK, error)
+	GetV1ScanScanner(params *GetV1ScanScannerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanScannerOK, error)
 
-	GetV1ScanSigstoreRootOfTrust(params *GetV1ScanSigstoreRootOfTrustParams, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustOK, error)
+	GetV1ScanSigstoreRootOfTrust(params *GetV1ScanSigstoreRootOfTrustParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustOK, error)
 
-	GetV1ScanSigstoreRootOfTrustRootName(params *GetV1ScanSigstoreRootOfTrustRootNameParams, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameOK, error)
+	GetV1ScanSigstoreRootOfTrustRootName(params *GetV1ScanSigstoreRootOfTrustRootNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameOK, error)
 
-	GetV1ScanSigstoreRootOfTrustRootNameVerifier(params *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameVerifierOK, error)
+	GetV1ScanSigstoreRootOfTrustRootNameVerifier(params *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameVerifierOK, error)
 
-	GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error)
+	GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error)
 
-	GetV1ScanStatus(params *GetV1ScanStatusParams, opts ...ClientOption) (*GetV1ScanStatusOK, error)
+	GetV1ScanStatus(params *GetV1ScanStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanStatusOK, error)
 
-	GetV1ScanWorkloadID(params *GetV1ScanWorkloadIDParams, opts ...ClientOption) (*GetV1ScanWorkloadIDOK, error)
+	GetV1ScanWorkloadID(params *GetV1ScanWorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanWorkloadIDOK, error)
 
-	PatchV1ScanConfig(params *PatchV1ScanConfigParams, opts ...ClientOption) (*PatchV1ScanConfigOK, error)
+	PatchV1ScanConfig(params *PatchV1ScanConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ScanConfigOK, error)
 
-	PatchV1ScanRegistryName(params *PatchV1ScanRegistryNameParams, opts ...ClientOption) (*PatchV1ScanRegistryNameOK, error)
+	PatchV1ScanRegistryName(params *PatchV1ScanRegistryNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ScanRegistryNameOK, error)
 
-	PatchV1ScanSigstoreRootOfTrustRootName(params *PatchV1ScanSigstoreRootOfTrustRootNameParams, opts ...ClientOption) (*PatchV1ScanSigstoreRootOfTrustRootNameOK, error)
+	PatchV1ScanSigstoreRootOfTrustRootName(params *PatchV1ScanSigstoreRootOfTrustRootNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ScanSigstoreRootOfTrustRootNameOK, error)
 
-	PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, opts ...ClientOption) (*PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error)
+	PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error)
 
-	PostV1ScanHostID(params *PostV1ScanHostIDParams, opts ...ClientOption) (*PostV1ScanHostIDOK, error)
+	PostV1ScanHostID(params *PostV1ScanHostIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanHostIDOK, error)
 
-	PostV1ScanPlatformPlatform(params *PostV1ScanPlatformPlatformParams, opts ...ClientOption) (*PostV1ScanPlatformPlatformOK, error)
+	PostV1ScanPlatformPlatform(params *PostV1ScanPlatformPlatformParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanPlatformPlatformOK, error)
 
-	PostV1ScanRegistry(params *PostV1ScanRegistryParams, opts ...ClientOption) (*PostV1ScanRegistryOK, error)
+	PostV1ScanRegistry(params *PostV1ScanRegistryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanRegistryOK, error)
 
-	PostV1ScanRegistryNameScan(params *PostV1ScanRegistryNameScanParams, opts ...ClientOption) (*PostV1ScanRegistryNameScanOK, error)
+	PostV1ScanRegistryNameScan(params *PostV1ScanRegistryNameScanParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanRegistryNameScanOK, error)
 
-	PostV1ScanRepository(params *PostV1ScanRepositoryParams, opts ...ClientOption) (*PostV1ScanRepositoryOK, error)
+	PostV1ScanRepository(params *PostV1ScanRepositoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanRepositoryOK, error)
 
-	PostV1ScanSigstoreRootOfTrust(params *PostV1ScanSigstoreRootOfTrustParams, opts ...ClientOption) (*PostV1ScanSigstoreRootOfTrustOK, error)
+	PostV1ScanSigstoreRootOfTrust(params *PostV1ScanSigstoreRootOfTrustParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanSigstoreRootOfTrustOK, error)
 
-	PostV1ScanSigstoreRootOfTrustRootNameVerifier(params *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams, opts ...ClientOption) (*PostV1ScanSigstoreRootOfTrustRootNameVerifierOK, error)
+	PostV1ScanSigstoreRootOfTrustRootNameVerifier(params *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanSigstoreRootOfTrustRootNameVerifierOK, error)
 
-	PostV1ScanWorkloadID(params *PostV1ScanWorkloadIDParams, opts ...ClientOption) (*PostV1ScanWorkloadIDOK, error)
+	PostV1ScanWorkloadID(params *PostV1ScanWorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanWorkloadIDOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -104,7 +104,7 @@ type ClientService interface {
 /*
 DeleteV1ScanRegistryName deletes registry
 */
-func (a *Client) DeleteV1ScanRegistryName(params *DeleteV1ScanRegistryNameParams, opts ...ClientOption) (*DeleteV1ScanRegistryNameOK, error) {
+func (a *Client) DeleteV1ScanRegistryName(params *DeleteV1ScanRegistryNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ScanRegistryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1ScanRegistryNameParams()
@@ -118,6 +118,7 @@ func (a *Client) DeleteV1ScanRegistryName(params *DeleteV1ScanRegistryNameParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1ScanRegistryNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -142,7 +143,7 @@ func (a *Client) DeleteV1ScanRegistryName(params *DeleteV1ScanRegistryNameParams
 /*
 DeleteV1ScanRegistryNameScan stops registry scan
 */
-func (a *Client) DeleteV1ScanRegistryNameScan(params *DeleteV1ScanRegistryNameScanParams, opts ...ClientOption) (*DeleteV1ScanRegistryNameScanOK, error) {
+func (a *Client) DeleteV1ScanRegistryNameScan(params *DeleteV1ScanRegistryNameScanParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ScanRegistryNameScanOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1ScanRegistryNameScanParams()
@@ -156,6 +157,7 @@ func (a *Client) DeleteV1ScanRegistryNameScan(params *DeleteV1ScanRegistryNameSc
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1ScanRegistryNameScanReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -180,7 +182,7 @@ func (a *Client) DeleteV1ScanRegistryNameScan(params *DeleteV1ScanRegistryNameSc
 /*
 DeleteV1ScanSigstoreRootOfTrustRootName deletes single sigstore root of trust by name
 */
-func (a *Client) DeleteV1ScanSigstoreRootOfTrustRootName(params *DeleteV1ScanSigstoreRootOfTrustRootNameParams, opts ...ClientOption) (*DeleteV1ScanSigstoreRootOfTrustRootNameOK, error) {
+func (a *Client) DeleteV1ScanSigstoreRootOfTrustRootName(params *DeleteV1ScanSigstoreRootOfTrustRootNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ScanSigstoreRootOfTrustRootNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1ScanSigstoreRootOfTrustRootNameParams()
@@ -194,6 +196,7 @@ func (a *Client) DeleteV1ScanSigstoreRootOfTrustRootName(params *DeleteV1ScanSig
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1ScanSigstoreRootOfTrustRootNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -218,7 +221,7 @@ func (a *Client) DeleteV1ScanSigstoreRootOfTrustRootName(params *DeleteV1ScanSig
 /*
 DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName deletes sigstore verifier by name under given sigstore root of trust
 */
-func (a *Client) DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, opts ...ClientOption) (*DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error) {
+func (a *Client) DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams()
@@ -232,6 +235,7 @@ func (a *Client) DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(par
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -256,7 +260,7 @@ func (a *Client) DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(par
 /*
 GetV1ScanConfig gets scan configure
 */
-func (a *Client) GetV1ScanConfig(params *GetV1ScanConfigParams, opts ...ClientOption) (*GetV1ScanConfigOK, error) {
+func (a *Client) GetV1ScanConfig(params *GetV1ScanConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanConfigParams()
@@ -270,6 +274,7 @@ func (a *Client) GetV1ScanConfig(params *GetV1ScanConfigParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -294,7 +299,7 @@ func (a *Client) GetV1ScanConfig(params *GetV1ScanConfigParams, opts ...ClientOp
 /*
 GetV1ScanHostID gets host scan report
 */
-func (a *Client) GetV1ScanHostID(params *GetV1ScanHostIDParams, opts ...ClientOption) (*GetV1ScanHostIDOK, error) {
+func (a *Client) GetV1ScanHostID(params *GetV1ScanHostIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanHostIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanHostIDParams()
@@ -308,6 +313,7 @@ func (a *Client) GetV1ScanHostID(params *GetV1ScanHostIDParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanHostIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -332,7 +338,7 @@ func (a *Client) GetV1ScanHostID(params *GetV1ScanHostIDParams, opts ...ClientOp
 /*
 GetV1ScanImage gets scan image summary
 */
-func (a *Client) GetV1ScanImage(params *GetV1ScanImageParams, opts ...ClientOption) (*GetV1ScanImageOK, error) {
+func (a *Client) GetV1ScanImage(params *GetV1ScanImageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanImageOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanImageParams()
@@ -346,6 +352,7 @@ func (a *Client) GetV1ScanImage(params *GetV1ScanImageParams, opts ...ClientOpti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanImageReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -370,7 +377,7 @@ func (a *Client) GetV1ScanImage(params *GetV1ScanImageParams, opts ...ClientOpti
 /*
 GetV1ScanImageID gets image scan report
 */
-func (a *Client) GetV1ScanImageID(params *GetV1ScanImageIDParams, opts ...ClientOption) (*GetV1ScanImageIDOK, error) {
+func (a *Client) GetV1ScanImageID(params *GetV1ScanImageIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanImageIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanImageIDParams()
@@ -384,6 +391,7 @@ func (a *Client) GetV1ScanImageID(params *GetV1ScanImageIDParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanImageIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -408,7 +416,7 @@ func (a *Client) GetV1ScanImageID(params *GetV1ScanImageIDParams, opts ...Client
 /*
 GetV1ScanPlatform shows scan platform summary
 */
-func (a *Client) GetV1ScanPlatform(params *GetV1ScanPlatformParams, opts ...ClientOption) (*GetV1ScanPlatformOK, error) {
+func (a *Client) GetV1ScanPlatform(params *GetV1ScanPlatformParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanPlatformOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanPlatformParams()
@@ -422,6 +430,7 @@ func (a *Client) GetV1ScanPlatform(params *GetV1ScanPlatformParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -446,7 +455,7 @@ func (a *Client) GetV1ScanPlatform(params *GetV1ScanPlatformParams, opts ...Clie
 /*
 GetV1ScanPlatformPlatform shows scan platform report
 */
-func (a *Client) GetV1ScanPlatformPlatform(params *GetV1ScanPlatformPlatformParams, opts ...ClientOption) (*GetV1ScanPlatformPlatformOK, error) {
+func (a *Client) GetV1ScanPlatformPlatform(params *GetV1ScanPlatformPlatformParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanPlatformPlatformOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanPlatformPlatformParams()
@@ -460,6 +469,7 @@ func (a *Client) GetV1ScanPlatformPlatform(params *GetV1ScanPlatformPlatformPara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanPlatformPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -484,7 +494,7 @@ func (a *Client) GetV1ScanPlatformPlatform(params *GetV1ScanPlatformPlatformPara
 /*
 GetV1ScanRegistry gets a list of registries
 */
-func (a *Client) GetV1ScanRegistry(params *GetV1ScanRegistryParams, opts ...ClientOption) (*GetV1ScanRegistryOK, error) {
+func (a *Client) GetV1ScanRegistry(params *GetV1ScanRegistryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanRegistryParams()
@@ -498,6 +508,7 @@ func (a *Client) GetV1ScanRegistry(params *GetV1ScanRegistryParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanRegistryReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -522,7 +533,7 @@ func (a *Client) GetV1ScanRegistry(params *GetV1ScanRegistryParams, opts ...Clie
 /*
 GetV1ScanRegistryName shows registry
 */
-func (a *Client) GetV1ScanRegistryName(params *GetV1ScanRegistryNameParams, opts ...ClientOption) (*GetV1ScanRegistryNameOK, error) {
+func (a *Client) GetV1ScanRegistryName(params *GetV1ScanRegistryNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanRegistryNameParams()
@@ -536,6 +547,7 @@ func (a *Client) GetV1ScanRegistryName(params *GetV1ScanRegistryNameParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanRegistryNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -560,7 +572,7 @@ func (a *Client) GetV1ScanRegistryName(params *GetV1ScanRegistryNameParams, opts
 /*
 GetV1ScanRegistryNameImageID gets registry image scan report
 */
-func (a *Client) GetV1ScanRegistryNameImageID(params *GetV1ScanRegistryNameImageIDParams, opts ...ClientOption) (*GetV1ScanRegistryNameImageIDOK, error) {
+func (a *Client) GetV1ScanRegistryNameImageID(params *GetV1ScanRegistryNameImageIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryNameImageIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanRegistryNameImageIDParams()
@@ -574,6 +586,7 @@ func (a *Client) GetV1ScanRegistryNameImageID(params *GetV1ScanRegistryNameImage
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanRegistryNameImageIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -598,7 +611,7 @@ func (a *Client) GetV1ScanRegistryNameImageID(params *GetV1ScanRegistryNameImage
 /*
 GetV1ScanRegistryNameImages shows registry image summary
 */
-func (a *Client) GetV1ScanRegistryNameImages(params *GetV1ScanRegistryNameImagesParams, opts ...ClientOption) (*GetV1ScanRegistryNameImagesOK, error) {
+func (a *Client) GetV1ScanRegistryNameImages(params *GetV1ScanRegistryNameImagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryNameImagesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanRegistryNameImagesParams()
@@ -612,6 +625,7 @@ func (a *Client) GetV1ScanRegistryNameImages(params *GetV1ScanRegistryNameImages
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanRegistryNameImagesReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -636,7 +650,7 @@ func (a *Client) GetV1ScanRegistryNameImages(params *GetV1ScanRegistryNameImages
 /*
 GetV1ScanRegistryNameLayersID shows registry layers report
 */
-func (a *Client) GetV1ScanRegistryNameLayersID(params *GetV1ScanRegistryNameLayersIDParams, opts ...ClientOption) (*GetV1ScanRegistryNameLayersIDOK, error) {
+func (a *Client) GetV1ScanRegistryNameLayersID(params *GetV1ScanRegistryNameLayersIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanRegistryNameLayersIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanRegistryNameLayersIDParams()
@@ -650,6 +664,7 @@ func (a *Client) GetV1ScanRegistryNameLayersID(params *GetV1ScanRegistryNameLaye
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanRegistryNameLayersIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -674,7 +689,7 @@ func (a *Client) GetV1ScanRegistryNameLayersID(params *GetV1ScanRegistryNameLaye
 /*
 GetV1ScanScanner gets scanner list
 */
-func (a *Client) GetV1ScanScanner(params *GetV1ScanScannerParams, opts ...ClientOption) (*GetV1ScanScannerOK, error) {
+func (a *Client) GetV1ScanScanner(params *GetV1ScanScannerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanScannerOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanScannerParams()
@@ -688,6 +703,7 @@ func (a *Client) GetV1ScanScanner(params *GetV1ScanScannerParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanScannerReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -712,7 +728,7 @@ func (a *Client) GetV1ScanScanner(params *GetV1ScanScannerParams, opts ...Client
 /*
 GetV1ScanSigstoreRootOfTrust gets all sigstore roots of trust
 */
-func (a *Client) GetV1ScanSigstoreRootOfTrust(params *GetV1ScanSigstoreRootOfTrustParams, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustOK, error) {
+func (a *Client) GetV1ScanSigstoreRootOfTrust(params *GetV1ScanSigstoreRootOfTrustParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanSigstoreRootOfTrustParams()
@@ -726,6 +742,7 @@ func (a *Client) GetV1ScanSigstoreRootOfTrust(params *GetV1ScanSigstoreRootOfTru
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanSigstoreRootOfTrustReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -750,7 +767,7 @@ func (a *Client) GetV1ScanSigstoreRootOfTrust(params *GetV1ScanSigstoreRootOfTru
 /*
 GetV1ScanSigstoreRootOfTrustRootName gets single sigstore root of trust by name
 */
-func (a *Client) GetV1ScanSigstoreRootOfTrustRootName(params *GetV1ScanSigstoreRootOfTrustRootNameParams, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameOK, error) {
+func (a *Client) GetV1ScanSigstoreRootOfTrustRootName(params *GetV1ScanSigstoreRootOfTrustRootNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanSigstoreRootOfTrustRootNameParams()
@@ -764,6 +781,7 @@ func (a *Client) GetV1ScanSigstoreRootOfTrustRootName(params *GetV1ScanSigstoreR
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanSigstoreRootOfTrustRootNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -788,7 +806,7 @@ func (a *Client) GetV1ScanSigstoreRootOfTrustRootName(params *GetV1ScanSigstoreR
 /*
 GetV1ScanSigstoreRootOfTrustRootNameVerifier gets all sigstore verifiers for given sigstore root of trust
 */
-func (a *Client) GetV1ScanSigstoreRootOfTrustRootNameVerifier(params *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameVerifierOK, error) {
+func (a *Client) GetV1ScanSigstoreRootOfTrustRootNameVerifier(params *GetV1ScanSigstoreRootOfTrustRootNameVerifierParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameVerifierOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanSigstoreRootOfTrustRootNameVerifierParams()
@@ -802,6 +820,7 @@ func (a *Client) GetV1ScanSigstoreRootOfTrustRootNameVerifier(params *GetV1ScanS
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanSigstoreRootOfTrustRootNameVerifierReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -826,7 +845,7 @@ func (a *Client) GetV1ScanSigstoreRootOfTrustRootNameVerifier(params *GetV1ScanS
 /*
 GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName gets sigstore verifier by name under given sigstore root of trust
 */
-func (a *Client) GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error) {
+func (a *Client) GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams()
@@ -840,6 +859,7 @@ func (a *Client) GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -864,7 +884,7 @@ func (a *Client) GetV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params
 /*
 GetV1ScanStatus scans status
 */
-func (a *Client) GetV1ScanStatus(params *GetV1ScanStatusParams, opts ...ClientOption) (*GetV1ScanStatusOK, error) {
+func (a *Client) GetV1ScanStatus(params *GetV1ScanStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanStatusParams()
@@ -878,6 +898,7 @@ func (a *Client) GetV1ScanStatus(params *GetV1ScanStatusParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanStatusReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -902,7 +923,7 @@ func (a *Client) GetV1ScanStatus(params *GetV1ScanStatusParams, opts ...ClientOp
 /*
 GetV1ScanWorkloadID gets container scan report
 */
-func (a *Client) GetV1ScanWorkloadID(params *GetV1ScanWorkloadIDParams, opts ...ClientOption) (*GetV1ScanWorkloadIDOK, error) {
+func (a *Client) GetV1ScanWorkloadID(params *GetV1ScanWorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ScanWorkloadIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ScanWorkloadIDParams()
@@ -916,6 +937,7 @@ func (a *Client) GetV1ScanWorkloadID(params *GetV1ScanWorkloadIDParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ScanWorkloadIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -940,7 +962,7 @@ func (a *Client) GetV1ScanWorkloadID(params *GetV1ScanWorkloadIDParams, opts ...
 /*
 PatchV1ScanConfig updates scan configure
 */
-func (a *Client) PatchV1ScanConfig(params *PatchV1ScanConfigParams, opts ...ClientOption) (*PatchV1ScanConfigOK, error) {
+func (a *Client) PatchV1ScanConfig(params *PatchV1ScanConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ScanConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ScanConfigParams()
@@ -954,6 +976,7 @@ func (a *Client) PatchV1ScanConfig(params *PatchV1ScanConfigParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ScanConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -978,7 +1001,7 @@ func (a *Client) PatchV1ScanConfig(params *PatchV1ScanConfigParams, opts ...Clie
 /*
 PatchV1ScanRegistryName updates registry
 */
-func (a *Client) PatchV1ScanRegistryName(params *PatchV1ScanRegistryNameParams, opts ...ClientOption) (*PatchV1ScanRegistryNameOK, error) {
+func (a *Client) PatchV1ScanRegistryName(params *PatchV1ScanRegistryNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ScanRegistryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ScanRegistryNameParams()
@@ -992,6 +1015,7 @@ func (a *Client) PatchV1ScanRegistryName(params *PatchV1ScanRegistryNameParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ScanRegistryNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1016,7 +1040,7 @@ func (a *Client) PatchV1ScanRegistryName(params *PatchV1ScanRegistryNameParams, 
 /*
 PatchV1ScanSigstoreRootOfTrustRootName updates single sigstore root of trust by name
 */
-func (a *Client) PatchV1ScanSigstoreRootOfTrustRootName(params *PatchV1ScanSigstoreRootOfTrustRootNameParams, opts ...ClientOption) (*PatchV1ScanSigstoreRootOfTrustRootNameOK, error) {
+func (a *Client) PatchV1ScanSigstoreRootOfTrustRootName(params *PatchV1ScanSigstoreRootOfTrustRootNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ScanSigstoreRootOfTrustRootNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ScanSigstoreRootOfTrustRootNameParams()
@@ -1030,6 +1054,7 @@ func (a *Client) PatchV1ScanSigstoreRootOfTrustRootName(params *PatchV1ScanSigst
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ScanSigstoreRootOfTrustRootNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1054,7 +1079,7 @@ func (a *Client) PatchV1ScanSigstoreRootOfTrustRootName(params *PatchV1ScanSigst
 /*
 PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName updates sigstore verifier by name under given sigstore root of trust
 */
-func (a *Client) PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, opts ...ClientOption) (*PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error) {
+func (a *Client) PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(params *PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams()
@@ -1068,6 +1093,7 @@ func (a *Client) PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(para
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1092,7 +1118,7 @@ func (a *Client) PatchV1ScanSigstoreRootOfTrustRootNameVerifierVerifierName(para
 /*
 PostV1ScanHostID starts host scan
 */
-func (a *Client) PostV1ScanHostID(params *PostV1ScanHostIDParams, opts ...ClientOption) (*PostV1ScanHostIDOK, error) {
+func (a *Client) PostV1ScanHostID(params *PostV1ScanHostIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanHostIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ScanHostIDParams()
@@ -1106,6 +1132,7 @@ func (a *Client) PostV1ScanHostID(params *PostV1ScanHostIDParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ScanHostIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1130,7 +1157,7 @@ func (a *Client) PostV1ScanHostID(params *PostV1ScanHostIDParams, opts ...Client
 /*
 PostV1ScanPlatformPlatform requests scan platform
 */
-func (a *Client) PostV1ScanPlatformPlatform(params *PostV1ScanPlatformPlatformParams, opts ...ClientOption) (*PostV1ScanPlatformPlatformOK, error) {
+func (a *Client) PostV1ScanPlatformPlatform(params *PostV1ScanPlatformPlatformParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanPlatformPlatformOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ScanPlatformPlatformParams()
@@ -1144,6 +1171,7 @@ func (a *Client) PostV1ScanPlatformPlatform(params *PostV1ScanPlatformPlatformPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ScanPlatformPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1168,7 +1196,7 @@ func (a *Client) PostV1ScanPlatformPlatform(params *PostV1ScanPlatformPlatformPa
 /*
 PostV1ScanRegistry creates a registry
 */
-func (a *Client) PostV1ScanRegistry(params *PostV1ScanRegistryParams, opts ...ClientOption) (*PostV1ScanRegistryOK, error) {
+func (a *Client) PostV1ScanRegistry(params *PostV1ScanRegistryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanRegistryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ScanRegistryParams()
@@ -1182,6 +1210,7 @@ func (a *Client) PostV1ScanRegistry(params *PostV1ScanRegistryParams, opts ...Cl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ScanRegistryReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1206,7 +1235,7 @@ func (a *Client) PostV1ScanRegistry(params *PostV1ScanRegistryParams, opts ...Cl
 /*
 PostV1ScanRegistryNameScan starts a registry scan
 */
-func (a *Client) PostV1ScanRegistryNameScan(params *PostV1ScanRegistryNameScanParams, opts ...ClientOption) (*PostV1ScanRegistryNameScanOK, error) {
+func (a *Client) PostV1ScanRegistryNameScan(params *PostV1ScanRegistryNameScanParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanRegistryNameScanOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ScanRegistryNameScanParams()
@@ -1220,6 +1249,7 @@ func (a *Client) PostV1ScanRegistryNameScan(params *PostV1ScanRegistryNameScanPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ScanRegistryNameScanReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1244,7 +1274,7 @@ func (a *Client) PostV1ScanRegistryNameScan(params *PostV1ScanRegistryNameScanPa
 /*
 PostV1ScanRepository scans repository
 */
-func (a *Client) PostV1ScanRepository(params *PostV1ScanRepositoryParams, opts ...ClientOption) (*PostV1ScanRepositoryOK, error) {
+func (a *Client) PostV1ScanRepository(params *PostV1ScanRepositoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanRepositoryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ScanRepositoryParams()
@@ -1258,6 +1288,7 @@ func (a *Client) PostV1ScanRepository(params *PostV1ScanRepositoryParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ScanRepositoryReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1282,7 +1313,7 @@ func (a *Client) PostV1ScanRepository(params *PostV1ScanRepositoryParams, opts .
 /*
 PostV1ScanSigstoreRootOfTrust creates new sigstore root of trust
 */
-func (a *Client) PostV1ScanSigstoreRootOfTrust(params *PostV1ScanSigstoreRootOfTrustParams, opts ...ClientOption) (*PostV1ScanSigstoreRootOfTrustOK, error) {
+func (a *Client) PostV1ScanSigstoreRootOfTrust(params *PostV1ScanSigstoreRootOfTrustParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanSigstoreRootOfTrustOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ScanSigstoreRootOfTrustParams()
@@ -1296,6 +1327,7 @@ func (a *Client) PostV1ScanSigstoreRootOfTrust(params *PostV1ScanSigstoreRootOfT
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ScanSigstoreRootOfTrustReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1320,7 +1352,7 @@ func (a *Client) PostV1ScanSigstoreRootOfTrust(params *PostV1ScanSigstoreRootOfT
 /*
 PostV1ScanSigstoreRootOfTrustRootNameVerifier creates new sigstore verifier for given sigstore root of trust
 */
-func (a *Client) PostV1ScanSigstoreRootOfTrustRootNameVerifier(params *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams, opts ...ClientOption) (*PostV1ScanSigstoreRootOfTrustRootNameVerifierOK, error) {
+func (a *Client) PostV1ScanSigstoreRootOfTrustRootNameVerifier(params *PostV1ScanSigstoreRootOfTrustRootNameVerifierParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanSigstoreRootOfTrustRootNameVerifierOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ScanSigstoreRootOfTrustRootNameVerifierParams()
@@ -1334,6 +1366,7 @@ func (a *Client) PostV1ScanSigstoreRootOfTrustRootNameVerifier(params *PostV1Sca
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ScanSigstoreRootOfTrustRootNameVerifierReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1358,7 +1391,7 @@ func (a *Client) PostV1ScanSigstoreRootOfTrustRootNameVerifier(params *PostV1Sca
 /*
 PostV1ScanWorkloadID starts container scan
 */
-func (a *Client) PostV1ScanWorkloadID(params *PostV1ScanWorkloadIDParams, opts ...ClientOption) (*PostV1ScanWorkloadIDOK, error) {
+func (a *Client) PostV1ScanWorkloadID(params *PostV1ScanWorkloadIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1ScanWorkloadIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1ScanWorkloadIDParams()
@@ -1372,6 +1405,7 @@ func (a *Client) PostV1ScanWorkloadID(params *PostV1ScanWorkloadIDParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1ScanWorkloadIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

@@ -63,9 +63,6 @@ PostV1WorkloadRequestIDParams contains all the parameters to send to the API end
 */
 type PostV1WorkloadRequestIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Container request data
@@ -131,17 +128,6 @@ func (o *PostV1WorkloadRequestIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 workload request ID params
-func (o *PostV1WorkloadRequestIDParams) WithXAuthToken(xAuthToken string) *PostV1WorkloadRequestIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 workload request ID params
-func (o *PostV1WorkloadRequestIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 workload request ID params
 func (o *PostV1WorkloadRequestIDParams) WithBody(body *models.RESTWorkloadRequestData) *PostV1WorkloadRequestIDParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PostV1WorkloadRequestIDParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

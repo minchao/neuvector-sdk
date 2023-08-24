@@ -63,9 +63,6 @@ PatchV1WafSersorNameParams contains all the parameters to send to the API endpoi
 */
 type PatchV1WafSersorNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   waf sensor data
@@ -131,17 +128,6 @@ func (o *PatchV1WafSersorNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 waf sersor name params
-func (o *PatchV1WafSersorNameParams) WithXAuthToken(xAuthToken string) *PatchV1WafSersorNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 waf sersor name params
-func (o *PatchV1WafSersorNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 waf sersor name params
 func (o *PatchV1WafSersorNameParams) WithBody(body *models.RESTWafSensorConfigData) *PatchV1WafSersorNameParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1WafSersorNameParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

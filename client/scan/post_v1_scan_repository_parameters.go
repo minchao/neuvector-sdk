@@ -63,9 +63,6 @@ PostV1ScanRepositoryParams contains all the parameters to send to the API endpoi
 */
 type PostV1ScanRepositoryParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Repository data
@@ -125,17 +122,6 @@ func (o *PostV1ScanRepositoryParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 scan repository params
-func (o *PostV1ScanRepositoryParams) WithXAuthToken(xAuthToken string) *PostV1ScanRepositoryParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 scan repository params
-func (o *PostV1ScanRepositoryParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 scan repository params
 func (o *PostV1ScanRepositoryParams) WithBody(body *models.RESTScanRepoReqData) *PostV1ScanRepositoryParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PostV1ScanRepositoryParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

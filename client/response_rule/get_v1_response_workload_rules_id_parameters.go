@@ -61,9 +61,6 @@ GetV1ResponseWorkloadRulesIDParams contains all the parameters to send to the AP
 */
 type GetV1ResponseWorkloadRulesIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Workload rules ID
@@ -123,17 +120,6 @@ func (o *GetV1ResponseWorkloadRulesIDParams) SetHTTPClient(client *http.Client) 
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 response workload rules ID params
-func (o *GetV1ResponseWorkloadRulesIDParams) WithXAuthToken(xAuthToken string) *GetV1ResponseWorkloadRulesIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 response workload rules ID params
-func (o *GetV1ResponseWorkloadRulesIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 response workload rules ID params
 func (o *GetV1ResponseWorkloadRulesIDParams) WithID(id string) *GetV1ResponseWorkloadRulesIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1ResponseWorkloadRulesIDParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

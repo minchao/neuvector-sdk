@@ -61,9 +61,6 @@ GetV1ScanRegistryNameImageIDParams contains all the parameters to send to the AP
 */
 type GetV1ScanRegistryNameImageIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Image ID
@@ -129,17 +126,6 @@ func (o *GetV1ScanRegistryNameImageIDParams) SetHTTPClient(client *http.Client) 
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 scan registry name image ID params
-func (o *GetV1ScanRegistryNameImageIDParams) WithXAuthToken(xAuthToken string) *GetV1ScanRegistryNameImageIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 scan registry name image ID params
-func (o *GetV1ScanRegistryNameImageIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 scan registry name image ID params
 func (o *GetV1ScanRegistryNameImageIDParams) WithID(id string) *GetV1ScanRegistryNameImageIDParams {
 	o.SetID(id)
@@ -169,11 +155,6 @@ func (o *GetV1ScanRegistryNameImageIDParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

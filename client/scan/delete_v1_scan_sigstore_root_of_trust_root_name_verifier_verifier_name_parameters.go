@@ -61,9 +61,6 @@ DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams contains all t
 */
 type DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* RootName.
 
 	   Root Of Trust Name
@@ -129,17 +126,6 @@ func (o *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) SetH
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 scan sigstore root of trust root name verifier verifier name params
-func (o *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) WithXAuthToken(xAuthToken string) *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 scan sigstore root of trust root name verifier verifier name params
-func (o *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithRootName adds the rootName to the delete v1 scan sigstore root of trust root name verifier verifier name params
 func (o *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) WithRootName(rootName string) *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams {
 	o.SetRootName(rootName)
@@ -169,11 +155,6 @@ func (o *DeleteV1ScanSigstoreRootOfTrustRootNameVerifierVerifierNameParams) Writ
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param root_name
 	if err := r.SetPathParam("root_name", o.RootName); err != nil {

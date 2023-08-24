@@ -30,31 +30,31 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1FileConfig(params *GetV1FileConfigParams, opts ...ClientOption) (*GetV1FileConfigOK, error)
+	GetV1FileConfig(params *GetV1FileConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileConfigOK, error)
 
-	GetV1FileGroup(params *GetV1FileGroupParams, opts ...ClientOption) (*GetV1FileGroupOK, error)
+	GetV1FileGroup(params *GetV1FileGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileGroupOK, error)
 
-	GetV1FileGroupConfig(params *GetV1FileGroupConfigParams, opts ...ClientOption) (*GetV1FileGroupConfigOK, error)
+	GetV1FileGroupConfig(params *GetV1FileGroupConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileGroupConfigOK, error)
 
-	PostV1CspFileSupport(params *PostV1CspFileSupportParams, opts ...ClientOption) (*PostV1CspFileSupportOK, error)
+	PostV1CspFileSupport(params *PostV1CspFileSupportParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1CspFileSupportOK, error)
 
-	PostV1FileAdmission(params *PostV1FileAdmissionParams, opts ...ClientOption) (*PostV1FileAdmissionOK, error)
+	PostV1FileAdmission(params *PostV1FileAdmissionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileAdmissionOK, error)
 
-	PostV1FileAdmissionConfig(params *PostV1FileAdmissionConfigParams, opts ...ClientOption) (*PostV1FileAdmissionConfigOK, error)
+	PostV1FileAdmissionConfig(params *PostV1FileAdmissionConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileAdmissionConfigOK, error)
 
-	PostV1FileConfig(params *PostV1FileConfigParams, opts ...ClientOption) (*PostV1FileConfigOK, error)
+	PostV1FileConfig(params *PostV1FileConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileConfigOK, error)
 
-	PostV1FileDlp(params *PostV1FileDlpParams, opts ...ClientOption) (*PostV1FileDlpOK, error)
+	PostV1FileDlp(params *PostV1FileDlpParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileDlpOK, error)
 
-	PostV1FileDlpConfig(params *PostV1FileDlpConfigParams, opts ...ClientOption) (*PostV1FileDlpConfigOK, error)
+	PostV1FileDlpConfig(params *PostV1FileDlpConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileDlpConfigOK, error)
 
-	PostV1FileGroup(params *PostV1FileGroupParams, opts ...ClientOption) (*PostV1FileGroupOK, error)
+	PostV1FileGroup(params *PostV1FileGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileGroupOK, error)
 
-	PostV1FileGroupConfig(params *PostV1FileGroupConfigParams, opts ...ClientOption) (*PostV1FileGroupConfigOK, error)
+	PostV1FileGroupConfig(params *PostV1FileGroupConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileGroupConfigOK, error)
 
-	PostV1FileWaf(params *PostV1FileWafParams, opts ...ClientOption) (*PostV1FileWafOK, error)
+	PostV1FileWaf(params *PostV1FileWafParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileWafOK, error)
 
-	PostV1FileWafConfig(params *PostV1FileWafConfigParams, opts ...ClientOption) (*PostV1FileWafConfigOK, error)
+	PostV1FileWafConfig(params *PostV1FileWafConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileWafConfigOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -62,7 +62,7 @@ type ClientService interface {
 /*
 GetV1FileConfig downloads a configure file
 */
-func (a *Client) GetV1FileConfig(params *GetV1FileConfigParams, opts ...ClientOption) (*GetV1FileConfigOK, error) {
+func (a *Client) GetV1FileConfig(params *GetV1FileConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1FileConfigParams()
@@ -76,6 +76,7 @@ func (a *Client) GetV1FileConfig(params *GetV1FileConfigParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1FileConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -100,7 +101,7 @@ func (a *Client) GetV1FileConfig(params *GetV1FileConfigParams, opts ...ClientOp
 /*
 GetV1FileGroup obsoletes please use p o s t method export the yaml format configuration file used for c r d or group policy
 */
-func (a *Client) GetV1FileGroup(params *GetV1FileGroupParams, opts ...ClientOption) (*GetV1FileGroupOK, error) {
+func (a *Client) GetV1FileGroup(params *GetV1FileGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileGroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1FileGroupParams()
@@ -114,6 +115,7 @@ func (a *Client) GetV1FileGroup(params *GetV1FileGroupParams, opts ...ClientOpti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1FileGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -138,7 +140,7 @@ func (a *Client) GetV1FileGroup(params *GetV1FileGroupParams, opts ...ClientOpti
 /*
 GetV1FileGroupConfig gets import status
 */
-func (a *Client) GetV1FileGroupConfig(params *GetV1FileGroupConfigParams, opts ...ClientOption) (*GetV1FileGroupConfigOK, error) {
+func (a *Client) GetV1FileGroupConfig(params *GetV1FileGroupConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileGroupConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1FileGroupConfigParams()
@@ -152,6 +154,7 @@ func (a *Client) GetV1FileGroupConfig(params *GetV1FileGroupConfigParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1FileGroupConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -176,7 +179,7 @@ func (a *Client) GetV1FileGroupConfig(params *GetV1FileGroupConfigParams, opts .
 /*
 PostV1CspFileSupport exports support config tarball in gz format
 */
-func (a *Client) PostV1CspFileSupport(params *PostV1CspFileSupportParams, opts ...ClientOption) (*PostV1CspFileSupportOK, error) {
+func (a *Client) PostV1CspFileSupport(params *PostV1CspFileSupportParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1CspFileSupportOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1CspFileSupportParams()
@@ -190,6 +193,7 @@ func (a *Client) PostV1CspFileSupport(params *PostV1CspFileSupportParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1CspFileSupportReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -214,7 +218,7 @@ func (a *Client) PostV1CspFileSupport(params *PostV1CspFileSupportParams, opts .
 /*
 PostV1FileAdmission exports admission control configuration as a yaml format the exported yaml file can be imported by c r d or r e s t API to update the admission control settings
 */
-func (a *Client) PostV1FileAdmission(params *PostV1FileAdmissionParams, opts ...ClientOption) (*PostV1FileAdmissionOK, error) {
+func (a *Client) PostV1FileAdmission(params *PostV1FileAdmissionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileAdmissionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileAdmissionParams()
@@ -228,6 +232,7 @@ func (a *Client) PostV1FileAdmission(params *PostV1FileAdmissionParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileAdmissionReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -254,7 +259,7 @@ PostV1FileAdmissionConfig imports admission config
 
 Importing admission config. The payload body is the content of the admission config yaml file.
 */
-func (a *Client) PostV1FileAdmissionConfig(params *PostV1FileAdmissionConfigParams, opts ...ClientOption) (*PostV1FileAdmissionConfigOK, error) {
+func (a *Client) PostV1FileAdmissionConfig(params *PostV1FileAdmissionConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileAdmissionConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileAdmissionConfigParams()
@@ -268,6 +273,7 @@ func (a *Client) PostV1FileAdmissionConfig(params *PostV1FileAdmissionConfigPara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileAdmissionConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -292,7 +298,7 @@ func (a *Client) PostV1FileAdmissionConfig(params *PostV1FileAdmissionConfigPara
 /*
 PostV1FileConfig uploads configure file
 */
-func (a *Client) PostV1FileConfig(params *PostV1FileConfigParams, opts ...ClientOption) (*PostV1FileConfigOK, error) {
+func (a *Client) PostV1FileConfig(params *PostV1FileConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileConfigParams()
@@ -306,6 +312,7 @@ func (a *Client) PostV1FileConfig(params *PostV1FileConfigParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -330,7 +337,7 @@ func (a *Client) PostV1FileConfig(params *PostV1FileConfigParams, opts ...Client
 /*
 PostV1FileDlp exports d l p configuration as a yaml format
 */
-func (a *Client) PostV1FileDlp(params *PostV1FileDlpParams, opts ...ClientOption) (*PostV1FileDlpOK, error) {
+func (a *Client) PostV1FileDlp(params *PostV1FileDlpParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileDlpOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileDlpParams()
@@ -344,6 +351,7 @@ func (a *Client) PostV1FileDlp(params *PostV1FileDlpParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileDlpReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -370,7 +378,7 @@ PostV1FileDlpConfig imports d l p config
 
 Importing DLP config. The payload body is the content of the DLP config yaml file.
 */
-func (a *Client) PostV1FileDlpConfig(params *PostV1FileDlpConfigParams, opts ...ClientOption) (*PostV1FileDlpConfigOK, error) {
+func (a *Client) PostV1FileDlpConfig(params *PostV1FileDlpConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileDlpConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileDlpConfigParams()
@@ -384,6 +392,7 @@ func (a *Client) PostV1FileDlpConfig(params *PostV1FileDlpConfigParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileDlpConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -408,7 +417,7 @@ func (a *Client) PostV1FileDlpConfig(params *PostV1FileDlpConfigParams, opts ...
 /*
 PostV1FileGroup exports configuration as the yaml format used for c r d or group policy
 */
-func (a *Client) PostV1FileGroup(params *PostV1FileGroupParams, opts ...ClientOption) (*PostV1FileGroupOK, error) {
+func (a *Client) PostV1FileGroup(params *PostV1FileGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileGroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileGroupParams()
@@ -422,6 +431,7 @@ func (a *Client) PostV1FileGroup(params *PostV1FileGroupParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -448,7 +458,7 @@ PostV1FileGroupConfig imports group policy
 
 Importing group policy. The payload body is the content of the group policy yaml file.
 */
-func (a *Client) PostV1FileGroupConfig(params *PostV1FileGroupConfigParams, opts ...ClientOption) (*PostV1FileGroupConfigOK, error) {
+func (a *Client) PostV1FileGroupConfig(params *PostV1FileGroupConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileGroupConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileGroupConfigParams()
@@ -462,6 +472,7 @@ func (a *Client) PostV1FileGroupConfig(params *PostV1FileGroupConfigParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileGroupConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -486,7 +497,7 @@ func (a *Client) PostV1FileGroupConfig(params *PostV1FileGroupConfigParams, opts
 /*
 PostV1FileWaf exports waf configuration as a yaml format
 */
-func (a *Client) PostV1FileWaf(params *PostV1FileWafParams, opts ...ClientOption) (*PostV1FileWafOK, error) {
+func (a *Client) PostV1FileWaf(params *PostV1FileWafParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileWafOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileWafParams()
@@ -500,6 +511,7 @@ func (a *Client) PostV1FileWaf(params *PostV1FileWafParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileWafReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -526,7 +538,7 @@ PostV1FileWafConfig imports waf config
 
 Importing waf config. The payload body is the content of the waf config yaml file.
 */
-func (a *Client) PostV1FileWafConfig(params *PostV1FileWafConfigParams, opts ...ClientOption) (*PostV1FileWafConfigOK, error) {
+func (a *Client) PostV1FileWafConfig(params *PostV1FileWafConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1FileWafConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1FileWafConfigParams()
@@ -540,6 +552,7 @@ func (a *Client) PostV1FileWafConfig(params *PostV1FileWafConfigParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1FileWafConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

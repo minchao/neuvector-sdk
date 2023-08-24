@@ -61,9 +61,6 @@ GetV1ScanRegistryNameParams contains all the parameters to send to the API endpo
 */
 type GetV1ScanRegistryNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   Name of the registry
@@ -123,17 +120,6 @@ func (o *GetV1ScanRegistryNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 scan registry name params
-func (o *GetV1ScanRegistryNameParams) WithXAuthToken(xAuthToken string) *GetV1ScanRegistryNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 scan registry name params
-func (o *GetV1ScanRegistryNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 scan registry name params
 func (o *GetV1ScanRegistryNameParams) WithName(name string) *GetV1ScanRegistryNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1ScanRegistryNameParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

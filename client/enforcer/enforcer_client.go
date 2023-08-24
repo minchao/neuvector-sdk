@@ -30,15 +30,15 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1Enforcer(params *GetV1EnforcerParams, opts ...ClientOption) (*GetV1EnforcerOK, error)
+	GetV1Enforcer(params *GetV1EnforcerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1EnforcerOK, error)
 
-	GetV1EnforcerID(params *GetV1EnforcerIDParams, opts ...ClientOption) (*GetV1EnforcerIDOK, error)
+	GetV1EnforcerID(params *GetV1EnforcerIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1EnforcerIDOK, error)
 
-	GetV1EnforcerIDConfig(params *GetV1EnforcerIDConfigParams, opts ...ClientOption) (*GetV1EnforcerIDConfigOK, error)
+	GetV1EnforcerIDConfig(params *GetV1EnforcerIDConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1EnforcerIDConfigOK, error)
 
-	GetV1EnforcerIDStats(params *GetV1EnforcerIDStatsParams, opts ...ClientOption) (*GetV1EnforcerIDStatsOK, error)
+	GetV1EnforcerIDStats(params *GetV1EnforcerIDStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1EnforcerIDStatsOK, error)
 
-	PatchV1EnforcerID(params *PatchV1EnforcerIDParams, opts ...ClientOption) (*PatchV1EnforcerIDOK, error)
+	PatchV1EnforcerID(params *PatchV1EnforcerIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1EnforcerIDOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ type ClientService interface {
 /*
 GetV1Enforcer gets a list of enforcers
 */
-func (a *Client) GetV1Enforcer(params *GetV1EnforcerParams, opts ...ClientOption) (*GetV1EnforcerOK, error) {
+func (a *Client) GetV1Enforcer(params *GetV1EnforcerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1EnforcerOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1EnforcerParams()
@@ -60,6 +60,7 @@ func (a *Client) GetV1Enforcer(params *GetV1EnforcerParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1EnforcerReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -84,7 +85,7 @@ func (a *Client) GetV1Enforcer(params *GetV1EnforcerParams, opts ...ClientOption
 /*
 GetV1EnforcerID shows enforcer
 */
-func (a *Client) GetV1EnforcerID(params *GetV1EnforcerIDParams, opts ...ClientOption) (*GetV1EnforcerIDOK, error) {
+func (a *Client) GetV1EnforcerID(params *GetV1EnforcerIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1EnforcerIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1EnforcerIDParams()
@@ -98,6 +99,7 @@ func (a *Client) GetV1EnforcerID(params *GetV1EnforcerIDParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1EnforcerIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -122,7 +124,7 @@ func (a *Client) GetV1EnforcerID(params *GetV1EnforcerIDParams, opts ...ClientOp
 /*
 GetV1EnforcerIDConfig enforcers get configure
 */
-func (a *Client) GetV1EnforcerIDConfig(params *GetV1EnforcerIDConfigParams, opts ...ClientOption) (*GetV1EnforcerIDConfigOK, error) {
+func (a *Client) GetV1EnforcerIDConfig(params *GetV1EnforcerIDConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1EnforcerIDConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1EnforcerIDConfigParams()
@@ -136,6 +138,7 @@ func (a *Client) GetV1EnforcerIDConfig(params *GetV1EnforcerIDConfigParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1EnforcerIDConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -160,7 +163,7 @@ func (a *Client) GetV1EnforcerIDConfig(params *GetV1EnforcerIDConfigParams, opts
 /*
 GetV1EnforcerIDStats gets enforcer statistics
 */
-func (a *Client) GetV1EnforcerIDStats(params *GetV1EnforcerIDStatsParams, opts ...ClientOption) (*GetV1EnforcerIDStatsOK, error) {
+func (a *Client) GetV1EnforcerIDStats(params *GetV1EnforcerIDStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1EnforcerIDStatsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1EnforcerIDStatsParams()
@@ -174,6 +177,7 @@ func (a *Client) GetV1EnforcerIDStats(params *GetV1EnforcerIDStatsParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1EnforcerIDStatsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -198,7 +202,7 @@ func (a *Client) GetV1EnforcerIDStats(params *GetV1EnforcerIDStatsParams, opts .
 /*
 PatchV1EnforcerID updates enforcer
 */
-func (a *Client) PatchV1EnforcerID(params *PatchV1EnforcerIDParams, opts ...ClientOption) (*PatchV1EnforcerIDOK, error) {
+func (a *Client) PatchV1EnforcerID(params *PatchV1EnforcerIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1EnforcerIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1EnforcerIDParams()
@@ -212,6 +216,7 @@ func (a *Client) PatchV1EnforcerID(params *PatchV1EnforcerIDParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1EnforcerIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

@@ -30,19 +30,19 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1ResponseRule(params *DeleteV1ResponseRuleParams, opts ...ClientOption) (*DeleteV1ResponseRuleOK, error)
+	DeleteV1ResponseRule(params *DeleteV1ResponseRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ResponseRuleOK, error)
 
-	DeleteV1ResponseRuleID(params *DeleteV1ResponseRuleIDParams, opts ...ClientOption) (*DeleteV1ResponseRuleIDOK, error)
+	DeleteV1ResponseRuleID(params *DeleteV1ResponseRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ResponseRuleIDOK, error)
 
-	GetV1ResponseRule(params *GetV1ResponseRuleParams, opts ...ClientOption) (*GetV1ResponseRuleOK, error)
+	GetV1ResponseRule(params *GetV1ResponseRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ResponseRuleOK, error)
 
-	GetV1ResponseRuleID(params *GetV1ResponseRuleIDParams, opts ...ClientOption) (*GetV1ResponseRuleIDOK, error)
+	GetV1ResponseRuleID(params *GetV1ResponseRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ResponseRuleIDOK, error)
 
-	GetV1ResponseWorkloadRulesID(params *GetV1ResponseWorkloadRulesIDParams, opts ...ClientOption) (*GetV1ResponseWorkloadRulesIDOK, error)
+	GetV1ResponseWorkloadRulesID(params *GetV1ResponseWorkloadRulesIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ResponseWorkloadRulesIDOK, error)
 
-	PatchV1ResponseRule(params *PatchV1ResponseRuleParams, opts ...ClientOption) (*PatchV1ResponseRuleOK, error)
+	PatchV1ResponseRule(params *PatchV1ResponseRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ResponseRuleOK, error)
 
-	PatchV1ResponseRuleID(params *PatchV1ResponseRuleIDParams, opts ...ClientOption) (*PatchV1ResponseRuleIDOK, error)
+	PatchV1ResponseRuleID(params *PatchV1ResponseRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ResponseRuleIDOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,7 +50,7 @@ type ClientService interface {
 /*
 DeleteV1ResponseRule deletes all response rules
 */
-func (a *Client) DeleteV1ResponseRule(params *DeleteV1ResponseRuleParams, opts ...ClientOption) (*DeleteV1ResponseRuleOK, error) {
+func (a *Client) DeleteV1ResponseRule(params *DeleteV1ResponseRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ResponseRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1ResponseRuleParams()
@@ -64,6 +64,7 @@ func (a *Client) DeleteV1ResponseRule(params *DeleteV1ResponseRuleParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1ResponseRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -88,7 +89,7 @@ func (a *Client) DeleteV1ResponseRule(params *DeleteV1ResponseRuleParams, opts .
 /*
 DeleteV1ResponseRuleID deletes a response rule
 */
-func (a *Client) DeleteV1ResponseRuleID(params *DeleteV1ResponseRuleIDParams, opts ...ClientOption) (*DeleteV1ResponseRuleIDOK, error) {
+func (a *Client) DeleteV1ResponseRuleID(params *DeleteV1ResponseRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1ResponseRuleIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1ResponseRuleIDParams()
@@ -102,6 +103,7 @@ func (a *Client) DeleteV1ResponseRuleID(params *DeleteV1ResponseRuleIDParams, op
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1ResponseRuleIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -126,7 +128,7 @@ func (a *Client) DeleteV1ResponseRuleID(params *DeleteV1ResponseRuleIDParams, op
 /*
 GetV1ResponseRule gets a list of response rules
 */
-func (a *Client) GetV1ResponseRule(params *GetV1ResponseRuleParams, opts ...ClientOption) (*GetV1ResponseRuleOK, error) {
+func (a *Client) GetV1ResponseRule(params *GetV1ResponseRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ResponseRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ResponseRuleParams()
@@ -140,6 +142,7 @@ func (a *Client) GetV1ResponseRule(params *GetV1ResponseRuleParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ResponseRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -164,7 +167,7 @@ func (a *Client) GetV1ResponseRule(params *GetV1ResponseRuleParams, opts ...Clie
 /*
 GetV1ResponseRuleID gets a response rule
 */
-func (a *Client) GetV1ResponseRuleID(params *GetV1ResponseRuleIDParams, opts ...ClientOption) (*GetV1ResponseRuleIDOK, error) {
+func (a *Client) GetV1ResponseRuleID(params *GetV1ResponseRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ResponseRuleIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ResponseRuleIDParams()
@@ -178,6 +181,7 @@ func (a *Client) GetV1ResponseRuleID(params *GetV1ResponseRuleIDParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ResponseRuleIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -202,7 +206,7 @@ func (a *Client) GetV1ResponseRuleID(params *GetV1ResponseRuleIDParams, opts ...
 /*
 GetV1ResponseWorkloadRulesID gets response rule workload
 */
-func (a *Client) GetV1ResponseWorkloadRulesID(params *GetV1ResponseWorkloadRulesIDParams, opts ...ClientOption) (*GetV1ResponseWorkloadRulesIDOK, error) {
+func (a *Client) GetV1ResponseWorkloadRulesID(params *GetV1ResponseWorkloadRulesIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ResponseWorkloadRulesIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ResponseWorkloadRulesIDParams()
@@ -216,6 +220,7 @@ func (a *Client) GetV1ResponseWorkloadRulesID(params *GetV1ResponseWorkloadRules
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ResponseWorkloadRulesIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -240,7 +245,7 @@ func (a *Client) GetV1ResponseWorkloadRulesID(params *GetV1ResponseWorkloadRules
 /*
 PatchV1ResponseRule updates response rule action
 */
-func (a *Client) PatchV1ResponseRule(params *PatchV1ResponseRuleParams, opts ...ClientOption) (*PatchV1ResponseRuleOK, error) {
+func (a *Client) PatchV1ResponseRule(params *PatchV1ResponseRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ResponseRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ResponseRuleParams()
@@ -254,6 +259,7 @@ func (a *Client) PatchV1ResponseRule(params *PatchV1ResponseRuleParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ResponseRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -278,7 +284,7 @@ func (a *Client) PatchV1ResponseRule(params *PatchV1ResponseRuleParams, opts ...
 /*
 PatchV1ResponseRuleID updates a response rule
 */
-func (a *Client) PatchV1ResponseRuleID(params *PatchV1ResponseRuleIDParams, opts ...ClientOption) (*PatchV1ResponseRuleIDOK, error) {
+func (a *Client) PatchV1ResponseRuleID(params *PatchV1ResponseRuleIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ResponseRuleIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ResponseRuleIDParams()
@@ -292,6 +298,7 @@ func (a *Client) PatchV1ResponseRuleID(params *PatchV1ResponseRuleIDParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ResponseRuleIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

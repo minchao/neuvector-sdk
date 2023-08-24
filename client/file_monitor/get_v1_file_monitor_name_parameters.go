@@ -61,9 +61,6 @@ GetV1FileMonitorNameParams contains all the parameters to send to the API endpoi
 */
 type GetV1FileMonitorNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   File monitor name
@@ -123,17 +120,6 @@ func (o *GetV1FileMonitorNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 file monitor name params
-func (o *GetV1FileMonitorNameParams) WithXAuthToken(xAuthToken string) *GetV1FileMonitorNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 file monitor name params
-func (o *GetV1FileMonitorNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 file monitor name params
 func (o *GetV1FileMonitorNameParams) WithName(name string) *GetV1FileMonitorNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1FileMonitorNameParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

@@ -30,25 +30,25 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1WafSersorName(params *DeleteV1WafSersorNameParams, opts ...ClientOption) (*DeleteV1WafSersorNameOK, error)
+	DeleteV1WafSersorName(params *DeleteV1WafSersorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1WafSersorNameOK, error)
 
-	GetV1WafGroup(params *GetV1WafGroupParams, opts ...ClientOption) (*GetV1WafGroupOK, error)
+	GetV1WafGroup(params *GetV1WafGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafGroupOK, error)
 
-	GetV1WafGroupName(params *GetV1WafGroupNameParams, opts ...ClientOption) (*GetV1WafGroupNameOK, error)
+	GetV1WafGroupName(params *GetV1WafGroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafGroupNameOK, error)
 
-	GetV1WafRule(params *GetV1WafRuleParams, opts ...ClientOption) (*GetV1WafRuleOK, error)
+	GetV1WafRule(params *GetV1WafRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafRuleOK, error)
 
-	GetV1WafRuleName(params *GetV1WafRuleNameParams, opts ...ClientOption) (*GetV1WafRuleNameOK, error)
+	GetV1WafRuleName(params *GetV1WafRuleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafRuleNameOK, error)
 
-	GetV1WafSensor(params *GetV1WafSensorParams, opts ...ClientOption) (*GetV1WafSensorOK, error)
+	GetV1WafSensor(params *GetV1WafSensorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafSensorOK, error)
 
-	GetV1WafSersorName(params *GetV1WafSersorNameParams, opts ...ClientOption) (*GetV1WafSersorNameOK, error)
+	GetV1WafSersorName(params *GetV1WafSersorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafSersorNameOK, error)
 
-	PatchV1WafGroupName(params *PatchV1WafGroupNameParams, opts ...ClientOption) (*PatchV1WafGroupNameOK, error)
+	PatchV1WafGroupName(params *PatchV1WafGroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1WafGroupNameOK, error)
 
-	PatchV1WafSersorName(params *PatchV1WafSersorNameParams, opts ...ClientOption) (*PatchV1WafSersorNameOK, error)
+	PatchV1WafSersorName(params *PatchV1WafSersorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1WafSersorNameOK, error)
 
-	PostV1WafSensor(params *PostV1WafSensorParams, opts ...ClientOption) (*PostV1WafSensorOK, error)
+	PostV1WafSensor(params *PostV1WafSensorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1WafSensorOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -56,7 +56,7 @@ type ClientService interface {
 /*
 DeleteV1WafSersorName deletes a waf sensor
 */
-func (a *Client) DeleteV1WafSersorName(params *DeleteV1WafSersorNameParams, opts ...ClientOption) (*DeleteV1WafSersorNameOK, error) {
+func (a *Client) DeleteV1WafSersorName(params *DeleteV1WafSersorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1WafSersorNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1WafSersorNameParams()
@@ -70,6 +70,7 @@ func (a *Client) DeleteV1WafSersorName(params *DeleteV1WafSersorNameParams, opts
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1WafSersorNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -94,7 +95,7 @@ func (a *Client) DeleteV1WafSersorName(params *DeleteV1WafSersorNameParams, opts
 /*
 GetV1WafGroup gets waf group list
 */
-func (a *Client) GetV1WafGroup(params *GetV1WafGroupParams, opts ...ClientOption) (*GetV1WafGroupOK, error) {
+func (a *Client) GetV1WafGroup(params *GetV1WafGroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafGroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WafGroupParams()
@@ -108,6 +109,7 @@ func (a *Client) GetV1WafGroup(params *GetV1WafGroupParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WafGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -132,7 +134,7 @@ func (a *Client) GetV1WafGroup(params *GetV1WafGroupParams, opts ...ClientOption
 /*
 GetV1WafGroupName gets waf group detail
 */
-func (a *Client) GetV1WafGroupName(params *GetV1WafGroupNameParams, opts ...ClientOption) (*GetV1WafGroupNameOK, error) {
+func (a *Client) GetV1WafGroupName(params *GetV1WafGroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafGroupNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WafGroupNameParams()
@@ -146,6 +148,7 @@ func (a *Client) GetV1WafGroupName(params *GetV1WafGroupNameParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WafGroupNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -170,7 +173,7 @@ func (a *Client) GetV1WafGroupName(params *GetV1WafGroupNameParams, opts ...Clie
 /*
 GetV1WafRule gets waf rule list
 */
-func (a *Client) GetV1WafRule(params *GetV1WafRuleParams, opts ...ClientOption) (*GetV1WafRuleOK, error) {
+func (a *Client) GetV1WafRule(params *GetV1WafRuleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafRuleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WafRuleParams()
@@ -184,6 +187,7 @@ func (a *Client) GetV1WafRule(params *GetV1WafRuleParams, opts ...ClientOption) 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WafRuleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -208,7 +212,7 @@ func (a *Client) GetV1WafRule(params *GetV1WafRuleParams, opts ...ClientOption) 
 /*
 GetV1WafRuleName gets waf rule detail
 */
-func (a *Client) GetV1WafRuleName(params *GetV1WafRuleNameParams, opts ...ClientOption) (*GetV1WafRuleNameOK, error) {
+func (a *Client) GetV1WafRuleName(params *GetV1WafRuleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafRuleNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WafRuleNameParams()
@@ -222,6 +226,7 @@ func (a *Client) GetV1WafRuleName(params *GetV1WafRuleNameParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WafRuleNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -246,7 +251,7 @@ func (a *Client) GetV1WafRuleName(params *GetV1WafRuleNameParams, opts ...Client
 /*
 GetV1WafSensor gets waf rule list
 */
-func (a *Client) GetV1WafSensor(params *GetV1WafSensorParams, opts ...ClientOption) (*GetV1WafSensorOK, error) {
+func (a *Client) GetV1WafSensor(params *GetV1WafSensorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafSensorOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WafSensorParams()
@@ -260,6 +265,7 @@ func (a *Client) GetV1WafSensor(params *GetV1WafSensorParams, opts ...ClientOpti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WafSensorReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -284,7 +290,7 @@ func (a *Client) GetV1WafSensor(params *GetV1WafSensorParams, opts ...ClientOpti
 /*
 GetV1WafSersorName gets waf sensor detail
 */
-func (a *Client) GetV1WafSersorName(params *GetV1WafSersorNameParams, opts ...ClientOption) (*GetV1WafSersorNameOK, error) {
+func (a *Client) GetV1WafSersorName(params *GetV1WafSersorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1WafSersorNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1WafSersorNameParams()
@@ -298,6 +304,7 @@ func (a *Client) GetV1WafSersorName(params *GetV1WafSersorNameParams, opts ...Cl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1WafSersorNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -322,7 +329,7 @@ func (a *Client) GetV1WafSersorName(params *GetV1WafSersorNameParams, opts ...Cl
 /*
 PatchV1WafGroupName updates a waf group
 */
-func (a *Client) PatchV1WafGroupName(params *PatchV1WafGroupNameParams, opts ...ClientOption) (*PatchV1WafGroupNameOK, error) {
+func (a *Client) PatchV1WafGroupName(params *PatchV1WafGroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1WafGroupNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1WafGroupNameParams()
@@ -336,6 +343,7 @@ func (a *Client) PatchV1WafGroupName(params *PatchV1WafGroupNameParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1WafGroupNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -360,7 +368,7 @@ func (a *Client) PatchV1WafGroupName(params *PatchV1WafGroupNameParams, opts ...
 /*
 PatchV1WafSersorName updates a waf sensor
 */
-func (a *Client) PatchV1WafSersorName(params *PatchV1WafSersorNameParams, opts ...ClientOption) (*PatchV1WafSersorNameOK, error) {
+func (a *Client) PatchV1WafSersorName(params *PatchV1WafSersorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1WafSersorNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1WafSersorNameParams()
@@ -374,6 +382,7 @@ func (a *Client) PatchV1WafSersorName(params *PatchV1WafSersorNameParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1WafSersorNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -398,7 +407,7 @@ func (a *Client) PatchV1WafSersorName(params *PatchV1WafSersorNameParams, opts .
 /*
 PostV1WafSensor creates waf sensor
 */
-func (a *Client) PostV1WafSensor(params *PostV1WafSensorParams, opts ...ClientOption) (*PostV1WafSensorOK, error) {
+func (a *Client) PostV1WafSensor(params *PostV1WafSensorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1WafSensorOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1WafSensorParams()
@@ -412,6 +421,7 @@ func (a *Client) PostV1WafSensor(params *PostV1WafSensorParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1WafSensorReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

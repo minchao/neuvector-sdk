@@ -61,9 +61,6 @@ DeleteV1ResponseRuleIDParams contains all the parameters to send to the API endp
 */
 type DeleteV1ResponseRuleIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Rule ID
@@ -123,17 +120,6 @@ func (o *DeleteV1ResponseRuleIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 response rule ID params
-func (o *DeleteV1ResponseRuleIDParams) WithXAuthToken(xAuthToken string) *DeleteV1ResponseRuleIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 response rule ID params
-func (o *DeleteV1ResponseRuleIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the delete v1 response rule ID params
 func (o *DeleteV1ResponseRuleIDParams) WithID(id string) *DeleteV1ResponseRuleIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *DeleteV1ResponseRuleIDParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

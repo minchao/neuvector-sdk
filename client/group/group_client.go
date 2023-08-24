@@ -30,15 +30,15 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1GroupName(params *DeleteV1GroupNameParams, opts ...ClientOption) (*DeleteV1GroupNameOK, error)
+	DeleteV1GroupName(params *DeleteV1GroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1GroupNameOK, error)
 
-	GetV1Group(params *GetV1GroupParams, opts ...ClientOption) (*GetV1GroupOK, error)
+	GetV1Group(params *GetV1GroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1GroupOK, error)
 
-	GetV1GroupName(params *GetV1GroupNameParams, opts ...ClientOption) (*GetV1GroupNameOK, error)
+	GetV1GroupName(params *GetV1GroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1GroupNameOK, error)
 
-	PatchV1GroupName(params *PatchV1GroupNameParams, opts ...ClientOption) (*PatchV1GroupNameOK, error)
+	PatchV1GroupName(params *PatchV1GroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1GroupNameOK, error)
 
-	PostV1Group(params *PostV1GroupParams, opts ...ClientOption) (*PostV1GroupOK, error)
+	PostV1Group(params *PostV1GroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1GroupOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ type ClientService interface {
 /*
 DeleteV1GroupName deletes group
 */
-func (a *Client) DeleteV1GroupName(params *DeleteV1GroupNameParams, opts ...ClientOption) (*DeleteV1GroupNameOK, error) {
+func (a *Client) DeleteV1GroupName(params *DeleteV1GroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1GroupNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1GroupNameParams()
@@ -60,6 +60,7 @@ func (a *Client) DeleteV1GroupName(params *DeleteV1GroupNameParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1GroupNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -84,7 +85,7 @@ func (a *Client) DeleteV1GroupName(params *DeleteV1GroupNameParams, opts ...Clie
 /*
 GetV1Group gets a list of groups
 */
-func (a *Client) GetV1Group(params *GetV1GroupParams, opts ...ClientOption) (*GetV1GroupOK, error) {
+func (a *Client) GetV1Group(params *GetV1GroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1GroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1GroupParams()
@@ -98,6 +99,7 @@ func (a *Client) GetV1Group(params *GetV1GroupParams, opts ...ClientOption) (*Ge
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1GroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -122,7 +124,7 @@ func (a *Client) GetV1Group(params *GetV1GroupParams, opts ...ClientOption) (*Ge
 /*
 GetV1GroupName shows group
 */
-func (a *Client) GetV1GroupName(params *GetV1GroupNameParams, opts ...ClientOption) (*GetV1GroupNameOK, error) {
+func (a *Client) GetV1GroupName(params *GetV1GroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1GroupNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1GroupNameParams()
@@ -136,6 +138,7 @@ func (a *Client) GetV1GroupName(params *GetV1GroupNameParams, opts ...ClientOpti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1GroupNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -160,7 +163,7 @@ func (a *Client) GetV1GroupName(params *GetV1GroupNameParams, opts ...ClientOpti
 /*
 PatchV1GroupName updates group
 */
-func (a *Client) PatchV1GroupName(params *PatchV1GroupNameParams, opts ...ClientOption) (*PatchV1GroupNameOK, error) {
+func (a *Client) PatchV1GroupName(params *PatchV1GroupNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1GroupNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1GroupNameParams()
@@ -174,6 +177,7 @@ func (a *Client) PatchV1GroupName(params *PatchV1GroupNameParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1GroupNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -198,7 +202,7 @@ func (a *Client) PatchV1GroupName(params *PatchV1GroupNameParams, opts ...Client
 /*
 PostV1Group creates group
 */
-func (a *Client) PostV1Group(params *PostV1GroupParams, opts ...ClientOption) (*PostV1GroupOK, error) {
+func (a *Client) PostV1Group(params *PostV1GroupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1GroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1GroupParams()
@@ -212,6 +216,7 @@ func (a *Client) PostV1Group(params *PostV1GroupParams, opts ...ClientOption) (*
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1GroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

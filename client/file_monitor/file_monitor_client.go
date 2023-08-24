@@ -30,11 +30,11 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1FileMonitor(params *GetV1FileMonitorParams, opts ...ClientOption) (*GetV1FileMonitorOK, error)
+	GetV1FileMonitor(params *GetV1FileMonitorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileMonitorOK, error)
 
-	GetV1FileMonitorName(params *GetV1FileMonitorNameParams, opts ...ClientOption) (*GetV1FileMonitorNameOK, error)
+	GetV1FileMonitorName(params *GetV1FileMonitorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileMonitorNameOK, error)
 
-	PatchV1FileMonitorName(params *PatchV1FileMonitorNameParams, opts ...ClientOption) (*PatchV1FileMonitorNameOK, error)
+	PatchV1FileMonitorName(params *PatchV1FileMonitorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1FileMonitorNameOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 /*
 GetV1FileMonitor gets a list of file monitors
 */
-func (a *Client) GetV1FileMonitor(params *GetV1FileMonitorParams, opts ...ClientOption) (*GetV1FileMonitorOK, error) {
+func (a *Client) GetV1FileMonitor(params *GetV1FileMonitorParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileMonitorOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1FileMonitorParams()
@@ -56,6 +56,7 @@ func (a *Client) GetV1FileMonitor(params *GetV1FileMonitorParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1FileMonitorReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -80,7 +81,7 @@ func (a *Client) GetV1FileMonitor(params *GetV1FileMonitorParams, opts ...Client
 /*
 GetV1FileMonitorName shows file monitor
 */
-func (a *Client) GetV1FileMonitorName(params *GetV1FileMonitorNameParams, opts ...ClientOption) (*GetV1FileMonitorNameOK, error) {
+func (a *Client) GetV1FileMonitorName(params *GetV1FileMonitorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1FileMonitorNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1FileMonitorNameParams()
@@ -94,6 +95,7 @@ func (a *Client) GetV1FileMonitorName(params *GetV1FileMonitorNameParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1FileMonitorNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -118,7 +120,7 @@ func (a *Client) GetV1FileMonitorName(params *GetV1FileMonitorNameParams, opts .
 /*
 PatchV1FileMonitorName updates file monitor
 */
-func (a *Client) PatchV1FileMonitorName(params *PatchV1FileMonitorNameParams, opts ...ClientOption) (*PatchV1FileMonitorNameOK, error) {
+func (a *Client) PatchV1FileMonitorName(params *PatchV1FileMonitorNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1FileMonitorNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1FileMonitorNameParams()
@@ -132,6 +134,7 @@ func (a *Client) PatchV1FileMonitorName(params *PatchV1FileMonitorNameParams, op
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1FileMonitorNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

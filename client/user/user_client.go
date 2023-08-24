@@ -30,35 +30,35 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteV1UserFullname(params *DeleteV1UserFullnameParams, opts ...ClientOption) (*DeleteV1UserFullnameOK, error)
+	DeleteV1UserFullname(params *DeleteV1UserFullnameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1UserFullnameOK, error)
 
-	DeleteV1UserRoleName(params *DeleteV1UserRoleNameParams, opts ...ClientOption) (*DeleteV1UserRoleNameOK, error)
+	DeleteV1UserRoleName(params *DeleteV1UserRoleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1UserRoleNameOK, error)
 
-	GetV1PasswordProfile(params *GetV1PasswordProfileParams, opts ...ClientOption) (*GetV1PasswordProfileOK, error)
+	GetV1PasswordProfile(params *GetV1PasswordProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1PasswordProfileOK, error)
 
-	GetV1PasswordProfileName(params *GetV1PasswordProfileNameParams, opts ...ClientOption) (*GetV1PasswordProfileNameOK, error)
+	GetV1PasswordProfileName(params *GetV1PasswordProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1PasswordProfileNameOK, error)
 
-	GetV1User(params *GetV1UserParams, opts ...ClientOption) (*GetV1UserOK, error)
+	GetV1User(params *GetV1UserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1UserOK, error)
 
-	GetV1UserFullname(params *GetV1UserFullnameParams, opts ...ClientOption) (*GetV1UserFullnameOK, error)
+	GetV1UserFullname(params *GetV1UserFullnameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1UserFullnameOK, error)
 
-	GetV1UserRole(params *GetV1UserRoleParams, opts ...ClientOption) (*GetV1UserRoleOK, error)
+	GetV1UserRole(params *GetV1UserRoleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1UserRoleOK, error)
 
-	GetV1UserRoleName(params *GetV1UserRoleNameParams, opts ...ClientOption) (*GetV1UserRoleNameOK, error)
+	GetV1UserRoleName(params *GetV1UserRoleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1UserRoleNameOK, error)
 
-	PatchV1PasswordProfileName(params *PatchV1PasswordProfileNameParams, opts ...ClientOption) (*PatchV1PasswordProfileNameOK, error)
+	PatchV1PasswordProfileName(params *PatchV1PasswordProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1PasswordProfileNameOK, error)
 
-	PatchV1UserFullname(params *PatchV1UserFullnameParams, opts ...ClientOption) (*PatchV1UserFullnameOK, error)
+	PatchV1UserFullname(params *PatchV1UserFullnameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1UserFullnameOK, error)
 
-	PatchV1UserFullnameRoleRole(params *PatchV1UserFullnameRoleRoleParams, opts ...ClientOption) (*PatchV1UserFullnameRoleRoleOK, error)
+	PatchV1UserFullnameRoleRole(params *PatchV1UserFullnameRoleRoleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1UserFullnameRoleRoleOK, error)
 
-	PatchV1UserRoleName(params *PatchV1UserRoleNameParams, opts ...ClientOption) (*PatchV1UserRoleNameOK, error)
+	PatchV1UserRoleName(params *PatchV1UserRoleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1UserRoleNameOK, error)
 
-	PostV1User(params *PostV1UserParams, opts ...ClientOption) (*PostV1UserOK, error)
+	PostV1User(params *PostV1UserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1UserOK, error)
 
-	PostV1UserFullnamePassword(params *PostV1UserFullnamePasswordParams, opts ...ClientOption) (*PostV1UserFullnamePasswordOK, error)
+	PostV1UserFullnamePassword(params *PostV1UserFullnamePasswordParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1UserFullnamePasswordOK, error)
 
-	PostV1UserRole(params *PostV1UserRoleParams, opts ...ClientOption) (*PostV1UserRoleOK, error)
+	PostV1UserRole(params *PostV1UserRoleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1UserRoleOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -66,7 +66,7 @@ type ClientService interface {
 /*
 DeleteV1UserFullname deletes user
 */
-func (a *Client) DeleteV1UserFullname(params *DeleteV1UserFullnameParams, opts ...ClientOption) (*DeleteV1UserFullnameOK, error) {
+func (a *Client) DeleteV1UserFullname(params *DeleteV1UserFullnameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1UserFullnameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1UserFullnameParams()
@@ -80,6 +80,7 @@ func (a *Client) DeleteV1UserFullname(params *DeleteV1UserFullnameParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1UserFullnameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -104,7 +105,7 @@ func (a *Client) DeleteV1UserFullname(params *DeleteV1UserFullnameParams, opts .
 /*
 DeleteV1UserRoleName deletes a user role
 */
-func (a *Client) DeleteV1UserRoleName(params *DeleteV1UserRoleNameParams, opts ...ClientOption) (*DeleteV1UserRoleNameOK, error) {
+func (a *Client) DeleteV1UserRoleName(params *DeleteV1UserRoleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteV1UserRoleNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteV1UserRoleNameParams()
@@ -118,6 +119,7 @@ func (a *Client) DeleteV1UserRoleName(params *DeleteV1UserRoleNameParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteV1UserRoleNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -142,7 +144,7 @@ func (a *Client) DeleteV1UserRoleName(params *DeleteV1UserRoleNameParams, opts .
 /*
 GetV1PasswordProfile gets password profile list
 */
-func (a *Client) GetV1PasswordProfile(params *GetV1PasswordProfileParams, opts ...ClientOption) (*GetV1PasswordProfileOK, error) {
+func (a *Client) GetV1PasswordProfile(params *GetV1PasswordProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1PasswordProfileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1PasswordProfileParams()
@@ -156,6 +158,7 @@ func (a *Client) GetV1PasswordProfile(params *GetV1PasswordProfileParams, opts .
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1PasswordProfileReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -180,7 +183,7 @@ func (a *Client) GetV1PasswordProfile(params *GetV1PasswordProfileParams, opts .
 /*
 GetV1PasswordProfileName gets password profile
 */
-func (a *Client) GetV1PasswordProfileName(params *GetV1PasswordProfileNameParams, opts ...ClientOption) (*GetV1PasswordProfileNameOK, error) {
+func (a *Client) GetV1PasswordProfileName(params *GetV1PasswordProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1PasswordProfileNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1PasswordProfileNameParams()
@@ -194,6 +197,7 @@ func (a *Client) GetV1PasswordProfileName(params *GetV1PasswordProfileNameParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1PasswordProfileNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -218,7 +222,7 @@ func (a *Client) GetV1PasswordProfileName(params *GetV1PasswordProfileNameParams
 /*
 GetV1User gets a list of users
 */
-func (a *Client) GetV1User(params *GetV1UserParams, opts ...ClientOption) (*GetV1UserOK, error) {
+func (a *Client) GetV1User(params *GetV1UserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1UserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1UserParams()
@@ -232,6 +236,7 @@ func (a *Client) GetV1User(params *GetV1UserParams, opts ...ClientOption) (*GetV
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1UserReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -256,7 +261,7 @@ func (a *Client) GetV1User(params *GetV1UserParams, opts ...ClientOption) (*GetV
 /*
 GetV1UserFullname gets a user
 */
-func (a *Client) GetV1UserFullname(params *GetV1UserFullnameParams, opts ...ClientOption) (*GetV1UserFullnameOK, error) {
+func (a *Client) GetV1UserFullname(params *GetV1UserFullnameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1UserFullnameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1UserFullnameParams()
@@ -270,6 +275,7 @@ func (a *Client) GetV1UserFullname(params *GetV1UserFullnameParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1UserFullnameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -294,7 +300,7 @@ func (a *Client) GetV1UserFullname(params *GetV1UserFullnameParams, opts ...Clie
 /*
 GetV1UserRole gets role list
 */
-func (a *Client) GetV1UserRole(params *GetV1UserRoleParams, opts ...ClientOption) (*GetV1UserRoleOK, error) {
+func (a *Client) GetV1UserRole(params *GetV1UserRoleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1UserRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1UserRoleParams()
@@ -308,6 +314,7 @@ func (a *Client) GetV1UserRole(params *GetV1UserRoleParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1UserRoleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -332,7 +339,7 @@ func (a *Client) GetV1UserRole(params *GetV1UserRoleParams, opts ...ClientOption
 /*
 GetV1UserRoleName gets role details
 */
-func (a *Client) GetV1UserRoleName(params *GetV1UserRoleNameParams, opts ...ClientOption) (*GetV1UserRoleNameOK, error) {
+func (a *Client) GetV1UserRoleName(params *GetV1UserRoleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1UserRoleNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1UserRoleNameParams()
@@ -346,6 +353,7 @@ func (a *Client) GetV1UserRoleName(params *GetV1UserRoleNameParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1UserRoleNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -370,7 +378,7 @@ func (a *Client) GetV1UserRoleName(params *GetV1UserRoleNameParams, opts ...Clie
 /*
 PatchV1PasswordProfileName configures password profile
 */
-func (a *Client) PatchV1PasswordProfileName(params *PatchV1PasswordProfileNameParams, opts ...ClientOption) (*PatchV1PasswordProfileNameOK, error) {
+func (a *Client) PatchV1PasswordProfileName(params *PatchV1PasswordProfileNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1PasswordProfileNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1PasswordProfileNameParams()
@@ -384,6 +392,7 @@ func (a *Client) PatchV1PasswordProfileName(params *PatchV1PasswordProfileNamePa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1PasswordProfileNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -408,7 +417,7 @@ func (a *Client) PatchV1PasswordProfileName(params *PatchV1PasswordProfileNamePa
 /*
 PatchV1UserFullname updates user
 */
-func (a *Client) PatchV1UserFullname(params *PatchV1UserFullnameParams, opts ...ClientOption) (*PatchV1UserFullnameOK, error) {
+func (a *Client) PatchV1UserFullname(params *PatchV1UserFullnameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1UserFullnameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1UserFullnameParams()
@@ -422,6 +431,7 @@ func (a *Client) PatchV1UserFullname(params *PatchV1UserFullnameParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1UserFullnameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -446,7 +456,7 @@ func (a *Client) PatchV1UserFullname(params *PatchV1UserFullnameParams, opts ...
 /*
 PatchV1UserFullnameRoleRole fors c l i to modify one role
 */
-func (a *Client) PatchV1UserFullnameRoleRole(params *PatchV1UserFullnameRoleRoleParams, opts ...ClientOption) (*PatchV1UserFullnameRoleRoleOK, error) {
+func (a *Client) PatchV1UserFullnameRoleRole(params *PatchV1UserFullnameRoleRoleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1UserFullnameRoleRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1UserFullnameRoleRoleParams()
@@ -460,6 +470,7 @@ func (a *Client) PatchV1UserFullnameRoleRole(params *PatchV1UserFullnameRoleRole
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1UserFullnameRoleRoleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -484,7 +495,7 @@ func (a *Client) PatchV1UserFullnameRoleRole(params *PatchV1UserFullnameRoleRole
 /*
 PatchV1UserRoleName configs a user role
 */
-func (a *Client) PatchV1UserRoleName(params *PatchV1UserRoleNameParams, opts ...ClientOption) (*PatchV1UserRoleNameOK, error) {
+func (a *Client) PatchV1UserRoleName(params *PatchV1UserRoleNameParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1UserRoleNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1UserRoleNameParams()
@@ -498,6 +509,7 @@ func (a *Client) PatchV1UserRoleName(params *PatchV1UserRoleNameParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1UserRoleNameReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -522,7 +534,7 @@ func (a *Client) PatchV1UserRoleName(params *PatchV1UserRoleNameParams, opts ...
 /*
 PostV1User creates a user
 */
-func (a *Client) PostV1User(params *PostV1UserParams, opts ...ClientOption) (*PostV1UserOK, error) {
+func (a *Client) PostV1User(params *PostV1UserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1UserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1UserParams()
@@ -536,6 +548,7 @@ func (a *Client) PostV1User(params *PostV1UserParams, opts ...ClientOption) (*Po
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1UserReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -560,7 +573,7 @@ func (a *Client) PostV1User(params *PostV1UserParams, opts ...ClientOption) (*Po
 /*
 PostV1UserFullnamePassword configures user login
 */
-func (a *Client) PostV1UserFullnamePassword(params *PostV1UserFullnamePasswordParams, opts ...ClientOption) (*PostV1UserFullnamePasswordOK, error) {
+func (a *Client) PostV1UserFullnamePassword(params *PostV1UserFullnamePasswordParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1UserFullnamePasswordOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1UserFullnamePasswordParams()
@@ -574,6 +587,7 @@ func (a *Client) PostV1UserFullnamePassword(params *PostV1UserFullnamePasswordPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1UserFullnamePasswordReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -598,7 +612,7 @@ func (a *Client) PostV1UserFullnamePassword(params *PostV1UserFullnamePasswordPa
 /*
 PostV1UserRole creates a role
 */
-func (a *Client) PostV1UserRole(params *PostV1UserRoleParams, opts ...ClientOption) (*PostV1UserRoleOK, error) {
+func (a *Client) PostV1UserRole(params *PostV1UserRoleParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PostV1UserRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostV1UserRoleParams()
@@ -612,6 +626,7 @@ func (a *Client) PostV1UserRole(params *PostV1UserRoleParams, opts ...ClientOpti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostV1UserRoleReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

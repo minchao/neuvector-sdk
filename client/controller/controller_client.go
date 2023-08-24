@@ -30,15 +30,15 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1Controller(params *GetV1ControllerParams, opts ...ClientOption) (*GetV1ControllerOK, error)
+	GetV1Controller(params *GetV1ControllerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ControllerOK, error)
 
-	GetV1ControllerID(params *GetV1ControllerIDParams, opts ...ClientOption) (*GetV1ControllerIDOK, error)
+	GetV1ControllerID(params *GetV1ControllerIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ControllerIDOK, error)
 
-	GetV1ControllerIDConfig(params *GetV1ControllerIDConfigParams, opts ...ClientOption) (*GetV1ControllerIDConfigOK, error)
+	GetV1ControllerIDConfig(params *GetV1ControllerIDConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ControllerIDConfigOK, error)
 
-	GetV1ControllerIDStats(params *GetV1ControllerIDStatsParams, opts ...ClientOption) (*GetV1ControllerIDStatsOK, error)
+	GetV1ControllerIDStats(params *GetV1ControllerIDStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ControllerIDStatsOK, error)
 
-	PatchV1ControllerID(params *PatchV1ControllerIDParams, opts ...ClientOption) (*PatchV1ControllerIDOK, error)
+	PatchV1ControllerID(params *PatchV1ControllerIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ControllerIDOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ type ClientService interface {
 /*
 GetV1Controller gets a list of controllers
 */
-func (a *Client) GetV1Controller(params *GetV1ControllerParams, opts ...ClientOption) (*GetV1ControllerOK, error) {
+func (a *Client) GetV1Controller(params *GetV1ControllerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ControllerOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ControllerParams()
@@ -60,6 +60,7 @@ func (a *Client) GetV1Controller(params *GetV1ControllerParams, opts ...ClientOp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ControllerReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -84,7 +85,7 @@ func (a *Client) GetV1Controller(params *GetV1ControllerParams, opts ...ClientOp
 /*
 GetV1ControllerID shows controller
 */
-func (a *Client) GetV1ControllerID(params *GetV1ControllerIDParams, opts ...ClientOption) (*GetV1ControllerIDOK, error) {
+func (a *Client) GetV1ControllerID(params *GetV1ControllerIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ControllerIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ControllerIDParams()
@@ -98,6 +99,7 @@ func (a *Client) GetV1ControllerID(params *GetV1ControllerIDParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ControllerIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -122,7 +124,7 @@ func (a *Client) GetV1ControllerID(params *GetV1ControllerIDParams, opts ...Clie
 /*
 GetV1ControllerIDConfig controllers get configure
 */
-func (a *Client) GetV1ControllerIDConfig(params *GetV1ControllerIDConfigParams, opts ...ClientOption) (*GetV1ControllerIDConfigOK, error) {
+func (a *Client) GetV1ControllerIDConfig(params *GetV1ControllerIDConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ControllerIDConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ControllerIDConfigParams()
@@ -136,6 +138,7 @@ func (a *Client) GetV1ControllerIDConfig(params *GetV1ControllerIDConfigParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ControllerIDConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -160,7 +163,7 @@ func (a *Client) GetV1ControllerIDConfig(params *GetV1ControllerIDConfigParams, 
 /*
 GetV1ControllerIDStats controllers get system statistics
 */
-func (a *Client) GetV1ControllerIDStats(params *GetV1ControllerIDStatsParams, opts ...ClientOption) (*GetV1ControllerIDStatsOK, error) {
+func (a *Client) GetV1ControllerIDStats(params *GetV1ControllerIDStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1ControllerIDStatsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1ControllerIDStatsParams()
@@ -174,6 +177,7 @@ func (a *Client) GetV1ControllerIDStats(params *GetV1ControllerIDStatsParams, op
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1ControllerIDStatsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -198,7 +202,7 @@ func (a *Client) GetV1ControllerIDStats(params *GetV1ControllerIDStatsParams, op
 /*
 PatchV1ControllerID updates controller
 */
-func (a *Client) PatchV1ControllerID(params *PatchV1ControllerIDParams, opts ...ClientOption) (*PatchV1ControllerIDOK, error) {
+func (a *Client) PatchV1ControllerID(params *PatchV1ControllerIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchV1ControllerIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchV1ControllerIDParams()
@@ -212,6 +216,7 @@ func (a *Client) PatchV1ControllerID(params *PatchV1ControllerIDParams, opts ...
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PatchV1ControllerIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

@@ -61,9 +61,6 @@ GetV1APIKeyAccesskeyParams contains all the parameters to send to the API endpoi
 */
 type GetV1APIKeyAccesskeyParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Accesskey.
 
 	   Apikey access key
@@ -123,17 +120,6 @@ func (o *GetV1APIKeyAccesskeyParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 API key accesskey params
-func (o *GetV1APIKeyAccesskeyParams) WithXAuthToken(xAuthToken string) *GetV1APIKeyAccesskeyParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 API key accesskey params
-func (o *GetV1APIKeyAccesskeyParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithAccesskey adds the accesskey to the get v1 API key accesskey params
 func (o *GetV1APIKeyAccesskeyParams) WithAccesskey(accesskey string) *GetV1APIKeyAccesskeyParams {
 	o.SetAccesskey(accesskey)
@@ -152,11 +138,6 @@ func (o *GetV1APIKeyAccesskeyParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param accesskey
 	if err := r.SetPathParam("accesskey", o.Accesskey); err != nil {

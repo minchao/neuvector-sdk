@@ -30,23 +30,23 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetV1LogActivity(params *GetV1LogActivityParams, opts ...ClientOption) (*GetV1LogActivityOK, error)
+	GetV1LogActivity(params *GetV1LogActivityParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogActivityOK, error)
 
-	GetV1LogAudit(params *GetV1LogAuditParams, opts ...ClientOption) (*GetV1LogAuditOK, error)
+	GetV1LogAudit(params *GetV1LogAuditParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogAuditOK, error)
 
-	GetV1LogEvent(params *GetV1LogEventParams, opts ...ClientOption) (*GetV1LogEventOK, error)
+	GetV1LogEvent(params *GetV1LogEventParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogEventOK, error)
 
-	GetV1LogIncident(params *GetV1LogIncidentParams, opts ...ClientOption) (*GetV1LogIncidentOK, error)
+	GetV1LogIncident(params *GetV1LogIncidentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogIncidentOK, error)
 
-	GetV1LogSecurity(params *GetV1LogSecurityParams, opts ...ClientOption) (*GetV1LogSecurityOK, error)
+	GetV1LogSecurity(params *GetV1LogSecurityParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogSecurityOK, error)
 
-	GetV1LogThreat(params *GetV1LogThreatParams, opts ...ClientOption) (*GetV1LogThreatOK, error)
+	GetV1LogThreat(params *GetV1LogThreatParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogThreatOK, error)
 
-	GetV1LogThreatID(params *GetV1LogThreatIDParams, opts ...ClientOption) (*GetV1LogThreatIDOK, error)
+	GetV1LogThreatID(params *GetV1LogThreatIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogThreatIDOK, error)
 
-	GetV1LogViolation(params *GetV1LogViolationParams, opts ...ClientOption) (*GetV1LogViolationOK, error)
+	GetV1LogViolation(params *GetV1LogViolationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogViolationOK, error)
 
-	GetV1LogViolationWorkload(params *GetV1LogViolationWorkloadParams, opts ...ClientOption) (*GetV1LogViolationWorkloadOK, error)
+	GetV1LogViolationWorkload(params *GetV1LogViolationWorkloadParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogViolationWorkloadOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -54,7 +54,7 @@ type ClientService interface {
 /*
 GetV1LogActivity gets activity list
 */
-func (a *Client) GetV1LogActivity(params *GetV1LogActivityParams, opts ...ClientOption) (*GetV1LogActivityOK, error) {
+func (a *Client) GetV1LogActivity(params *GetV1LogActivityParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogActivityOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogActivityParams()
@@ -68,6 +68,7 @@ func (a *Client) GetV1LogActivity(params *GetV1LogActivityParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogActivityReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -92,7 +93,7 @@ func (a *Client) GetV1LogActivity(params *GetV1LogActivityParams, opts ...Client
 /*
 GetV1LogAudit gets a list of audits
 */
-func (a *Client) GetV1LogAudit(params *GetV1LogAuditParams, opts ...ClientOption) (*GetV1LogAuditOK, error) {
+func (a *Client) GetV1LogAudit(params *GetV1LogAuditParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogAuditOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogAuditParams()
@@ -106,6 +107,7 @@ func (a *Client) GetV1LogAudit(params *GetV1LogAuditParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogAuditReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -130,7 +132,7 @@ func (a *Client) GetV1LogAudit(params *GetV1LogAuditParams, opts ...ClientOption
 /*
 GetV1LogEvent gets a list of events
 */
-func (a *Client) GetV1LogEvent(params *GetV1LogEventParams, opts ...ClientOption) (*GetV1LogEventOK, error) {
+func (a *Client) GetV1LogEvent(params *GetV1LogEventParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogEventOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogEventParams()
@@ -144,6 +146,7 @@ func (a *Client) GetV1LogEvent(params *GetV1LogEventParams, opts ...ClientOption
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogEventReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -168,7 +171,7 @@ func (a *Client) GetV1LogEvent(params *GetV1LogEventParams, opts ...ClientOption
 /*
 GetV1LogIncident gets a list of incidents
 */
-func (a *Client) GetV1LogIncident(params *GetV1LogIncidentParams, opts ...ClientOption) (*GetV1LogIncidentOK, error) {
+func (a *Client) GetV1LogIncident(params *GetV1LogIncidentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogIncidentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogIncidentParams()
@@ -182,6 +185,7 @@ func (a *Client) GetV1LogIncident(params *GetV1LogIncidentParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogIncidentReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -206,7 +210,7 @@ func (a *Client) GetV1LogIncident(params *GetV1LogIncidentParams, opts ...Client
 /*
 GetV1LogSecurity gets security event list
 */
-func (a *Client) GetV1LogSecurity(params *GetV1LogSecurityParams, opts ...ClientOption) (*GetV1LogSecurityOK, error) {
+func (a *Client) GetV1LogSecurity(params *GetV1LogSecurityParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogSecurityOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogSecurityParams()
@@ -220,6 +224,7 @@ func (a *Client) GetV1LogSecurity(params *GetV1LogSecurityParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogSecurityReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -244,7 +249,7 @@ func (a *Client) GetV1LogSecurity(params *GetV1LogSecurityParams, opts ...Client
 /*
 GetV1LogThreat gets a list of threats
 */
-func (a *Client) GetV1LogThreat(params *GetV1LogThreatParams, opts ...ClientOption) (*GetV1LogThreatOK, error) {
+func (a *Client) GetV1LogThreat(params *GetV1LogThreatParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogThreatOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogThreatParams()
@@ -258,6 +263,7 @@ func (a *Client) GetV1LogThreat(params *GetV1LogThreatParams, opts ...ClientOpti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogThreatReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -282,7 +288,7 @@ func (a *Client) GetV1LogThreat(params *GetV1LogThreatParams, opts ...ClientOpti
 /*
 GetV1LogThreatID shows threat
 */
-func (a *Client) GetV1LogThreatID(params *GetV1LogThreatIDParams, opts ...ClientOption) (*GetV1LogThreatIDOK, error) {
+func (a *Client) GetV1LogThreatID(params *GetV1LogThreatIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogThreatIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogThreatIDParams()
@@ -296,6 +302,7 @@ func (a *Client) GetV1LogThreatID(params *GetV1LogThreatIDParams, opts ...Client
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogThreatIDReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -320,7 +327,7 @@ func (a *Client) GetV1LogThreatID(params *GetV1LogThreatIDParams, opts ...Client
 /*
 GetV1LogViolation gets a list of violations
 */
-func (a *Client) GetV1LogViolation(params *GetV1LogViolationParams, opts ...ClientOption) (*GetV1LogViolationOK, error) {
+func (a *Client) GetV1LogViolation(params *GetV1LogViolationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogViolationOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogViolationParams()
@@ -334,6 +341,7 @@ func (a *Client) GetV1LogViolation(params *GetV1LogViolationParams, opts ...Clie
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogViolationReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -358,7 +366,7 @@ func (a *Client) GetV1LogViolation(params *GetV1LogViolationParams, opts ...Clie
 /*
 GetV1LogViolationWorkload gets violation workloads
 */
-func (a *Client) GetV1LogViolationWorkload(params *GetV1LogViolationWorkloadParams, opts ...ClientOption) (*GetV1LogViolationWorkloadOK, error) {
+func (a *Client) GetV1LogViolationWorkload(params *GetV1LogViolationWorkloadParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetV1LogViolationWorkloadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetV1LogViolationWorkloadParams()
@@ -372,6 +380,7 @@ func (a *Client) GetV1LogViolationWorkload(params *GetV1LogViolationWorkloadPara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetV1LogViolationWorkloadReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

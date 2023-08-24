@@ -61,9 +61,6 @@ DeleteV1ScanSigstoreRootOfTrustRootNameParams contains all the parameters to sen
 */
 type DeleteV1ScanSigstoreRootOfTrustRootNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* RootName.
 
 	   Root Of Trust Name
@@ -123,17 +120,6 @@ func (o *DeleteV1ScanSigstoreRootOfTrustRootNameParams) SetHTTPClient(client *ht
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 scan sigstore root of trust root name params
-func (o *DeleteV1ScanSigstoreRootOfTrustRootNameParams) WithXAuthToken(xAuthToken string) *DeleteV1ScanSigstoreRootOfTrustRootNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 scan sigstore root of trust root name params
-func (o *DeleteV1ScanSigstoreRootOfTrustRootNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithRootName adds the rootName to the delete v1 scan sigstore root of trust root name params
 func (o *DeleteV1ScanSigstoreRootOfTrustRootNameParams) WithRootName(rootName string) *DeleteV1ScanSigstoreRootOfTrustRootNameParams {
 	o.SetRootName(rootName)
@@ -152,11 +138,6 @@ func (o *DeleteV1ScanSigstoreRootOfTrustRootNameParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param root_name
 	if err := r.SetPathParam("root_name", o.RootName); err != nil {

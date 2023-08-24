@@ -61,9 +61,6 @@ GetV1DlpRuleNameParams contains all the parameters to send to the API endpoint
 */
 type GetV1DlpRuleNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   DLP rule name
@@ -123,17 +120,6 @@ func (o *GetV1DlpRuleNameParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 dlp rule name params
-func (o *GetV1DlpRuleNameParams) WithXAuthToken(xAuthToken string) *GetV1DlpRuleNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 dlp rule name params
-func (o *GetV1DlpRuleNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the get v1 dlp rule name params
 func (o *GetV1DlpRuleNameParams) WithName(name string) *GetV1DlpRuleNameParams {
 	o.SetName(name)
@@ -152,11 +138,6 @@ func (o *GetV1DlpRuleNameParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

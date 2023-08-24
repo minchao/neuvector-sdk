@@ -61,9 +61,6 @@ DeleteV1SystemConfigWebhookNameParams contains all the parameters to send to the
 */
 type DeleteV1SystemConfigWebhookNameParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Name.
 
 	   System webhook name
@@ -129,17 +126,6 @@ func (o *DeleteV1SystemConfigWebhookNameParams) SetHTTPClient(client *http.Clien
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 system config webhook name params
-func (o *DeleteV1SystemConfigWebhookNameParams) WithXAuthToken(xAuthToken string) *DeleteV1SystemConfigWebhookNameParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 system config webhook name params
-func (o *DeleteV1SystemConfigWebhookNameParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithName adds the name to the delete v1 system config webhook name params
 func (o *DeleteV1SystemConfigWebhookNameParams) WithName(name string) *DeleteV1SystemConfigWebhookNameParams {
 	o.SetName(name)
@@ -169,11 +155,6 @@ func (o *DeleteV1SystemConfigWebhookNameParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param name
 	if err := r.SetPathParam("name", o.Name); err != nil {

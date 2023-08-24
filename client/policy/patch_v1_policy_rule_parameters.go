@@ -63,9 +63,6 @@ PatchV1PolicyRuleParams contains all the parameters to send to the API endpoint
 */
 type PatchV1PolicyRuleParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Policy rule action data
@@ -131,17 +128,6 @@ func (o *PatchV1PolicyRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 policy rule params
-func (o *PatchV1PolicyRuleParams) WithXAuthToken(xAuthToken string) *PatchV1PolicyRuleParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 policy rule params
-func (o *PatchV1PolicyRuleParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 policy rule params
 func (o *PatchV1PolicyRuleParams) WithBody(body *models.RESTPolicyRuleActionData) *PatchV1PolicyRuleParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1PolicyRuleParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

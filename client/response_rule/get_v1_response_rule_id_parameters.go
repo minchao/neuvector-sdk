@@ -61,9 +61,6 @@ GetV1ResponseRuleIDParams contains all the parameters to send to the API endpoin
 */
 type GetV1ResponseRuleIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Rule ID
@@ -123,17 +120,6 @@ func (o *GetV1ResponseRuleIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the get v1 response rule ID params
-func (o *GetV1ResponseRuleIDParams) WithXAuthToken(xAuthToken string) *GetV1ResponseRuleIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the get v1 response rule ID params
-func (o *GetV1ResponseRuleIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the get v1 response rule ID params
 func (o *GetV1ResponseRuleIDParams) WithID(id string) *GetV1ResponseRuleIDParams {
 	o.SetID(id)
@@ -152,11 +138,6 @@ func (o *GetV1ResponseRuleIDParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", o.ID); err != nil {

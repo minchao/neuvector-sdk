@@ -63,9 +63,6 @@ PatchV1CustomCheckGroupParams contains all the parameters to send to the API end
 */
 type PatchV1CustomCheckGroupParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Script config data
@@ -131,17 +128,6 @@ func (o *PatchV1CustomCheckGroupParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 custom check group params
-func (o *PatchV1CustomCheckGroupParams) WithXAuthToken(xAuthToken string) *PatchV1CustomCheckGroupParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 custom check group params
-func (o *PatchV1CustomCheckGroupParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 custom check group params
 func (o *PatchV1CustomCheckGroupParams) WithBody(body *models.RESTCustomCheckConfigData) *PatchV1CustomCheckGroupParams {
 	o.SetBody(body)
@@ -171,11 +157,6 @@ func (o *PatchV1CustomCheckGroupParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

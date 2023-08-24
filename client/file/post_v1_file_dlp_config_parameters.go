@@ -61,9 +61,6 @@ PostV1FileDlpConfigParams contains all the parameters to send to the API endpoin
 */
 type PostV1FileDlpConfigParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	// XTransactionID.
 	XTransactionID *string
 
@@ -126,17 +123,6 @@ func (o *PostV1FileDlpConfigParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 file dlp config params
-func (o *PostV1FileDlpConfigParams) WithXAuthToken(xAuthToken string) *PostV1FileDlpConfigParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 file dlp config params
-func (o *PostV1FileDlpConfigParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithXTransactionID adds the xTransactionID to the post v1 file dlp config params
 func (o *PostV1FileDlpConfigParams) WithXTransactionID(xTransactionID *string) *PostV1FileDlpConfigParams {
 	o.SetXTransactionID(xTransactionID)
@@ -166,11 +152,6 @@ func (o *PostV1FileDlpConfigParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	if o.XTransactionID != nil {
 

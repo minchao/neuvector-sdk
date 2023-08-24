@@ -63,9 +63,6 @@ PatchV1SystemConfigParams contains all the parameters to send to the API endpoin
 */
 type PatchV1SystemConfigParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   System configure data
@@ -125,17 +122,6 @@ func (o *PatchV1SystemConfigParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the patch v1 system config params
-func (o *PatchV1SystemConfigParams) WithXAuthToken(xAuthToken string) *PatchV1SystemConfigParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the patch v1 system config params
-func (o *PatchV1SystemConfigParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the patch v1 system config params
 func (o *PatchV1SystemConfigParams) WithBody(body *models.RESTSystemConfigConfigData) *PatchV1SystemConfigParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PatchV1SystemConfigParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -62,9 +62,6 @@ DeleteV1PolicyRuleIDParams contains all the parameters to send to the API endpoi
 */
 type DeleteV1PolicyRuleIDParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* ID.
 
 	   Rule ID
@@ -126,17 +123,6 @@ func (o *DeleteV1PolicyRuleIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the delete v1 policy rule ID params
-func (o *DeleteV1PolicyRuleIDParams) WithXAuthToken(xAuthToken string) *DeleteV1PolicyRuleIDParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the delete v1 policy rule ID params
-func (o *DeleteV1PolicyRuleIDParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithID adds the id to the delete v1 policy rule ID params
 func (o *DeleteV1PolicyRuleIDParams) WithID(id uint32) *DeleteV1PolicyRuleIDParams {
 	o.SetID(id)
@@ -155,11 +141,6 @@ func (o *DeleteV1PolicyRuleIDParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 
 	// path param id
 	if err := r.SetPathParam("id", swag.FormatUint32(o.ID)); err != nil {

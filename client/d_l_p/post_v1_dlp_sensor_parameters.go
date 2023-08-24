@@ -63,9 +63,6 @@ PostV1DlpSensorParams contains all the parameters to send to the API endpoint
 */
 type PostV1DlpSensorParams struct {
 
-	// XAuthToken.
-	XAuthToken string
-
 	/* Body.
 
 	   Sensor data
@@ -125,17 +122,6 @@ func (o *PostV1DlpSensorParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXAuthToken adds the xAuthToken to the post v1 dlp sensor params
-func (o *PostV1DlpSensorParams) WithXAuthToken(xAuthToken string) *PostV1DlpSensorParams {
-	o.SetXAuthToken(xAuthToken)
-	return o
-}
-
-// SetXAuthToken adds the xAuthToken to the post v1 dlp sensor params
-func (o *PostV1DlpSensorParams) SetXAuthToken(xAuthToken string) {
-	o.XAuthToken = xAuthToken
-}
-
 // WithBody adds the body to the post v1 dlp sensor params
 func (o *PostV1DlpSensorParams) WithBody(body *models.RESTDlpSensorConfigData) *PostV1DlpSensorParams {
 	o.SetBody(body)
@@ -154,11 +140,6 @@ func (o *PostV1DlpSensorParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
-	// header param X-Auth-Token
-	if err := r.SetHeaderParam("X-Auth-Token", o.XAuthToken); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
