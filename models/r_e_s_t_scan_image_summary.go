@@ -28,6 +28,11 @@ type RESTScanImageSummary struct {
 	// Required: true
 	BaseOs *string `json:"base_os"`
 
+	// created at
+	// Example: 2020-06-26T00:10:27Z
+	// Required: true
+	CreatedAt *string `json:"created_at"`
+
 	// cvedb create time
 	// Example: 2020-06-25T10:32:40Z
 	// Required: true
@@ -91,6 +96,10 @@ func (m *RESTScanImageSummary) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCreatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCvedbCreateTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -149,6 +158,15 @@ func (m *RESTScanImageSummary) validateAuthor(formats strfmt.Registry) error {
 func (m *RESTScanImageSummary) validateBaseOs(formats strfmt.Registry) error {
 
 	if err := validate.Required("base_os", "body", m.BaseOs); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RESTScanImageSummary) validateCreatedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
 		return err
 	}
 

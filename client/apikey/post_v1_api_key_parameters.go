@@ -67,7 +67,7 @@ type PostV1APIKeyParams struct {
 
 	   Apikey information
 	*/
-	Body *models.RESTApikeyCreation
+	Body *models.RESTApikeyCreationData
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *PostV1APIKeyParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the post v1 API key params
-func (o *PostV1APIKeyParams) WithBody(body *models.RESTApikeyCreation) *PostV1APIKeyParams {
+func (o *PostV1APIKeyParams) WithBody(body *models.RESTApikeyCreationData) *PostV1APIKeyParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the post v1 API key params
-func (o *PostV1APIKeyParams) SetBody(body *models.RESTApikeyCreation) {
+func (o *PostV1APIKeyParams) SetBody(body *models.RESTApikeyCreationData) {
 	o.Body = body
 }
 

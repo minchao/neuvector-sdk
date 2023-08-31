@@ -29,6 +29,12 @@ type RESTScanRepoReport struct {
 	// Required: true
 	BaseOs *string `json:"base_os"`
 
+	// created at
+	// Example: 2018-01-21T19:00:53Z
+	// Required: true
+	// Format: date-time
+	CreatedAt *strfmt.DateTime `json:"created_at"`
+
 	// cvedb create time
 	// Example: 2018-06-20T19:00:53Z
 	// Required: true
@@ -108,6 +114,10 @@ func (m *RESTScanRepoReport) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCreatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCvedbCreateTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -178,6 +188,19 @@ func (m *RESTScanRepoReport) validateAuthor(formats strfmt.Registry) error {
 func (m *RESTScanRepoReport) validateBaseOs(formats strfmt.Registry) error {
 
 	if err := validate.Required("base_os", "body", m.BaseOs); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RESTScanRepoReport) validateCreatedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("created_at", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
 		return err
 	}
 

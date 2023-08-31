@@ -38,9 +38,6 @@ type RESTProcessProfileConfig struct {
 
 	// process delete list
 	ProcessDeleteList []*RESTProcessProfileEntryConfig `json:"process_delete_list"`
-
-	// process replace list
-	ProcessReplaceList []*RESTProcessProfileEntryConfig `json:"process_replace_list"`
 }
 
 // Validate validates this r e s t process profile config
@@ -56,10 +53,6 @@ func (m *RESTProcessProfileConfig) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateProcessDeleteList(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProcessReplaceList(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -130,32 +123,6 @@ func (m *RESTProcessProfileConfig) validateProcessDeleteList(formats strfmt.Regi
 	return nil
 }
 
-func (m *RESTProcessProfileConfig) validateProcessReplaceList(formats strfmt.Registry) error {
-	if swag.IsZero(m.ProcessReplaceList) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.ProcessReplaceList); i++ {
-		if swag.IsZero(m.ProcessReplaceList[i]) { // not required
-			continue
-		}
-
-		if m.ProcessReplaceList[i] != nil {
-			if err := m.ProcessReplaceList[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("process_replace_list" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("process_replace_list" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
 // ContextValidate validate this r e s t process profile config based on the context it is used
 func (m *RESTProcessProfileConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -165,10 +132,6 @@ func (m *RESTProcessProfileConfig) ContextValidate(ctx context.Context, formats 
 	}
 
 	if err := m.contextValidateProcessDeleteList(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateProcessReplaceList(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -218,31 +181,6 @@ func (m *RESTProcessProfileConfig) contextValidateProcessDeleteList(ctx context.
 					return ve.ValidateName("process_delete_list" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("process_delete_list" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *RESTProcessProfileConfig) contextValidateProcessReplaceList(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.ProcessReplaceList); i++ {
-
-		if m.ProcessReplaceList[i] != nil {
-
-			if swag.IsZero(m.ProcessReplaceList[i]) { // not required
-				return nil
-			}
-
-			if err := m.ProcessReplaceList[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("process_replace_list" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("process_replace_list" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
