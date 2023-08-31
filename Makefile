@@ -20,15 +20,20 @@ lint: install.golangci-lint ## Run linter
 	@golangci-lint version
 	golangci-lint run ./...
 
+fix-api-spec:
+	$(MAKE) fix-field-and-method-with-the-same-name-validate
+
 fix-field-and-method-with-the-same-name-validate:
 	yq eval -i '.definitions.RESTAdmissionState.properties.ctrl_states.properties.validate."x-go-name" = "ValidateType"' apis.yaml
 
 ##@ Build
 
 .PHONY: generate
-generate: install.swagger validate-api-spec fix-field-and-method-with-the-same-name-validate ## Generate code
+generate: install.swagger validate-api-spec fix-api-spec ## Generate code
 	@swagger version
 	swagger generate client -f ./apis.yaml
+
+# Tools
 
 .PHONY: install.swagger
 install.swagger:
